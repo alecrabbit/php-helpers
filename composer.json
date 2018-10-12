@@ -1,5 +1,5 @@
 {
-    "name": "alecrabbit/helpers",
+    "name": "alecrabbit/php-helpers",
     "description": "PHP helpers functions",
     "type": "library",
     "require": {
