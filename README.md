@@ -1,2 +1,2 @@
-# accessories
-PHP accessories
+# helpers
+PHP helpers
