@@ -3,16 +3,23 @@
     "description": "PHP helpers functions",
     "type": "library",
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "nesbot/carbon": "^2.3",
+        "krowinski/bcmath-extended": "^4.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.3",
-        "nunomaduro/collision": "^2.0"
+        "nunomaduro/collision": "^2.0",
+        "symfony/var-dumper": "^4.1"
     },
     "license": "MIT",
     "autoload": {
         "files": [
-            "src/functions.php"
+            "src/functions.php",
+            "src/numeric/numeric.php",
+            "src/time/time.php",
+            "src/array/array.php",
+            "src/string/string.php"
         ]
     },
     "autoload-dev": {
