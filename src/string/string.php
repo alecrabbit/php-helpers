@@ -51,3 +51,27 @@ if (!function_exists('brackets')) {
     }
 }
 
+if (!function_exists('formatted_array')) {
+    function formatted_array(array $array, ?int $columns = null, callable $callback = null)
+    {
+        $columns = $columns ?? 10;
+        $str = [];
+        $maxLen = 0;
+        if ($callback)
+            array_walk($array, $callback);
+        foreach ($array as $key => $value) {
+            $maxLen = $maxLen < ($len = strlen((string)$value)) ? $len : $maxLen;
+        }
+        while ($element = array_shift($array)) {
+            $tmp[] = str_pad($element, $maxLen);
+            if (count($tmp) >= $columns) {
+                $str[] = implode(' ', $tmp);
+                $tmp = [];
+            }
+        }
+        if (!empty($tmp))
+            $str[] = implode(' ', $tmp);
+        return $str;
+    }
+
+}

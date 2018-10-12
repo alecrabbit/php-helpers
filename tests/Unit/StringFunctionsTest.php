@@ -13,18 +13,62 @@ use PHPUnit\Framework\TestCase;
 class StringFunctionsTest extends TestCase
 {
     /** @test */
-    public function FunctionTag(){
+    public function FunctionTag()
+    {
         $this->assertEquals('<br>str</br>', tag('str', 'br'));
         $this->assertEquals('str', tag('str'));
     }
 
     /** @test */
-    public function FunctionBrackets(){
+    public function FunctionBrackets()
+    {
         $this->assertEquals('[str]', brackets('str'));
-        $this->assertEquals('[str]', brackets('str',BRACKETS_SQUARE));
-        $this->assertEquals('{str}', brackets('str',BRACKETS_CURLY));
+        $this->assertEquals('[str]', brackets('str', BRACKETS_SQUARE));
+        $this->assertEquals('{str}', brackets('str', BRACKETS_CURLY));
         $this->assertEquals('(str)', brackets('str', BRACKETS_PARENTHESES));
         $this->assertEquals('⟨str⟩', brackets('str', BRACKETS_ANGLE));
         $this->assertEquals('<ddstr/dd>', brackets('str', null, '<dd', '/dd>'));
     }
+
+    /** @test */
+    public function FunctionFormattedArray()
+    {
+        $expectedResult =
+            [
+                0 => '1 2',
+                1 => '3 4',
+                2 => '5 6',
+                3 => '7 8',
+                4 => '9',
+            ];
+        $this->assertEquals($expectedResult, formatted_array([1, 2, 3, 4, 5, 6, 7, 8, 9], 2));
+
+        $expectedResult =
+            [
+                0 => '1 2 3',
+                1 => '4 5 6',
+                2 => '7 8 9',
+            ];
+        $this->assertEquals(
+            $expectedResult,
+            formatted_array([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+
+        $expectedResult =
+            [
+                0 => '[0] a  [1] b  [2] c ',
+                1 => '[3] d  [4] e  [5] f ',
+                2 => '[6] g  [7] h  [8] i ',
+                3 => '[9] k  [10] l [11] m',
+                4 => '[12] n',];
+
+        $this->assertEquals(
+            $expectedResult,
+            formatted_array(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n'],
+                3,
+                function (string &$value, $key) {
+                    $value = brackets($key) . ' ' . $value;
+                }
+            ));
+    }
+
 }
