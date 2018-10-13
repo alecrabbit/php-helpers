@@ -75,3 +75,56 @@ if (!function_exists('formatted_array')) {
     }
 
 }
+
+if (!function_exists('format_bytes')) {
+    define(
+        'BYTES_UNITS',
+        [
+            'B' => 0,
+            'KB' => 1,
+            'MB' => 2,
+            'GB' => 3,
+            'TB' => 4,
+            'PB' => 5,
+            'EB' => 6,
+            'ZB' => 7,
+            'YB' => 8
+        ]);
+
+    function format_bytes(int $bytes, ?string $unit = null, int $decimals = null): string
+    {
+        $negative = is_negative($bytes);
+        if ($negative) {
+            $bytes = abs($bytes);
+        }
+        $value = 0;
+        $unit = strtoupper($unit ?? '');
+        if ($bytes > 0) {
+            // generate automatic prefix by bytes if wrong prefix given
+            if (!array_key_exists($unit, BYTES_UNITS)) {
+                $pow = floor(log($bytes) / log(1024));
+                $unit = array_search($pow, BYTES_UNITS);
+            }
+            // calculate byte value by prefix
+            $value = ($bytes / pow(1024, floor(BYTES_UNITS[$unit])));
+        } else {
+            $unit = 'B';
+        }
+
+        if ($unit == 'B')
+            $decimals = 0;
+
+        // if decimals is not numeric or decimals is less than 0
+        if (!is_numeric($decimals) || $decimals < 0) {
+            // set default value
+            $decimals = 2;
+        } elseif ($decimals > 24) {
+            $decimals = 24;
+        }
+
+        // output
+        return
+            sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
+    }
+
+}
