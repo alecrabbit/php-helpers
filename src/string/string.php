@@ -52,7 +52,7 @@ if (!function_exists('brackets')) {
 }
 
 if (!function_exists('formatted_array')) {
-    function formatted_array(array $array, ?int $columns = null, callable $callback = null)
+    function formatted_array(iterable $array, ?int $columns = null, callable $callback = null): iterable
     {
         $columns = $columns ?? 10;
         $str = [];
