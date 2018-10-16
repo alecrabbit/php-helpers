@@ -1,4 +1,3 @@
 # helpers
-v.0.0.1
 
-PHP helpers
+PHP helpers are set of useful functions
