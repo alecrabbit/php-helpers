@@ -21,8 +21,13 @@ if (!defined('APP_DEBUG')) {
 }
 
 // snippet
-if (defined('APP_DEBUG') && APP_DEBUG && !defined('DEBUG_DUMP_EXCEPTION_CLASS')) {
-    define('DEBUG_DUMP_EXCEPTION_CLASS', false); // change to 'true' to dump exception class
+if (defined('APP_DEBUG') && APP_DEBUG ) {
+    if (!defined('DEBUG_DUMP_EXCEPTION')) {
+        define('DEBUG_DUMP_EXCEPTION', false); // change to 'true' to dump exception message and trace
+    }
+    if (!defined('DEBUG_DUMP_EXCEPTION_CLASS')) {
+        define('DEBUG_DUMP_EXCEPTION_CLASS', false); // change to 'true' to dump exception class
+    }
 }
 
 $cloner = new VarCloner();

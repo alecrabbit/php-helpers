@@ -42,6 +42,8 @@ format_bytes(2112441234141, 'mb', 4); // string(14) "2014580.9499MB"
 
 ```
 
+### Array functions
+
 ##### formatted_array()
 ```php 
 formatted_array([1, 2, 3000, 4, 5, 6, 7000000, 8, 9, 1000, 11], 3);
@@ -49,6 +51,16 @@ formatted_array([1, 2, 3000, 4, 5, 6, 7000000, 8, 9, 1000, 11], 3);
 // 4       5       6      
 // 7000000 8       9      
 // 1000    11 
+
+$a = ['a', 'b', 'c', 'd', 'e', 'f',];
+$ab =
+    formatted_array($a, 3,
+        function (&$value, $key) {
+            $value = $key . ' ' . brackets($value);
+        }
+    );
+// 0 [a] 1 [b] 2 [c]
+// 3 [d] 4 [e] 5 [f]
 ```
 
 ### Numeric functions
