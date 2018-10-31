@@ -95,36 +95,35 @@ if (!function_exists('format_bytes')) {
     {
         $negative = is_negative($bytes);
         if ($negative) {
-            $bytes = abs($bytes);
+            $bytes = (int)abs($bytes);
         }
         $value = 0;
         $unit = strtoupper($unit ?? '');
         if ($bytes > 0) {
-            // generate automatic prefix by bytes if wrong prefix given
+            // Generate automatic prefix by bytes
+            // If wrong prefix given
             if (!array_key_exists($unit, BYTES_UNITS)) {
-                $pow = floor(log($bytes) / log(1024));
-                $unit = array_search($pow, BYTES_UNITS);
+                $pow = (int)floor(log($bytes) / log(1024));
+                $unit = (string)array_search($pow, BYTES_UNITS, true);
             }
-            // calculate byte value by prefix
-            $value = ($bytes / pow(1024, floor(BYTES_UNITS[$unit])));
+            // Calculate byte value by prefix
+            $value = ($bytes / 1024 ** floor(BYTES_UNITS[$unit]));
         } else {
             $unit = 'B';
         }
-
-        if ($unit == 'B')
+        if ($unit === 'B') {
             $decimals = 0;
-
-        // if decimals is not numeric or decimals is less than 0
-        if (!is_numeric($decimals) || $decimals < 0) {
-            // set default value
+        }
+        // If decimals is not numeric or decimals is less than 0
+        // set default value
+        if (!\is_numeric($decimals) || $decimals < 0) {
             $decimals = 2;
         } elseif ($decimals > 24) {
             $decimals = 24;
         }
 
-        // output
+        // Format output
         return
             sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
     }
-
 }
