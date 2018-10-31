@@ -6,20 +6,19 @@
  */
 
 if (!function_exists('formatted_array')) {
-    function formatted_array(iterable $data, ?int $columns = null, callable $callback = null): iterable
+    function formatted_array(iterable $data, ?int $columns = null, ?callable $callback = null, $pad = STR_PAD_RIGHT): iterable
     {
         $columns = $columns ?? 10;
         $result = [];
         $maxLen = 0;
         if ($callback) {
-//            $data = array_map($callback, $data);
             array_walk($data, $callback);
         }
-        foreach ($data as $key => $value) {
+        foreach ($data as $value) {
             $maxLen = $maxLen < ($len = strlen((string)$value)) ? $len : $maxLen;
         }
         while ($element = array_shift($data)) {
-            $tmp[] = str_pad($element, $maxLen);
+            $tmp[] = str_pad($element, $maxLen, ' ', $pad);
             if (count($tmp) >= $columns) {
                 $result[] = implode(' ', $tmp);
                 $tmp = [];
