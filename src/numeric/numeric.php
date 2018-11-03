@@ -7,14 +7,15 @@
 
 if (!function_exists('is_negative')) {
     /**
-     * @param $value
+     * @param $value bool|float|int|null
      * @return bool
      */
     function is_negative($value): bool
     {
-        if ($value === false)
+        if ($value === false) {
             $value = -1;
-        return ($value < 0);
+        }
+        return ((float)$value < 0);
     }
 }
 
@@ -23,17 +24,18 @@ if (!function_exists('bounds')) {
      * Puts value in bounds
      *
      * @param float $value
-     * @param int $min [optional] Default -1
-     * @param int $max [optional] Default 1
+     * @param float $min [optional] Default -1
+     * @param float $max [optional] Default 1
      * @return float
      */
-    function bounds(float $value, int $min = -1, int $max = 1): float
+    function bounds(float $value, float $min = -1, float $max = 1): float
     {
-        if ($value < $min)
+        if ($value < $min) {
             $value = $min;
-        elseif ($value > $max)
+        } elseif ($value > $max) {
             $value = $max;
-        return (float)$value;
+        }
+        return $value;
     }
 }
 
@@ -41,19 +43,19 @@ if (!function_exists('bc_bounds')) {
     /**
      * Same as bounds() but uses BCMathExtended
      *
-     * @param float $value
-     * @param int $min [optional] Default -1
-     * @param int $max [optional] Default 1
+     * @param string $value
+     * @param string $min [optional] Default -1
+     * @param string $max [optional] Default 1
      * @param int $scale [optional] Default 5
-     * @return float
+     * @return string
      */
-    function bc_bounds(float $value, int $min = -1, int $max = 1, int $scale = 5): float
+    function bc_bounds(string $value, string $min = '-1', string $max = '1', int $scale = 5): string
     {
         if (\BCMathExtended\BC::comp($value, $min, $scale) <= 0) {
             $value = $min;
-        } elseif (($comp = \BCMathExtended\BC::comp($value, $max, $scale)) == 1 || $comp == 0) {
+        } elseif (($comp = \BCMathExtended\BC::comp($value, $max, $scale)) === 1 || $comp === 0) {
             $value = $max;
         }
-        return (float)$value;
+        return $value;
     }
 }

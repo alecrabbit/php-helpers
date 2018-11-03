@@ -51,27 +51,54 @@ if (!function_exists('brackets')) {
     }
 }
 
-if (!function_exists('formatted_array')) {
-    function formatted_array(iterable $array, ?int $columns = null, callable $callback = null): iterable
-    {
-        $columns = $columns ?? 10;
-        $str = [];
-        $maxLen = 0;
-        if ($callback)
-            array_walk($array, $callback);
-        foreach ($array as $key => $value) {
-            $maxLen = $maxLen < ($len = strlen((string)$value)) ? $len : $maxLen;
-        }
-        while ($element = array_shift($array)) {
-            $tmp[] = str_pad($element, $maxLen);
-            if (count($tmp) >= $columns) {
-                $str[] = implode(' ', $tmp);
-                $tmp = [];
-            }
-        }
-        if (!empty($tmp))
-            $str[] = implode(' ', $tmp);
-        return $str;
-    }
+if (!function_exists('format_bytes')) {
+    define(
+        'BYTES_UNITS',
+        [
+            'B' => 0,
+            'KB' => 1,
+            'MB' => 2,
+            'GB' => 3,
+            'TB' => 4,
+            'PB' => 5,
+            'EB' => 6,
+            'ZB' => 7,
+            'YB' => 8
+        ]);
 
+    function format_bytes(int $bytes, ?string $unit = null, int $decimals = null): string
+    {
+        $negative = is_negative($bytes);
+        if ($negative) {
+            $bytes = (int)abs($bytes);
+        }
+        $value = 0;
+        $unit = strtoupper($unit ?? '');
+        if ($bytes > 0) {
+            // Generate automatic prefix by bytes
+            // If wrong prefix given
+            if (!array_key_exists($unit, BYTES_UNITS)) {
+                $pow = (int)floor(log($bytes) / log(1024));
+                $unit = (string)array_search($pow, BYTES_UNITS, true);
+            }
+            // Calculate byte value by prefix
+            $value = ($bytes / 1024 ** floor(BYTES_UNITS[$unit]));
+        } else {
+            $unit = 'B';
+        }
+        if ($unit === 'B') {
+            $decimals = 0;
+        }
+        // If decimals is not numeric or decimals is less than 0
+        // set default value
+        if (!\is_numeric($decimals) || $decimals < 0) {
+            $decimals = 2;
+        } elseif ($decimals > 24) {
+            $decimals = 24;
+        }
+
+        // Format output
+        return
+            sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
+    }
 }

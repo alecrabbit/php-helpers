@@ -18,3 +18,17 @@ if (!function_exists('now')) {
     }
 }
 
+if (!function_exists('base_timestamp')) {
+    /**
+     * Calculate timestamp of start of interval.
+     *
+     * @param int $timestamp
+     * @param int $interval
+     * @return int
+     */
+    function base_timestamp(int $timestamp, int $interval = 60): int
+    {
+        return \intdiv($timestamp, $interval) * $interval;
+    }
+}
+
