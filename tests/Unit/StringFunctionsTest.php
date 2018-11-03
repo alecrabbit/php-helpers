@@ -13,14 +13,14 @@ use PHPUnit\Framework\TestCase;
 class StringFunctionsTest extends TestCase
 {
     /** @test */
-    public function FunctionTag()
+    public function FunctionTag(): void
     {
         $this->assertEquals('<br>str</br>', tag('str', 'br'));
         $this->assertEquals('str', tag('str'));
     }
 
     /** @test */
-    public function FunctionBrackets()
+    public function FunctionBrackets(): void
     {
         $this->assertEquals('[str]', brackets('str'));
         $this->assertEquals('[str]', brackets('str', BRACKETS_SQUARE));

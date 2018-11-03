@@ -51,6 +51,36 @@ class ArrayFunctionsTest extends TestCase
                     $value = brackets($key) . ' ' . $value;
                 }
             ));
+
+        $expectedResult =
+            [
+                0 => '    a         b         c    ',
+                1 => '    d         e         f    ',
+                2 => '    g         h    ',
+            ];
+
+        $this->assertEquals(
+            $expectedResult,
+            formatted_array(['a', 'b', 'c', '    d    ', 'e', 'f', 'g', 'h',],
+                3,
+                null,
+                STR_PAD_BOTH
+            ));
+
+        $expectedResult =
+            [
+                0 => '       a        b        c',
+                1 => '       d        e        f',
+                2 => '       g        h',
+            ];
+
+        $this->assertEquals(
+            $expectedResult,
+            formatted_array(['a', 'b', 'c', '       d', 'e', 'f', 'g', 'h',],
+                3,
+                null,
+                STR_PAD_LEFT
+            ));
     }
 
 }
