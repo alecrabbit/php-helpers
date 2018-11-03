@@ -18,6 +18,11 @@ PHP helpers are set of useful functions
 $now = now(); // object(Carbon\Carbon)
 ```
 
+##### base_timestamp()
+```php 
+base_timestamp(1514851122); // int(1514851080)
+```
+
 ### String functions
 
 ##### tag()

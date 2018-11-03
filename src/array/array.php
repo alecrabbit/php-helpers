@@ -6,6 +6,13 @@
  */
 
 if (!function_exists('formatted_array')) {
+    /**
+     * @param iterable $data
+     * @param int|null $columns
+     * @param callable|null $callback
+     * @param int $pad
+     * @return iterable
+     */
     function formatted_array(iterable $data, ?int $columns = null, ?callable $callback = null, $pad = STR_PAD_RIGHT): iterable
     {
         $columns = $columns ?? 10;
