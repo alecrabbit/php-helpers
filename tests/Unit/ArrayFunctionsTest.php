@@ -83,4 +83,44 @@ class ArrayFunctionsTest extends TestCase
             ));
     }
 
+    /**
+     * @test
+     * @dataProvider unsetFirstDataProvider
+     * @param $expected
+     * @param $actual
+     */
+    public function functionUnsetFirst($expected, $actual): void
+    {
+        $this->assertEquals($expected, unset_first($actual));
+    }
+
+    public function unsetFirstDataProvider(): array
+    {
+        return [
+            [[], [1]],
+            [[1 => 1], [0 => 0, 1 => 1]],
+            [[1 => 'a'], [0 => 'b', 1 => 'a']],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider unsetFirstDataProviderTwo
+     * @param $expected
+     * @param $actual
+     */
+    public function functionUnsetFirstTwo($expected, $actual): void
+    {
+        $this->assertEquals(array_values($expected), array_values(unset_first($actual)));
+    }
+
+    public function unsetFirstDataProviderTwo(): array
+    {
+        return [
+            [[], [1]],
+            [[1], [0,1]],
+            [[],['a']],
+            [['b'],['a','b']],
+        ];
+    }
 }
