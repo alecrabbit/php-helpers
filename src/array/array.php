@@ -39,3 +39,13 @@ if (!function_exists('formatted_array')) {
 
 }
 
+if (!function_exists('unset_first')) {
+    function unset_first(iterable $data): iterable
+    {
+        reset($data);
+        $key = key($data);
+        unset($data[$key]);
+        return $data;
+    }
+}
+

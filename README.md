@@ -68,6 +68,22 @@ $ab =
 // 3 [d] 4 [e] 5 [f]
 ```
 
+##### unset_first()
+```php 
+$a = array (
+       0 => 1,
+       1 => 2,
+       2 => 3,
+       3 => 4,
+     );
+unset_first($a); 
+// array (
+//   1 => 2,
+//   2 => 3,
+//   3 => 4,
+// )
+```
+
 ### Numeric functions
 
 ##### is_negative()
