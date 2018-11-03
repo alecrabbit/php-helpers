@@ -138,4 +138,44 @@ class ArrayFunctionsTest extends TestCase
 
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider arrayKeyFirstDataProvider
+     * @param $expected
+     * @param $data
+     */
+    public function functionArrayKeyFirst($expected, $data): void
+    {
+        $this->assertEquals($expected, array_key_first($data));
+    }
+
+    public function arrayKeyFirstDataProvider(): array
+    {
+        return [
+            [null, []],
+            [1, [1 => 1, 2 => 2]],
+            ['1', ['1' => 1, 0 => 2]],
+        ];
+    }
+    /**
+     * @test
+     * @dataProvider arrayKeyLastDataProvider
+     * @param $expected
+     * @param $data
+     */
+    public function functionArrayKeyLast($expected, $data): void
+    {
+        $this->assertEquals($expected, array_key_last($data));
+    }
+
+    public function arrayKeyLastDataProvider(): array
+    {
+        return [
+            [null, []],
+            [2, [1 => 1, 2 => 2]],
+            [0, ['1' => 1, 0 => 2]],
+        ];
+    }
+
 }
