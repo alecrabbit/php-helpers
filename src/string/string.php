@@ -37,24 +37,17 @@ if (!function_exists('brackets')) {
     /**
      * @param string $text
      * @param int|null $brackets
-     * @param null|string $open
-     * @param null|string $close
      * @return string
      */
-    function brackets(string $text, ?int $brackets = null, ?string $open = null, ?string $close = null): string
+    function brackets(string $text, int $brackets = BRACKETS_SQUARE): string
     {
-        if (null === $brackets) {
-            if (null === $open && null === $close) {
-                $brackets = BRACKETS_SQUARE;
-            }
-            if (null !== $open && null === $close) {
-                $close = $open;
-            }
-        } elseif (!\in_array($brackets, BRACKETS_SUPPORTED, true)) {
+        if (!\in_array($brackets, BRACKETS_SUPPORTED, true)) {
             throw new \InvalidArgumentException(
                 'Parameter 2 should be BRACKETS_SQUARE | BRACKETS_CURLY | BRACKETS_PARENTHESES | BRACKETS_ANGLE'
             );
         }
+        $open = '[';
+        $close = ']';
         switch ($brackets) {
             case BRACKETS_CURLY:
                 $open = '{';
@@ -72,6 +65,22 @@ if (!function_exists('brackets')) {
                 $open = '⟨';
                 $close = '⟩';
                 break;
+        }
+        return "{$open}{$text}{$close}";
+    }
+}
+
+if (!function_exists('str_decorate')) {
+    /**
+     * @param string $text
+     * @param null|string $open
+     * @param null|string $close
+     * @return string
+     */
+    function str_decorate(string $text, ?string $open = null, ?string $close = null): string
+    {
+        if (null !== $open && null === $close) {
+            $close = $open;
         }
         return "{$open}{$text}{$close}";
     }

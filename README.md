@@ -37,7 +37,13 @@ brackets('text', BRACKETS_ANGLE); // string(10) "⟨text⟩"
 brackets('text', BRACKETS_PARENTHESES); // string(6) "(text)"
 brackets('text', BRACKETS_SQUARE); // string(6) "[text]"
 brackets('text', BRACKETS_CURLY); // string(6) "{text}"
-brackets('text', null, '<o>', '</o>'); // string(11) "<o>text</o>"
+```
+
+##### str_decorate()
+```php 
+str_decorate('text', '-'); // string(6) "-text-"
+str_decorate('text', '-', ''); // string(5) "-text"
+str_decorate('text', '"', '"'); // string(6) ""text""
 ```
 
 ##### format_bytes()
