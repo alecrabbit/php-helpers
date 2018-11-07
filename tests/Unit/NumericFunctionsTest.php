@@ -56,47 +56,86 @@ class NumericFunctionsTest extends TestCase
         $this->assertEquals(2.1E-5, bc_bounds(2.1E-5, 0, 1, 7));
     }
 
-    /** @test */
-    public function FunctionBcBoundsString(): void
+    /**
+     * @test
+     * @dataProvider trimZerosDataProvider
+     * @param $expected
+     * @param $value
+     */
+    public function FunctionTrimZeros($expected, $value): void
     {
-        $this->assertEquals(
-            '1.1245535354656456435535124124124123',
-            bc_bounds(
+        $this->assertEquals($expected, trim_zeros($value));
+    }
+
+    /**
+     * @test
+     * @dataProvider bcBoundsProvider
+     * @param $expected
+     * @param $value
+     * @param $min
+     * @param $max
+     * @param $scale
+     */
+    public function FunctionBcBoundsString($expected, $value, $min, $max, $scale): void
+    {
+        $this->assertEquals($expected, bc_bounds($value, $min, $max, $scale));
+    }
+
+    public function trimZerosDataProvider(): array
+    {
+        return [
+            // [$expected, $value]
+            ['13', 13.000000],
+            ['2.6', 2.6000000],
+            ['2.300004', 2.3000040],
+        ];
+    }
+
+    public function bcBoundsProvider(): array
+    {
+        return [
+            // [$expected, $value, $min, $max, $scale],
+            [
+                '1.1245535354656456435535124124124123',
                 '1.1245535354656456435535124124124123',
                 '1.1241243235645645643258351241242',
                 '1.1245535354656456435535124124124125',
                 35
-            )
-        );
-        $this->assertEquals(
-            '1.1241243235645645643258351241242',
-            bc_bounds(
+            ],
+            [
+                '1.1241243236',
+                '1.1241243236',
+                '1.1241243235',
+                '1.1245535354',
+                10],
+            [
+                '1.12412',
+                '1.12412',
+                '1.12411',
+                '1.12455',
+                5
+            ],
+            [
+                '1.1241243235645645643258351241242',
                 '1.1241243235645645643258351241242',
                 '1.1241243235645645643258351241242',
                 '1.1245535354656456435535124124124125',
                 35
-            )
-        );
-        $this->assertEquals(
-            '1.1241243235645645643258351241242',
-            bc_bounds(
+            ],
+            [
+                '1.1241243235645645643258351241242',
                 '1.1241243235645645643258351241241',
                 '1.1241243235645645643258351241242',
                 '1.1245535354656456435535124124124125',
                 31
-            )
-        );
-        bc_bounds('1.1241243236', '1.1241243235', '1.1245535354', 10);
-
-        $this->assertEquals(
-            '1.1241243236',
-            bc_bounds(
-                '1.1241243236',
-                '1.1241243235',
-                '1.1245535354',
-                10
-            )
-        );
+            ],
+            [
+                '1.12412',
+                '1.1241243235645645643258351241243',
+                '1.1241243235645645643258351241242',
+                '1.1245535354656456435535124124124125',
+                5
+            ],
+        ];
     }
-
 }
