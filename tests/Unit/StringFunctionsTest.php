@@ -27,18 +27,25 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals('{str}', brackets('str', BRACKETS_CURLY));
         $this->assertEquals('(str)', brackets('str', BRACKETS_PARENTHESES));
         $this->assertEquals('⟨str⟩', brackets('str', BRACKETS_ANGLE));
-        $this->assertEquals('<ddstr/dd>', brackets('str', null, '<dd', '/dd>'));
+        $this->expectException('TypeError');
+        $this->assertEquals('<ddstr/dd>', brackets('str', null));
+    }
+
+    /** @test */
+    public function FunctionStrDecorate(): void
+    {
+        $this->assertEquals('str', str_decorate('str'));
+        $this->assertEquals('"str"', str_decorate('str','"'));
+        $this->assertEquals('"str"', str_decorate('str','"', '"'));
+        $this->assertEquals('>str<', str_decorate('str','>', '<'));
+        $this->assertEquals('-str-', str_decorate('str','-' ));
     }
 
     /** @test */
     public function FunctionBracketsTwo(): void
     {
-        $this->assertEquals('"str"', brackets('str', null, '"', '"'));
-        $this->assertEquals('"str"', brackets('str', null, '"'));
-        $this->assertEquals('[str]', brackets('str', null));
-        $this->assertEquals('{str}', brackets('str', BRACKETS_CURLY, '"'));
         $this->expectException(\InvalidArgumentException::class);
-        $this->assertEquals('"str', brackets('str', 100, '<', '>'));
+        $this->assertEquals('"str', brackets('str', 100));
     }
 
     /** @test */
