@@ -10,6 +10,15 @@ define('BRACKETS_CURLY', 20); // {}
 define('BRACKETS_PARENTHESES', 30); // ()
 define('BRACKETS_ANGLE', 40); //  ⟨⟩
 
+define('BRACKETS_SUPPORTED',
+    [
+        BRACKETS_SQUARE,
+        BRACKETS_CURLY,
+        BRACKETS_PARENTHESES,
+        BRACKETS_ANGLE,
+    ]
+);
+
 
 if (!function_exists('tag')) {
     /**
@@ -19,15 +28,33 @@ if (!function_exists('tag')) {
      */
     function tag(string $text, string $tag = null): string
     {
-        if ($tag)
-            $text = sprintf('<%s>%s</%s>', $tag, $text, $tag);
-        return $text;
+        return
+            $tag ? "<{$tag}>$text</{$tag}>" : $text;
     }
 }
 
 if (!function_exists('brackets')) {
-    function brackets(string $text, ?int $brackets = null, string $open = '[', string $close = ']'): string
+    /**
+     * @param string $text
+     * @param int|null $brackets
+     * @param null|string $open
+     * @param null|string $close
+     * @return string
+     */
+    function brackets(string $text, ?int $brackets = null, ?string $open = null, ?string $close = null): string
     {
+        if (null === $brackets) {
+            if (null === $open && null === $close) {
+                $brackets = BRACKETS_SQUARE;
+            }
+            if (null !== $open && null === $close) {
+                $close = $open;
+            }
+        } elseif (!\in_array($brackets, BRACKETS_SUPPORTED, true)) {
+            throw new \InvalidArgumentException(
+                'Parameter 2 should be BRACKETS_SQUARE | BRACKETS_CURLY | BRACKETS_PARENTHESES | BRACKETS_ANGLE'
+            );
+        }
         switch ($brackets) {
             case BRACKETS_CURLY:
                 $open = '{';
@@ -46,8 +73,7 @@ if (!function_exists('brackets')) {
                 $close = '⟩';
                 break;
         }
-        $text = sprintf('%s%s%s', $open, $text, $close);
-        return $text;
+        return "{$open}{$text}{$close}";
     }
 }
 

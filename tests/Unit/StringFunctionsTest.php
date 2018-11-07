@@ -31,6 +31,17 @@ class StringFunctionsTest extends TestCase
     }
 
     /** @test */
+    public function FunctionBracketsTwo(): void
+    {
+        $this->assertEquals('"str"', brackets('str', null, '"', '"'));
+        $this->assertEquals('"str"', brackets('str', null, '"'));
+        $this->assertEquals('[str]', brackets('str', null));
+        $this->assertEquals('{str}', brackets('str', BRACKETS_CURLY, '"'));
+        $this->expectException(\InvalidArgumentException::class);
+        $this->assertEquals('"str', brackets('str', 100, '<', '>'));
+    }
+
+    /** @test */
     public function FunctionFormatBytesProcessParametersCorrectly(): void
     {
         $this->assertEquals('1.00KB', format_bytes(1024, null, 2));

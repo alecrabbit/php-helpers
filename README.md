@@ -84,7 +84,7 @@ unset_first($a);
 // )
 ```
 
-##### array_key_last()
+##### array_key_first() / array_key_last()
 ```php 
 $a = array (
        0 => 1,
@@ -92,8 +92,8 @@ $a = array (
        2 => 3,
        3 => 4,
      );
-array_key_last($a); // int(3)
 array_key_first($a); // int(0)
+array_key_last($a); // int(3)
 ```
 
 ### Numeric functions
