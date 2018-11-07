@@ -52,11 +52,11 @@ if (!function_exists('bc_bounds')) {
     function bc_bounds(string $value, string $min = '-1', string $max = '1', int $scale = 5): string
     {
         if (\BCMathExtended\BC::comp($value, $min, $scale) <= 0) {
-            $value = $min;
+            $value = \BCMathExtended\BC::add($min, '0', $scale);
         } elseif (($comp = \BCMathExtended\BC::comp($value, $max, $scale)) === 1 || $comp === 0) {
-            $value = $max;
+            $value = \BCMathExtended\BC::add($max, '0', $scale);
         }
-        return $value;
+        return trim_zeros($value);
     }
 }
 
