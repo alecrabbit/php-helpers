@@ -59,3 +59,14 @@ if (!function_exists('bc_bounds')) {
         return $value;
     }
 }
+
+if (!function_exists('trim_zeros')) {
+    /**
+     * @param string $numeric
+     * @return string
+     */
+    function trim_zeros(string $numeric): string
+    {
+        return false !== \strpos($numeric, '.') ? \rtrim(\rtrim($numeric, '0'), '.') : $numeric;
+    }
+}

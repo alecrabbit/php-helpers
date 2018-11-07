@@ -42,10 +42,33 @@ if (!function_exists('formatted_array')) {
 if (!function_exists('unset_first')) {
     function unset_first(iterable $data): iterable
     {
-        reset($data);
-        $key = key($data);
+        $key = array_key_first($data);
         unset($data[$key]);
         return $data;
+    }
+}
+
+if (!function_exists('array_key_first')) {
+    /**
+     * @param iterable $data
+     * @return int|null|string
+     */
+    function array_key_first(iterable $data)
+    {
+        reset($data);
+        return key($data);
+    }
+}
+
+if (!function_exists('array_key_last')) {
+    /**
+     * @param iterable $data
+     * @return int|null|string
+     */
+    function array_key_last(iterable $data)
+    {
+        end($data);
+        return key($data);
     }
 }
 
