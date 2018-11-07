@@ -84,6 +84,18 @@ unset_first($a);
 // )
 ```
 
+##### array_key_last()
+```php 
+$a = array (
+       0 => 1,
+       1 => 2,
+       2 => 3,
+       3 => 4,
+     );
+array_key_last($a); // int(3)
+array_key_first($a); // int(0)
+```
+
 ### Numeric functions
 
 ##### is_negative()
@@ -104,3 +116,8 @@ bounds(3, -2, 2); // float(2)
 bc_bounds('1.1241243236', '1.1241243235', '1.1245535354', 10); // string(12) "1.1241243236"
 ```
 
+##### trim_zeros()
+```php 
+trim_zeros('23.22342340000'); // string(10) "23.2234234"
+trim_zeros(23.000000000); // string(2) "23"
+```
