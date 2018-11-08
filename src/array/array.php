@@ -40,7 +40,7 @@ if (!function_exists('formatted_array')) {
 }
 
 if (!function_exists('unset_first')) {
-    function unset_first(iterable $data): iterable
+    function unset_first(array $data): iterable
     {
         $key = array_key_first($data);
         unset($data[$key]);
