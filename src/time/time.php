@@ -14,7 +14,7 @@ if (!function_exists('now')) {
      */
     function now($tz = null)
     {
-        return new \Carbon\Carbon($tz);
+        return new \Carbon\Carbon(null, $tz);
     }
 }
 

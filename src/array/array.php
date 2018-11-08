@@ -7,13 +7,13 @@
 
 if (!function_exists('formatted_array')) {
     /**
-     * @param iterable $data
+     * @param array $data
      * @param int|null $columns
      * @param callable|null $callback
      * @param int $pad
      * @return iterable
      */
-    function formatted_array(iterable $data, ?int $columns = null, ?callable $callback = null, $pad = STR_PAD_RIGHT): iterable
+    function formatted_array(array $data, ?int $columns = null, ?callable $callback = null, $pad = STR_PAD_RIGHT): iterable
     {
         $columns = $columns ?? 10;
         $result = [];
@@ -50,10 +50,10 @@ if (!function_exists('unset_first')) {
 
 if (!function_exists('array_key_first')) {
     /**
-     * @param iterable $data
+     * @param array $data
      * @return int|null|string
      */
-    function array_key_first(iterable $data)
+    function array_key_first(array $data)
     {
         reset($data);
         return key($data);
@@ -62,10 +62,10 @@ if (!function_exists('array_key_first')) {
 
 if (!function_exists('array_key_last')) {
     /**
-     * @param iterable $data
+     * @param array $data
      * @return int|null|string
      */
-    function array_key_last(iterable $data)
+    function array_key_last(array $data)
     {
         end($data);
         return key($data);
