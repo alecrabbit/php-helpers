@@ -20,7 +20,11 @@ $now = now(); // object(Carbon\Carbon)
 
 ##### base_timestamp()
 ```php 
-base_timestamp(1514851122); // int(1514851080)
+// start timestamp of a period
+//  "int(1514851122) => Mon Jan 01 2018 23:58:42 GMT+0000"
+base_timestamp(1514851122, 86400); // "int(1514764800) => Mon Jan 01 2018 00:00:00 GMT+0000"
+base_timestamp(1514851122, 3600); // "int(1514847600) => Mon Jan 01 2018 23:00:00 GMT+0000"
+base_timestamp(1514851122, 60);  // "int(1514851080) => Mon Jan 01 2018 23:58:00 GMT+0000"
 ```
 
 ### String functions
