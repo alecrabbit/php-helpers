@@ -2,7 +2,10 @@
 /vendor/*
 /docker/*
 /.eval/*
+/data/*
 /tmp/*
-
-/docker-compose.yml
+/tests/coverage/*
 /.dockerignore
+
+/docker-compose*
+/dev-commands.md
