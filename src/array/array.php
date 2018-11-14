@@ -16,15 +16,13 @@ if (!function_exists('formatted_array')) {
     function formatted_array(array $data, int $columns = 10, ?callable $callback = null, int $pad = STR_PAD_RIGHT): iterable
     {
         $result = [];
-        $maxLen = 0;
         if ($callback) {
             \array_walk($data, $callback);
         }
-        foreach ($data as $value) {
-            $maxLen = $maxLen < ($len = \strlen((string)$value)) ? $len : $maxLen;
-        }
+        $maxLength = arr_el_max_length($data);
+        
         while ($element = \array_shift($data)) {
-            $tmp[] = \str_pad($element, $maxLen, ' ', $pad);
+            $tmp[] = \str_pad($element, $maxLength, ' ', $pad);
             if (\count($tmp) >= $columns) {
                 $result[] = \implode(' ', $tmp);
                 $tmp = [];
@@ -34,6 +32,23 @@ if (!function_exists('formatted_array')) {
             $result[] = \implode(' ', $tmp);
         }
         return $result;
+    }
+
+}
+
+if (!function_exists('arr_el_max_length')) {
+    /**
+     * @param array $data
+     * @return int
+     */
+    function arr_el_max_length(array $data): int
+    {
+        $maxLength = 0;
+        foreach ($data as $value) {
+            $len = \strlen((string)$value);
+            $maxLength = $maxLength < $len ? $len : $maxLength;
+        }
+        return $maxLength;
     }
 
 }
