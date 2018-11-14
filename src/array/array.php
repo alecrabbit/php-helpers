@@ -18,20 +18,20 @@ if (!function_exists('formatted_array')) {
         $result = [];
         $maxLen = 0;
         if ($callback) {
-            array_walk($data, $callback);
+            \array_walk($data, $callback);
         }
         foreach ($data as $value) {
-            $maxLen = $maxLen < ($len = strlen((string)$value)) ? $len : $maxLen;
+            $maxLen = $maxLen < ($len = \strlen((string)$value)) ? $len : $maxLen;
         }
-        while ($element = array_shift($data)) {
-            $tmp[] = str_pad($element, $maxLen, ' ', $pad);
-            if (count($tmp) >= $columns) {
-                $result[] = implode(' ', $tmp);
+        while ($element = \array_shift($data)) {
+            $tmp[] = \str_pad($element, $maxLen, ' ', $pad);
+            if (\count($tmp) >= $columns) {
+                $result[] = \implode(' ', $tmp);
                 $tmp = [];
             }
         }
         if (!empty($tmp)) {
-            $result[] = implode(' ', $tmp);
+            $result[] = \implode(' ', $tmp);
         }
         return $result;
     }
@@ -70,4 +70,3 @@ if (!function_exists('array_key_last')) {
         return key($data);
     }
 }
-

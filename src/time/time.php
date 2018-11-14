@@ -31,4 +31,3 @@ if (!function_exists('base_timestamp')) {
         return \intdiv($timestamp, $interval) * $interval;
     }
 }
-
