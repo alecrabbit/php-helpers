@@ -5,31 +5,6 @@
  * Time: 13:21
  */
 
-
-
-if (!function_exists('find_files')) {
-    /**
-     * Find all files in directory recursively matching the regex, by default searches for *.php files
-     *
-     * @param string $path
-     * @param string $regex
-     * @return array
-     */
-    function find_files(string $path, string $regex = '/^.+\.php$/i')
-    {
-        $files = [];
-        $dir = new RecursiveDirectoryIterator($path);
-        $iterator = new RecursiveIteratorIterator($dir);
-        foreach ($iterator as $file) {
-            $filename = $file->getFilename();
-            if (preg_match($regex, $filename)) {
-                $files[] = $file->getPathname();
-            }
-        }
-        return $files;
-    }
-}
-
 if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable.
@@ -40,29 +15,25 @@ if (!function_exists('env')) {
      */
     function env($key, $default = null)
     {
-        $value = getenv($key);
-
-        if ($value === false) {
-            return value($default);
+        if (false === $value = getenv($key)) {
+            $value = value($default);
         }
+
+        $value = \ltrim(\rtrim($value, ')"'), '("');
 
         switch (strtolower($value)) {
             case 'true':
-            case '(true)':
-                return true;
+                $value = true;
+                break;
             case 'false':
-            case '(false)':
-                return false;
+                $value = false;
+                break;
             case 'empty':
-            case '(empty)':
-                return '';
+                $value = '';
+                break;
             case 'null':
-            case '(null)':
-                return null;
-        }
-
-        if (($valueLength = strlen($value)) > 1 && $value[0] === '"' && $value[$valueLength - 1] === '"') {
-            return substr($value, 1, -1);
+                $value = null;
+                break;
         }
 
         return $value;

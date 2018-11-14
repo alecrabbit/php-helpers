@@ -35,10 +35,10 @@ class StringFunctionsTest extends TestCase
     public function FunctionStrDecorate(): void
     {
         $this->assertEquals('str', str_decorate('str'));
-        $this->assertEquals('"str"', str_decorate('str','"'));
-        $this->assertEquals('"str"', str_decorate('str','"', '"'));
-        $this->assertEquals('>str<', str_decorate('str','>', '<'));
-        $this->assertEquals('-str-', str_decorate('str','-' ));
+        $this->assertEquals('"str"', str_decorate('str', '"'));
+        $this->assertEquals('"str"', str_decorate('str', '"', '"'));
+        $this->assertEquals('>str<', str_decorate('str', '>', '<'));
+        $this->assertEquals('-str-', str_decorate('str', '-'));
     }
 
     /** @test */
@@ -72,9 +72,9 @@ class StringFunctionsTest extends TestCase
     /** @test */
     public function FunctionFormatBytesProcessBytesFormattingCorrectly(): void
     {
-        $this->assertEquals('1024B', format_bytes(1024 ** 1,'b'));
-        $this->assertEquals('1048576B', format_bytes(1024 ** 2,'b'));
-        $this->assertEquals('23535235B', format_bytes(23535235,'b'));
+        $this->assertEquals('1024B', format_bytes(1024 ** 1, 'b'));
+        $this->assertEquals('1048576B', format_bytes(1024 ** 2, 'b'));
+        $this->assertEquals('23535235B', format_bytes(23535235, 'b'));
     }
 
     /** @test */
@@ -88,19 +88,17 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals('1.01074KB', format_bytes(1035, 'KB', 5));
     }
 
-    /** @test */
-    public function FunctionFormatBytesCalculatesMegabytesCorrectly(): void
+    /**
+     * @test
+     * @dataProvider  FormatBytesCalculatesMegabytesCorrectlyProvider
+     * @param $expected
+     * @param $bytes
+     * @param $unit
+     * @param $decimals
+     */
+    public function FunctionFormatBytesCalculatesMegabytesCorrectly($expected, $bytes, $unit, $decimals): void
     {
-        // 1058.803092957  = 1110235512 Bytes
-        $this->assertEquals('1058.8MB', format_bytes(1110235512, 'MB', 1));
-        $this->assertEquals('1058.80MB', format_bytes(1110235512, 'MB', 2));
-        $this->assertEquals('1058.803MB', format_bytes(1110235512, 'MB', 3));
-        $this->assertEquals('1058.8031MB', format_bytes(1110235512, 'MB', 4));
-        $this->assertEquals('1058.80309MB', format_bytes(1110235512, 'MB', 5));
-        $this->assertEquals('1058.803093MB', format_bytes(1110235512, 'MB', 6));
-        $this->assertEquals('1058.8030930MB', format_bytes(1110235512, 'MB', 7));
-        $this->assertEquals('1058.80309296MB', format_bytes(1110235512, 'MB', 8));
-        $this->assertEquals('1058.803092957MB', format_bytes(1110235512, 'MB', 9));
+        $this->assertEquals($expected, format_bytes($bytes, $unit, $decimals));
     }
 
     /** @test */
@@ -140,6 +138,22 @@ class StringFunctionsTest extends TestCase
             $this->expectException('TypeError');
             $this->assertEquals('3.862645148299634456634521GB', format_bytes(4147483647, null, 24));
         }
+    }
+
+    public function FormatBytesCalculatesMegabytesCorrectlyProvider(): array
+    {
+        return [
+            ['1058.8MB', 1110235512, 'MB', 1,],
+            ['1058.80MB', 1110235512, 'MB', 2,],
+            ['1058.803MB', 1110235512, 'MB', 3,],
+            ['1058.8031MB', 1110235512, 'MB', 4,],
+            ['1058.80309MB', 1110235512, 'MB', 5,],
+            ['1058.803093MB', 1110235512, 'MB', 6,],
+            ['1058.8030930MB', 1110235512, 'MB', 7,],
+            ['1058.80309296MB', 1110235512, 'MB', 8,],
+            ['1058.803092957MB', 1110235512, 'MB', 9,],
+            ['1058.803092956542968750000000MB', 1110235512, 'MB', 29,],
+        ];
     }
 
 }
