@@ -51,7 +51,6 @@ if (!function_exists('value')) {
     {
         return
             $value instanceof Closure ?
-                $value() :
-                $value;
+                $value() : $value;
     }
 }

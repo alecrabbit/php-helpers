@@ -46,27 +46,21 @@ if (!function_exists('brackets')) {
                 'Parameter 2 should be BRACKETS_SQUARE | BRACKETS_CURLY | BRACKETS_PARENTHESES | BRACKETS_ANGLE'
             );
         }
-        $open = '[';
-        $close = ']';
         switch ($brackets) {
             case BRACKETS_CURLY:
-                $open = '{';
-                $close = '}';
+                $text = "{{$text}}";
                 break;
             case BRACKETS_SQUARE:
-                $open = '[';
-                $close = ']';
+                $text = "[{$text}]";
                 break;
             case BRACKETS_PARENTHESES:
-                $open = '(';
-                $close = ')';
+                $text = "({$text})";
                 break;
             case BRACKETS_ANGLE:
-                $open = '⟨';
-                $close = '⟩';
+                $text = "⟨{$text}⟩";
                 break;
         }
-        return "{$open}{$text}{$close}";
+        return $text;
     }
 }
 
@@ -101,36 +95,28 @@ if (!function_exists('format_bytes')) {
             'YB' => 8
         ]);
 
-    function format_bytes(int $bytes, ?string $unit = null, int $decimals = null): string
+    function format_bytes(int $bytes, ?string $unit = null, int $decimals = 2): string
     {
         $negative = is_negative($bytes);
-        if ($negative) {
-            $bytes = (int)abs($bytes);
-        }
+        $bytes = (int)\abs($bytes);
         $value = 0;
-        $unit = strtoupper($unit ?? '');
+        $unit = \strtoupper($unit ?? '');
         if ($bytes > 0) {
             // Generate automatic prefix by bytes
             // If wrong prefix given
-            if (!array_key_exists($unit, BYTES_UNITS)) {
-                $pow = (int)floor(log($bytes) / log(1024));
-                $unit = (string)array_search($pow, BYTES_UNITS, true);
+            if (!\array_key_exists($unit, BYTES_UNITS)) {
+                $pow = (int)\floor(\log($bytes) / \log(1024));
+                $unit = (string)\array_search($pow, BYTES_UNITS, true);
             }
             // Calculate byte value by prefix
-            $value = ($bytes / 1024 ** floor(BYTES_UNITS[$unit]));
+            $value = ($bytes / 1024 ** \floor(BYTES_UNITS[$unit]));
         } else {
             $unit = 'B';
         }
         if ($unit === 'B') {
             $decimals = 0;
         }
-        // If decimals is not numeric or decimals is less than 0
-        // set default value
-        if (!\is_numeric($decimals) || $decimals < 0) {
-            $decimals = 2;
-        } elseif ($decimals > 24) {
-            $decimals = 24;
-        }
+        $decimals = (int)bounds($decimals, 0, 24);
 
         // Format output
         return

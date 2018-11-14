@@ -48,35 +48,6 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals('"str', brackets('str', 100));
     }
 
-    /** @test */
-    public function FunctionFormatBytesProcessParametersCorrectly(): void
-    {
-        $this->assertEquals('1.00KB', format_bytes(1024, null, 2));
-        $this->assertEquals('1.000KB', format_bytes(1024, null, 3));
-        $this->assertEquals('1.000KB', format_bytes(1024, 1, 3));
-        $this->expectException('TypeError');
-        $this->assertEquals('1.000KB', format_bytes(1024, null, 'sdsd'));
-        $this->assertEquals('1.000KB', format_bytes(1024, [], 'sdsd'));
-    }
-
-    /** @test */
-    public function FunctionFormatBytesProcessFormattingCorrectly(): void
-    {
-        $this->assertEquals('1.00KB', format_bytes(1024 ** 1));
-        $this->assertEquals('1.00MB', format_bytes(1024 ** 2));
-        $this->assertEquals('1.00GB', format_bytes(1024 ** 3));
-        $this->assertEquals('1.00TB', format_bytes(1024 ** 4));
-        $this->assertEquals('1.00PB', format_bytes(1024 ** 5));
-    }
-
-    /** @test */
-    public function FunctionFormatBytesProcessBytesFormattingCorrectly(): void
-    {
-        $this->assertEquals('1024B', format_bytes(1024 ** 1, 'b'));
-        $this->assertEquals('1048576B', format_bytes(1024 ** 2, 'b'));
-        $this->assertEquals('23535235B', format_bytes(23535235, 'b'));
-    }
-
     /**
      * @test
      * @dataProvider  FormatBytesUsesUnitsCorrectlyProvider
@@ -85,24 +56,14 @@ class StringFunctionsTest extends TestCase
      * @param $unit
      * @param $decimals
      */
-    public function FunctionFormatBytesUsesUnitsCorrectly($expected, $bytes, $unit, $decimals): void
+    public function FunctionFormatBytes($expected, $bytes, $unit, $decimals): void
     {
-        $this->assertEquals($expected, format_bytes($bytes, $unit, $decimals));
-    }
+        if (null !== $decimals) {
+            $this->assertEquals($expected, format_bytes($bytes, $unit, $decimals));
+        } else {
+            $this->assertEquals($expected, format_bytes($bytes, $unit));
+        }
 
-    /** @test */
-    public function FunctionFormatBytesProcessNegativeCorrectly(): void
-    {
-        $this->assertEquals('-1024B', format_bytes(-1024, 'B'));
-        $this->assertEquals('-1.00KB', format_bytes(-1024));
-        $this->assertEquals('-1.18MB', format_bytes(-1234024));
-    }
-
-    /** @test */
-    public function FunctionFormatBytesProcessFloatCorrectly(): void
-    {
-        $this->assertEquals('1B', format_bytes(1.9));
-        $this->assertEquals('0B', format_bytes(0.3));
     }
 
     /** @test */
@@ -123,6 +84,8 @@ class StringFunctionsTest extends TestCase
     public function FormatBytesUsesUnitsCorrectlyProvider(): array
     {
         return [
+            ['1059MB', 1110235512, 'MB', -1,],
+            ['1059MB', 1110235512, 'MB', 0,],
             ['1058.8MB', 1110235512, 'MB', 1,],
             ['1058.80MB', 1110235512, 'MB', 2,],
             ['1058.803MB', 1110235512, 'MB', 3,],
@@ -139,12 +102,32 @@ class StringFunctionsTest extends TestCase
             ['1.0107KB', 1035, 'KB', 4],
             ['1.01074KB', 1035, 'KB', 5],
 
+            ['1.00KB', 1024 ** 1, null, null],
+            ['1.00MB', 1024 ** 2, null, null],
+            ['1.00GB', 1024 ** 3, null, null],
+            ['1.00TB', 1024 ** 4, null, null],
+            ['1.00PB', 1024 ** 5, null, null],
+
             ['1058.8MB', 1110235512, 'mB', 1],
             ['1058.80MB', 1110235512, 'Mb', 2],
             ['1084214.37KB', 1110235512, 'kb', 2],
 
+            ['1.00KB', 1024, null, 2],
+            ['1.000KB', 1024, null, 3],
+            ['1.000KB', 1024, 1, 3],
+
+            ['1024B', 1024 ** 1, 'b', null],
+            ['1048576B', 1024 ** 2, 'B', null],
+            ['23535235B', 23535235, 'b', null],
+
+            ['-1024B', -1024, 'B', null],
+            ['-1.00KB', -1024, null, null],
+            ['-1.18MB', -1234024, null, null],
+
+            ['1B', 1.9, null, null],
+            ['0B', 0.3, null, null],
+
             ['1058.803092956542968750000000MB', 1110235512, 'MB', 29,],
         ];
     }
-
 }

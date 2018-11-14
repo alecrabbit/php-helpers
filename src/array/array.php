@@ -13,9 +13,8 @@ if (!function_exists('formatted_array')) {
      * @param int $pad
      * @return iterable
      */
-    function formatted_array(array $data, ?int $columns = null, ?callable $callback = null, $pad = STR_PAD_RIGHT): iterable
+    function formatted_array(array $data, int $columns = 10, ?callable $callback = null, int $pad = STR_PAD_RIGHT): iterable
     {
-        $columns = $columns ?? 10;
         $result = [];
         $maxLen = 0;
         if ($callback) {
