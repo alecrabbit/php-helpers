@@ -5,20 +5,21 @@
  * Time: 13:21
  */
 
-if (!function_exists('env')) {
-    if (!\defined('STRING_TRUE')) {
-        define('STRING_TRUE', 'true');
-    }
-    if (!\defined('STRING_FALSE')) {
-        define('STRING_FALSE', 'false');
-    }
-    if (!\defined('STRING_EMPTY')) {
-        define('STRING_EMPTY', 'empty');
-    }
-    if (!\defined('STRING_NULL')) {
-        define('STRING_NULL', 'null');
-    }
+if (!\defined('HELPERS_STR_TRUE')) {
+    define('HELPERS_STR_TRUE', 'true');
+}
+if (!\defined('HELPERS_STR_FALSE')) {
+    define('HELPERS_STR_FALSE', 'false');
+}
+if (!\defined('HELPERS_STR_EMPTY')) {
+    define('HELPERS_STR_EMPTY', 'empty');
+}
+if (!\defined('HELPERS_STR_NULL')) {
+    define('HELPERS_STR_NULL', 'null');
+}
 
+
+if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable.
      *
@@ -35,16 +36,16 @@ if (!function_exists('env')) {
         $value = \ltrim(\rtrim($value, ')"'), '("');
 
         switch (strtolower($value)) {
-            case STRING_TRUE:
+            case HELPERS_STR_TRUE:
                 $value = true;
                 break;
-            case STRING_FALSE:
+            case HELPERS_STR_FALSE:
                 $value = false;
                 break;
-            case STRING_EMPTY:
+            case HELPERS_STR_EMPTY:
                 $value = '';
                 break;
-            case STRING_NULL:
+            case HELPERS_STR_NULL:
                 $value = null;
                 break;
         }
