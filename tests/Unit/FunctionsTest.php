@@ -4,6 +4,7 @@
  * Date: 14.11.18
  * Time: 15:23
  */
+declare(strict_types=1);
 
 namespace Unit;
 
@@ -55,9 +56,9 @@ class FunctionsTest extends TestCase
     {
         return [
             // [$expected, $variableName, $default],
-            [null, 'FOO_BAR', null],
-            [null, 'FOO_BAR', 'null'],
-            [null, 'FOO_BAR', '(null)'],
+            ['', 'FOO_BAR', null],
+            ['', 'FOO_BAR', 'null'],
+            ['', 'FOO_BAR', '(null)'],
             [true, 'FOO_BAR', true],
             [true, 'FOO_BAR', 'true'],
             [true, 'FOO_BAR', '(true)'],
@@ -85,7 +86,7 @@ class FunctionsTest extends TestCase
     {
         return [
             // [$expected, $variableName],
-            [null, 'FOO_BAR',],
+            ['', 'FOO_BAR',],
             [true, 'FOO_BAR',],
             [false, 'FOO_BAR'],
         ];
@@ -95,9 +96,9 @@ class FunctionsTest extends TestCase
     {
         return [
             // [$expected, $variableName, $putValue],
-            [null, 'FOO_BAR', null],
-            [null, 'FOO_BAR', 'null'],
-            [null, 'FOO_BAR', '(null)'],
+            ['', 'FOO_BAR', null],
+            ['', 'FOO_BAR', 'null'],
+            ['', 'FOO_BAR', '(null)'],
             [true, 'FOO_BAR', true],
             [true, 'FOO_BAR', 'true'],
             [true, 'FOO_BAR', '(true)'],

@@ -43,10 +43,8 @@ if (!function_exists('env')) {
                 $value = false;
                 break;
             case HELPERS_STR_EMPTY:
-                $value = '';
-                break;
             case HELPERS_STR_NULL:
-                $value = null;
+                $value = '';
                 break;
         }
 
