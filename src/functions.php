@@ -6,6 +6,19 @@
  */
 
 if (!function_exists('env')) {
+    if (!\defined('STRING_TRUE')) {
+        define('STRING_TRUE', 'true');
+    }
+    if (!\defined('STRING_FALSE')) {
+        define('STRING_FALSE', 'false');
+    }
+    if (!\defined('STRING_EMPTY')) {
+        define('STRING_EMPTY', 'empty');
+    }
+    if (!\defined('STRING_NULL')) {
+        define('STRING_NULL', 'null');
+    }
+
     /**
      * Gets the value of an environment variable.
      *
@@ -22,16 +35,16 @@ if (!function_exists('env')) {
         $value = \ltrim(\rtrim($value, ')"'), '("');
 
         switch (strtolower($value)) {
-            case 'true':
+            case STRING_TRUE:
                 $value = true;
                 break;
-            case 'false':
+            case STRING_FALSE:
                 $value = false;
                 break;
-            case 'empty':
+            case STRING_EMPTY:
                 $value = '';
                 break;
-            case 'null':
+            case STRING_NULL:
                 $value = null;
                 break;
         }

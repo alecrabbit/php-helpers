@@ -20,7 +20,7 @@ if (!function_exists('formatted_array')) {
             \array_walk($data, $callback);
         }
         $maxLength = arr_el_max_length($data);
-        
+
         while ($element = \array_shift($data)) {
             $tmp[] = \str_pad($element, $maxLength, ' ', $pad);
             if (\count($tmp) >= $columns) {
@@ -46,7 +46,9 @@ if (!function_exists('arr_el_max_length')) {
         $maxLength = 0;
         foreach ($data as $value) {
             $len = \strlen((string)$value);
-            $maxLength = $maxLength < $len ? $len : $maxLength;
+            if ($maxLength < $len) {
+                $maxLength = $len;
+            }
         }
         return $maxLength;
     }
