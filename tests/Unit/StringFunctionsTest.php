@@ -77,37 +77,17 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals('23535235B', format_bytes(23535235, 'b'));
     }
 
-    /** @test */
-    public function FunctionFormatBytesCalculatesKilobytesCorrectly(): void
-    {
-        // 1.010742188  = 1035 Bytes
-        $this->assertEquals('1.0KB', format_bytes(1035, 'KB', 1));
-        $this->assertEquals('1.01KB', format_bytes(1035, 'KB', 2));
-        $this->assertEquals('1.011KB', format_bytes(1035, 'KB', 3));
-        $this->assertEquals('1.0107KB', format_bytes(1035, 'KB', 4));
-        $this->assertEquals('1.01074KB', format_bytes(1035, 'KB', 5));
-    }
-
     /**
      * @test
-     * @dataProvider  FormatBytesCalculatesMegabytesCorrectlyProvider
+     * @dataProvider  FormatBytesUsesUnitsCorrectlyProvider
      * @param $expected
      * @param $bytes
      * @param $unit
      * @param $decimals
      */
-    public function FunctionFormatBytesCalculatesMegabytesCorrectly($expected, $bytes, $unit, $decimals): void
+    public function FunctionFormatBytesUsesUnitsCorrectly($expected, $bytes, $unit, $decimals): void
     {
         $this->assertEquals($expected, format_bytes($bytes, $unit, $decimals));
-    }
-
-    /** @test */
-    public function FunctionFormatBytesProcessesLowercaseCorrectly(): void
-    {
-        // 1058.803092957  = 1110235512 Bytes
-        $this->assertEquals('1058.8MB', format_bytes(1110235512, 'mB', 1));
-        $this->assertEquals('1058.80MB', format_bytes(1110235512, 'Mb', 2));
-        $this->assertEquals('1084214.37KB', format_bytes(1110235512, 'kb', 2));
     }
 
     /** @test */
@@ -140,7 +120,7 @@ class StringFunctionsTest extends TestCase
         }
     }
 
-    public function FormatBytesCalculatesMegabytesCorrectlyProvider(): array
+    public function FormatBytesUsesUnitsCorrectlyProvider(): array
     {
         return [
             ['1058.8MB', 1110235512, 'MB', 1,],
@@ -152,6 +132,17 @@ class StringFunctionsTest extends TestCase
             ['1058.8030930MB', 1110235512, 'MB', 7,],
             ['1058.80309296MB', 1110235512, 'MB', 8,],
             ['1058.803092957MB', 1110235512, 'MB', 9,],
+
+            ['1.0KB', 1035, 'KB', 1],
+            ['1.01KB', 1035, 'KB', 2],
+            ['1.011KB', 1035, 'KB', 3],
+            ['1.0107KB', 1035, 'KB', 4],
+            ['1.01074KB', 1035, 'KB', 5],
+
+            ['1058.8MB', 1110235512, 'mB', 1],
+            ['1058.80MB', 1110235512, 'Mb', 2],
+            ['1084214.37KB', 1110235512, 'kb', 2],
+
             ['1058.803092956542968750000000MB', 1110235512, 'MB', 29,],
         ];
     }
