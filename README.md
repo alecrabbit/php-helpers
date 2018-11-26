@@ -2,8 +2,7 @@
 
 PHP helpers are set of useful functions
 
-
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.2-8FA0BF.svg)](https://php.net/)
+[![PHP Version](https://img.shields.io/packagist/php-v/alecrabbit/helpers.svg)](https://github.com/alecrabbit/helpers)
 [![Build Status](https://travis-ci.com/alecrabbit/php-helpers.svg?branch=master)](https://travis-ci.org/alecrabbit/php-helpers)
 [![Latest Stable Version](https://poser.pugx.org/alecrabbit/php-helpers/v/stable)](https://packagist.org/packages/alecrabbit/php-helpers)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alecrabbit/php-helpers/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alecrabbit/php-helpers/?branch=master)
@@ -13,6 +12,16 @@ PHP helpers are set of useful functions
 [![Latest Unstable Version](https://poser.pugx.org/alecrabbit/php-helpers/v/unstable)](https://packagist.org/packages/alecrabbit/php-helpers)
 [![License](https://poser.pugx.org/alecrabbit/php-helpers/license)](https://packagist.org/packages/alecrabbit/php-helpers)
 
+
+### Functions
+
+##### typeOf()
+```php 
+typeOf(new \stdClass()); // string(8) "stdClass"
+typeOf('s'); // string(6) "string"
+typeOf(1); // string(7) "integer"
+typeOf(1.00); // string(6) "double"
+```
 
 ### Time functions
 

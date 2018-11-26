@@ -66,3 +66,17 @@ if (!function_exists('value')) {
                 $value() : $value;
     }
 }
+
+if (!function_exists('typeOf')) {
+    /**
+     * Returns the type of a variable.
+     *
+     * @param mixed $var
+     * @return string
+     */
+    function typeOf($var): string
+    {
+        return
+            \is_object($var) ? \get_class($var) : \gettype($var);
+    }
+}

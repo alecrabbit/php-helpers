@@ -116,4 +116,30 @@ class FunctionsTest extends TestCase
         ];
     }
 
+    /**
+     * @test
+     * @dataProvider typeOfDataProvider
+     * @param $expected
+     * @param $variable
+     */
+    public function FunctionTypeOf($expected, $variable): void
+    {
+        $this->assertEquals($expected, typeOf($variable));
+    }
+
+    public function typeOfDataProvider(): array
+    {
+        return [
+            // [$expected, $variable],
+            ['integer', 1],
+            ['double', 1.0],
+            ['boolean', true],
+            ['NULL', null],
+            ['array', []],
+            ['Closure', function () {}],
+            ['stdClass', new \stdClass()],
+            ['string', 'sss'],
+            [__CLASS__, $this],
+        ];
+    }
 }
