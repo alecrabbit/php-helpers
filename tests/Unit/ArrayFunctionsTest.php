@@ -97,6 +97,7 @@ class ArrayFunctionsTest extends TestCase
     public function unsetFirstDataProvider(): array
     {
         return [
+            [[], []],
             [[], [1]],
             [[1 => 1], [0 => 0, 1 => 1]],
             [[1 => 'a'], [0 => 'b', 1 => 'a']],

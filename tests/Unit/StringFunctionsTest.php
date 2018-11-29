@@ -81,6 +81,23 @@ class StringFunctionsTest extends TestCase
         }
     }
 
+    /**
+     * @test
+     * @dataProvider functionFormatTimeDataProvider
+     * @param $expected
+     * @param $value
+     * @param $units
+     * @param $precision
+     */
+    public function functionFormatTime($expected, $value, $units, $precision): void
+    {
+        if (null === $precision) {
+            $this->assertEquals($expected, format_time($value, $units));
+        } else {
+            $this->assertEquals($expected, format_time($value, $units, $precision));
+        }
+    }
+
     public function FormatBytesUsesUnitsCorrectlyProvider(): array
     {
         return [
@@ -128,6 +145,25 @@ class StringFunctionsTest extends TestCase
             ['0B', 0.3, null, null],
 
             ['1058.803092956542968750000000MB', 1110235512, 'MB', 29,],
+        ];
+    }
+
+    public function functionFormatTimeDataProvider(): array
+    {
+        return [
+            // [$expected, $value],
+            ['100ms', 0.1, null, null],
+            ['0.01μs', 0.00000001, UNIT_MICROSECONDS, null],
+            ['1000ms', 1.0000000001, null, 7],
+            ['1000.01ms', 1.00001, null, 7],
+            ['0.000278h', 1.0000000001, UNIT_HOURS, 7],
+            ['0.000278h', 1.0000000001, UNIT_HOURS, 6],
+            ['0.017m', 1.0000000001, UNIT_MINUTES, 3],
+            ['0.016667m', 1.0000000001, UNIT_MINUTES, 7],
+            ['0.016667m', 1.0000000001, UNIT_MINUTES, 6],
+            ['1s', 1.0000000001, UNIT_SECONDS, 7],
+            ['1.02s', 1.02, UNIT_SECONDS, 7],
+            ['1.02s', 1.02, UNIT_SECONDS, 4],
         ];
     }
 }

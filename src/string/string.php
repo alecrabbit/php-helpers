@@ -10,7 +10,8 @@ define('BRACKETS_CURLY', 20); // {}
 define('BRACKETS_PARENTHESES', 30); // ()
 define('BRACKETS_ANGLE', 40); //  ⟨⟩
 
-define('BRACKETS_SUPPORTED',
+define(
+    'BRACKETS_SUPPORTED',
     [
         BRACKETS_SQUARE,
         BRACKETS_CURLY,
@@ -36,7 +37,7 @@ if (!function_exists('tag')) {
 if (!function_exists('brackets')) {
     /**
      * @param string $text
-     * @param int|null $brackets
+     * @param int $brackets
      * @return string
      */
     function brackets(string $text, int $brackets = BRACKETS_SQUARE): string
@@ -93,12 +94,14 @@ if (!function_exists('format_bytes')) {
             'EB' => 6,
             'ZB' => 7,
             'YB' => 8
-        ]);
+        ]
+    );
 
     function format_bytes(int $bytes, ?string $unit = null, int $decimals = 2): string
     {
         $negative = is_negative($bytes);
-        $bytes = (int)\abs($bytes);
+        /** @noinspection CallableParameterUseCaseInTypeContextInspection */
+        $bytes = \abs($bytes);
         $value = 0;
         $unit = \strtoupper($unit ?? '');
         if ($bytes > 0) {
@@ -121,5 +124,52 @@ if (!function_exists('format_bytes')) {
         // Format output
         return
             sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
+    }
+}
+
+if (!function_exists('format_time')) {
+    define('DEFAULT_PRECISION', 3);
+    define('UNIT_MICROSECONDS', 1001);
+    define('UNIT_MILLISECONDS', 1002);
+    define('UNIT_SECONDS', 1003);
+    define('UNIT_MINUTES', 1004);
+    define('UNIT_HOURS', 1005);
+
+    function format_time(?float $value, ?int $units = null, int $precision = DEFAULT_PRECISION): string
+    {
+        $units = $units ?? UNIT_MILLISECONDS;
+        $precision = (int)bounds($precision, 0, 6);
+        $value = $value ?? 0.0;
+        $suffix = 'ms';
+        $coefficient = 1000;
+
+        switch ($units) {
+            case UNIT_HOURS:
+                $suffix = 'h';
+                $coefficient = 1 / 3600;
+                break;
+            case UNIT_MINUTES:
+                $suffix = 'm';
+                $coefficient = 1 / 60;
+                break;
+            case UNIT_SECONDS:
+                $suffix = 's';
+                $coefficient = 1;
+                break;
+            case UNIT_MILLISECONDS:
+                $suffix = 'ms';
+                $coefficient = 1000;
+                break;
+            case UNIT_MICROSECONDS:
+                $suffix = 'μs';
+                $coefficient = 1000000;
+                break;
+        }
+        return
+            sprintf(
+                '%s%s',
+                round($value * $coefficient, $precision),
+                $suffix
+            );
     }
 }

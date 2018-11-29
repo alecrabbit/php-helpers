@@ -8,19 +8,23 @@
 if (!function_exists('formatted_array')) {
     /**
      * @param array $data
-     * @param int|null $columns
+     * @param int $columns
      * @param callable|null $callback
      * @param int $pad
      * @return iterable
      */
-    function formatted_array(array $data, int $columns = 10, ?callable $callback = null, int $pad = STR_PAD_RIGHT): iterable
-    {
+    function formatted_array(
+        array $data,
+        int $columns = 10,
+        ?callable $callback = null,
+        int $pad = STR_PAD_RIGHT
+    ): iterable {
         $result = [];
         if ($callback) {
             \array_walk($data, $callback);
         }
         $maxLength = arr_el_max_length($data);
-
+        $tmp = [];
         while ($element = \array_shift($data)) {
             $tmp[] = \str_pad($element, $maxLength, ' ', $pad);
             if (\count($tmp) >= $columns) {
@@ -59,7 +63,9 @@ if (!function_exists('unset_first')) {
     function unset_first(array $data): iterable
     {
         $key = array_key_first($data);
-        unset($data[$key]);
+        if (null !== $key) {
+            unset($data[$key]);
+        }
         return $data;
     }
 }

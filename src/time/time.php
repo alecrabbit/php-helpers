@@ -11,6 +11,7 @@ if (!function_exists('now')) {
      *
      * @param  \DateTimeZone|string|null $tz
      * @return \Carbon\Carbon
+     * @throws Exception
      */
     function now($tz = null)
     {
