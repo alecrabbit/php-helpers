@@ -66,7 +66,12 @@ str_decorate('text', '"', '"'); // string(6) ""text""
 ```php 
 format_bytes(234141) // string(8) "228.65KB"
 format_bytes(2112441234141, 'mb', 4); // string(14) "2014580.9499MB"
+```
 
+##### format_time()
+```php 
+format_time(0.00001, UNIT_MICROSECONDS); //string(5) "10μs"
+format_time(1); //string(5) "1000ms"
 ```
 
 ### Array functions
