@@ -7,18 +7,18 @@
 
 namespace AlecRabbit;
 
-use const AlecRabbit\Constants\STR_EMPTY;
-use const AlecRabbit\Constants\STR_FALSE;
-use const AlecRabbit\Constants\STR_NULL;
-use const AlecRabbit\Constants\STR_TRUE;
+use const AlecRabbit\Constants\String\STR_EMPTY;
+use const AlecRabbit\Constants\String\STR_FALSE;
+use const AlecRabbit\Constants\String\STR_NULL;
+use const AlecRabbit\Constants\String\STR_TRUE;
 
-    /**
-     * Gets the value of an environment variable.
-     *
-     * @param  string $key
-     * @param  mixed $default
-     * @return mixed
-     */
+/**
+ * Gets the value of an environment variable.
+ *
+ * @param  string $key
+ * @param  mixed $default
+ * @return mixed
+ */
 function env($key, $default = null)
 {
     if (false === $value = \getenv($key)) {
@@ -43,12 +43,12 @@ function env($key, $default = null)
     return $value;
 }
 
-    /**
-     * Return the default value of the given value.
-     *
-     * @param  mixed $value
-     * @return mixed
-     */
+/**
+ * Return the default value of the given value.
+ *
+ * @param  mixed $value
+ * @return mixed
+ */
 function value($value)
 {
     return
@@ -56,12 +56,12 @@ function value($value)
             $value() : $value;
 }
 
-    /**
-     * Returns the type of a variable.
-     *
-     * @param mixed $var
-     * @return string
-     */
+/**
+ * Returns the type of a variable.
+ *
+ * @param mixed $var
+ * @return string
+ */
 function typeOf($var): string
 {
     return
