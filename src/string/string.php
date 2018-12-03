@@ -20,6 +20,23 @@ define(
     ]
 );
 
+define('TIME_DEFAULT_PRECISION', 3);
+define('TIME_UNIT_MICROSECONDS', 1001);
+define('TIME_UNIT_MILLISECONDS', 1002);
+define('TIME_UNIT_SECONDS', 1003);
+define('TIME_UNIT_MINUTES', 1004);
+define('TIME_UNIT_HOURS', 1005);
+
+define(
+    'TIME_UNITS',
+    [
+        TIME_UNIT_MICROSECONDS => 'μs',
+        TIME_UNIT_MILLISECONDS => 'ms',
+        TIME_UNIT_SECONDS => 's',
+        TIME_UNIT_MINUTES => 'm',
+        TIME_UNIT_HOURS => 'h',
+    ]
+);
 
 if (!function_exists('tag')) {
     /**

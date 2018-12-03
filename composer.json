@@ -14,7 +14,11 @@
     },
     "license": "MIT",
     "autoload": {
+        "psr-4": {
+            "AlecRabbit\\": "src"
+        },
         "files": [
+            "src/constants.php",
             "src/functions.php",
             "src/numeric/numeric.php",
             "src/time/time.php",
