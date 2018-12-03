@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Unit;
 
 
+use function AlecRabbit\env;
+use function AlecRabbit\typeOf;
 use PHPUnit\Framework\TestCase;
 
 class FunctionsTest extends TestCase
