@@ -25,6 +25,7 @@ echo typeOf(1); // string(7) "integer"
 
 ##### typeOf()
 ```php 
+typeOf(new \AlecRabbit\SomeSpace\SomeClass()); // string(30) "AlecRabbit\SomeSpace\SomeClass"
 typeOf(new \stdClass()); // string(8) "stdClass"
 typeOf('s'); // string(6) "string"
 typeOf(1); // string(7) "integer"
