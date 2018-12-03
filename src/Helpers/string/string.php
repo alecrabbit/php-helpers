@@ -14,6 +14,8 @@ use const \AlecRabbit\Constants\BRACKETS_SQUARE;
 use const \AlecRabbit\Constants\BRACKETS_SUPPORTED;
 use const \AlecRabbit\Constants\DEFAULT_PRECISION;
 use const \AlecRabbit\Constants\String\BYTES_UNITS;
+use const AlecRabbit\Constants\String\TIME_COEFFICIENTS;
+use const AlecRabbit\Constants\String\TIME_UNITS;
 use const \AlecRabbit\Constants\UNIT_HOURS;
 use const \AlecRabbit\Constants\UNIT_MICROSECONDS;
 use const \AlecRabbit\Constants\UNIT_MILLISECONDS;
@@ -111,35 +113,10 @@ function format_time(?float $value, ?int $units = null, int $precision = DEFAULT
     $units = $units ?? UNIT_MILLISECONDS;
     $precision = (int)bounds($precision, 0, 6);
     $value = $value ?? 0.0;
-    $suffix = 'ms';
-    $coefficient = 1000;
-
-    switch ($units) {
-        case UNIT_HOURS:
-            $suffix = 'h';
-            $coefficient = 1 / 3600;
-            break;
-        case UNIT_MINUTES:
-            $suffix = 'm';
-            $coefficient = 1 / 60;
-            break;
-        case UNIT_SECONDS:
-            $suffix = 's';
-            $coefficient = 1;
-            break;
-        case UNIT_MILLISECONDS:
-            $suffix = 'ms';
-            $coefficient = 1000;
-            break;
-        case UNIT_MICROSECONDS:
-            $suffix = 'μs';
-            $coefficient = 1000000;
-            break;
-    }
     return
         sprintf(
             '%s%s',
-            round($value * $coefficient, $precision),
-            $suffix
+            round($value * TIME_COEFFICIENTS[$units], $precision),
+            TIME_UNITS[$units]
         );
 }

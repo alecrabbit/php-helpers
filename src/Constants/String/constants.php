@@ -4,14 +4,15 @@
  * Date: 02.12.18
  * Time: 21:17
  */
+
 // @codeCoverageIgnoreStart
 namespace AlecRabbit\Constants\String {
 
-    use const \AlecRabbit\Constants\UNIT_HOURS;
-    use const \AlecRabbit\Constants\UNIT_MICROSECONDS;
-    use const \AlecRabbit\Constants\UNIT_MILLISECONDS;
-    use const \AlecRabbit\Constants\UNIT_MINUTES;
-    use const \AlecRabbit\Constants\UNIT_SECONDS;
+    use const AlecRabbit\Constants\UNIT_HOURS;
+    use const AlecRabbit\Constants\UNIT_MICROSECONDS;
+    use const AlecRabbit\Constants\UNIT_MILLISECONDS;
+    use const AlecRabbit\Constants\UNIT_MINUTES;
+    use const AlecRabbit\Constants\UNIT_SECONDS;
 
     const TIME_UNITS = [
         UNIT_MICROSECONDS => 'μs',
@@ -19,6 +20,14 @@ namespace AlecRabbit\Constants\String {
         UNIT_SECONDS => 's',
         UNIT_MINUTES => 'm',
         UNIT_HOURS => 'h',
+    ];
+
+    const TIME_COEFFICIENTS = [
+        UNIT_MICROSECONDS => 1000000,
+        UNIT_MILLISECONDS => 1000,
+        UNIT_SECONDS => 1,
+        UNIT_MINUTES => 1 / 60,
+        UNIT_HOURS => 1 / 3600,
     ];
 
     const STR_TRUE = 'true';
