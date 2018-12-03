@@ -5,6 +5,7 @@
  * Time: 21:17
  */
 
+// @codeCoverageIgnoreStart
 namespace AlecRabbit\Constants {
 
     const DEFAULT_PRECISION = 3;

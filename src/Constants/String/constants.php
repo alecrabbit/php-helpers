@@ -4,7 +4,7 @@
  * Date: 02.12.18
  * Time: 21:17
  */
-
+// @codeCoverageIgnoreStart
 namespace AlecRabbit\Constants\String {
 
     use const \AlecRabbit\Constants\UNIT_HOURS;
