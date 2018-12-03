@@ -8,6 +8,10 @@
 namespace Unit;
 
 
+use function AlecRabbit\Helpers\bc_bounds;
+use function AlecRabbit\Helpers\bounds;
+use function AlecRabbit\Helpers\is_negative;
+use function AlecRabbit\Helpers\trim_zeros;
 use PHPUnit\Framework\TestCase;
 
 class NumericFunctionsTest extends TestCase
