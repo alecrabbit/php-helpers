@@ -7,7 +7,7 @@
 
 if (!function_exists('is_negative')) {
     /**
-     * @param $value bool|float|int|null
+     * @param bool|float|int|null $value
      * @return bool
      */
     function is_negative($value): bool

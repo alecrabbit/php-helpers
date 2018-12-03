@@ -5,30 +5,19 @@
  * Time: 13:21
  */
 
-
-
-if (!function_exists('find_files')) {
-    /**
-     * Find all files in directory recursively matching the regex, by default searches for *.php files
-     *
-     * @param string $path
-     * @param string $regex
-     * @return array
-     */
-    function find_files(string $path, string $regex = '/^.+\.php$/i')
-    {
-        $files = [];
-        $dir = new RecursiveDirectoryIterator($path);
-        $iterator = new RecursiveIteratorIterator($dir);
-        foreach ($iterator as $file) {
-            $filename = $file->getFilename();
-            if (preg_match($regex, $filename)) {
-                $files[] = $file->getPathname();
-            }
-        }
-        return $files;
-    }
+if (!\defined('HELPERS_STR_TRUE')) {
+    define('HELPERS_STR_TRUE', 'true');
 }
+if (!\defined('HELPERS_STR_FALSE')) {
+    define('HELPERS_STR_FALSE', 'false');
+}
+if (!\defined('HELPERS_STR_EMPTY')) {
+    define('HELPERS_STR_EMPTY', 'empty');
+}
+if (!\defined('HELPERS_STR_NULL')) {
+    define('HELPERS_STR_NULL', 'null');
+}
+
 
 if (!function_exists('env')) {
     /**
@@ -40,29 +29,23 @@ if (!function_exists('env')) {
      */
     function env($key, $default = null)
     {
-        $value = getenv($key);
-
-        if ($value === false) {
-            return value($default);
+        if (false === $value = getenv($key)) {
+            $value = value($default);
         }
+
+        $value = \ltrim(\rtrim($value, ')"'), '("');
 
         switch (strtolower($value)) {
-            case 'true':
-            case '(true)':
-                return true;
-            case 'false':
-            case '(false)':
-                return false;
-            case 'empty':
-            case '(empty)':
-                return '';
-            case 'null':
-            case '(null)':
-                return null;
-        }
-
-        if (($valueLength = strlen($value)) > 1 && $value[0] === '"' && $value[$valueLength - 1] === '"') {
-            return substr($value, 1, -1);
+            case HELPERS_STR_TRUE:
+                $value = true;
+                break;
+            case HELPERS_STR_FALSE:
+                $value = false;
+                break;
+            case HELPERS_STR_EMPTY:
+            case HELPERS_STR_NULL:
+                $value = '';
+                break;
         }
 
         return $value;
@@ -78,6 +61,22 @@ if (!function_exists('value')) {
      */
     function value($value)
     {
-        return $value instanceof Closure ? $value() : $value;
+        return
+            $value instanceof Closure ?
+                $value() : $value;
+    }
+}
+
+if (!function_exists('typeOf')) {
+    /**
+     * Returns the type of a variable.
+     *
+     * @param mixed $var
+     * @return string
+     */
+    function typeOf($var): string
+    {
+        return
+            \is_object($var) ? \get_class($var) : \gettype($var);
     }
 }
