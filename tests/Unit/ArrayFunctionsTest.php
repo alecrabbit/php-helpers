@@ -8,12 +8,12 @@
 namespace Unit;
 
 
-use function AlecRabbit\arr_el_max_length;
-use function AlecRabbit\array_key_first;
-use function AlecRabbit\array_key_last;
-use function AlecRabbit\brackets;
-use function AlecRabbit\formatted_array;
-use function AlecRabbit\unset_first;
+use function \AlecRabbit\arr_el_max_length;
+use function \AlecRabbit\array_key_first;
+use function \AlecRabbit\array_key_last;
+use function \AlecRabbit\brackets;
+use function \AlecRabbit\formatted_array;
+use function \AlecRabbit\unset_first;
 use PHPUnit\Framework\TestCase;
 
 class ArrayFunctionsTest extends TestCase

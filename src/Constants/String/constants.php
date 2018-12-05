@@ -8,11 +8,11 @@
 // @codeCoverageIgnoreStart
 namespace AlecRabbit\Constants\String {
 
-    use const AlecRabbit\Constants\UNIT_HOURS;
-    use const AlecRabbit\Constants\UNIT_MICROSECONDS;
-    use const AlecRabbit\Constants\UNIT_MILLISECONDS;
-    use const AlecRabbit\Constants\UNIT_MINUTES;
-    use const AlecRabbit\Constants\UNIT_SECONDS;
+    use const \AlecRabbit\Constants\UNIT_HOURS;
+    use const \AlecRabbit\Constants\UNIT_MICROSECONDS;
+    use const \AlecRabbit\Constants\UNIT_MILLISECONDS;
+    use const \AlecRabbit\Constants\UNIT_MINUTES;
+    use const \AlecRabbit\Constants\UNIT_SECONDS;
 
     const TIME_UNITS = [
         UNIT_MICROSECONDS => 'μs',

@@ -16,7 +16,7 @@ All functions are in `AlecRabbit` namespace
 
 ### Usage
 ```php 
-use function AlecRabbit\typeOf;
+use function \AlecRabbit\typeOf;
 
 echo typeOf(1); // string(7) "integer"
 ```
