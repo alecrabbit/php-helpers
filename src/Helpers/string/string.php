@@ -7,18 +7,22 @@
 
 namespace AlecRabbit;
 
-use function \AlecRabbit\Helpers\bounds;
-use function \AlecRabbit\Helpers\is_negative;
-use const \AlecRabbit\Constants\BRACKETS_ANGLE;
-use const \AlecRabbit\Constants\BRACKETS_CURLY;
-use const \AlecRabbit\Constants\BRACKETS_PARENTHESES;
-use const \AlecRabbit\Constants\BRACKETS_SQUARE;
-use const \AlecRabbit\Constants\BRACKETS_SUPPORTED;
-use const \AlecRabbit\Constants\DEFAULT_PRECISION;
-use const \AlecRabbit\Constants\String\BYTES_UNITS;
-use const \AlecRabbit\Constants\String\TIME_COEFFICIENTS;
-use const \AlecRabbit\Constants\String\TIME_UNITS;
-use const \AlecRabbit\Constants\UNIT_MILLISECONDS;
+use function AlecRabbit\Helpers\bounds;
+use function AlecRabbit\Helpers\is_negative;
+use const AlecRabbit\Constants\BRACKETS_ANGLE;
+use const AlecRabbit\Constants\BRACKETS_CURLY;
+use const AlecRabbit\Constants\BRACKETS_PARENTHESES;
+use const AlecRabbit\Constants\BRACKETS_SQUARE;
+use const AlecRabbit\Constants\BRACKETS_SUPPORTED;
+use const AlecRabbit\Constants\DEFAULT_PRECISION;
+use const AlecRabbit\Constants\String\BYTES_UNITS;
+use const AlecRabbit\Constants\String\TIME_COEFFICIENTS;
+use const AlecRabbit\Constants\String\TIME_UNITS;
+use const AlecRabbit\Constants\UNIT_HOURS;
+use const AlecRabbit\Constants\UNIT_MILLISECONDS;
+use const AlecRabbit\Constants\UNIT_MINUTES;
+use const AlecRabbit\Constants\UNIT_SECONDS;
+use const AlecRabbit\Constants\UNITS;
 
 /**
  * @param string $text
@@ -115,4 +119,28 @@ function format_time(?float $value, ?int $units = null, int $precision = DEFAULT
             round($value * TIME_COEFFICIENTS[$units], $precision),
             TIME_UNITS[$units]
         );
+}
+
+function format_time_auto(float $value): string
+{
+    if ($value > 10000) {
+        return format_time($value, UNIT_HOURS, 3);
+    }
+    if ($value > 1000) {
+        return format_time($value, UNIT_MINUTES, 2);
+    }
+    if ($value > 100) {
+        return format_time($value, UNIT_SECONDS, 0);
+    }
+    $pow =
+        (int)bounds(
+            \abs(
+                \floor(
+                    \log($value) / \log(1000)
+                )
+            ),
+            0,
+            3
+        );
+    return \round($value * 1000 ** $pow, 1) . TIME_UNITS[UNITS[$pow]];
 }

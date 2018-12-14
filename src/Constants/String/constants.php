@@ -12,9 +12,11 @@ namespace AlecRabbit\Constants\String {
     use const \AlecRabbit\Constants\UNIT_MICROSECONDS;
     use const \AlecRabbit\Constants\UNIT_MILLISECONDS;
     use const \AlecRabbit\Constants\UNIT_MINUTES;
+    use const AlecRabbit\Constants\UNIT_NANOSECONDS;
     use const \AlecRabbit\Constants\UNIT_SECONDS;
 
     const TIME_UNITS = [
+        UNIT_NANOSECONDS => 'ns',
         UNIT_MICROSECONDS => 'μs',
         UNIT_MILLISECONDS => 'ms',
         UNIT_SECONDS => 's',
@@ -23,6 +25,7 @@ namespace AlecRabbit\Constants\String {
     ];
 
     const TIME_COEFFICIENTS = [
+        UNIT_NANOSECONDS => 1000000000,
         UNIT_MICROSECONDS => 1000000,
         UNIT_MILLISECONDS => 1000,
         UNIT_SECONDS => 1,
