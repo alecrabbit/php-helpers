@@ -8,8 +8,8 @@
 namespace Unit;
 
 
-use function AlecRabbit\base_timestamp;
-use function AlecRabbit\now;
+use function \AlecRabbit\base_timestamp;
+use function \AlecRabbit\now;
 use Carbon\Carbon;
 use PHPUnit\Framework\TestCase;
 

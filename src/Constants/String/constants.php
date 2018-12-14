@@ -5,6 +5,7 @@
  * Time: 21:17
  */
 
+// @codeCoverageIgnoreStart
 namespace AlecRabbit\Constants\String {
 
     use const \AlecRabbit\Constants\UNIT_HOURS;
@@ -19,6 +20,14 @@ namespace AlecRabbit\Constants\String {
         UNIT_SECONDS => 's',
         UNIT_MINUTES => 'm',
         UNIT_HOURS => 'h',
+    ];
+
+    const TIME_COEFFICIENTS = [
+        UNIT_MICROSECONDS => 1000000,
+        UNIT_MILLISECONDS => 1000,
+        UNIT_SECONDS => 1,
+        UNIT_MINUTES => 1 / 60,
+        UNIT_HOURS => 1 / 3600,
     ];
 
     const STR_TRUE = 'true';

@@ -12,11 +12,20 @@ PHP helpers are set of useful functions
 [![Latest Unstable Version](https://poser.pugx.org/alecrabbit/php-helpers/v/unstable)](https://packagist.org/packages/alecrabbit/php-helpers)
 [![License](https://poser.pugx.org/alecrabbit/php-helpers/license)](https://packagist.org/packages/alecrabbit/php-helpers)
 
+All functions are in `AlecRabbit` namespace
+
+### Usage
+```php 
+use function \AlecRabbit\typeOf;
+
+echo typeOf(1); // string(7) "integer"
+```
 
 ### Functions
 
 ##### typeOf()
 ```php 
+typeOf(new \AlecRabbit\SomeSpace\SomeClass()); // string(30) "AlecRabbit\SomeSpace\SomeClass"
 typeOf(new \stdClass()); // string(8) "stdClass"
 typeOf('s'); // string(6) "string"
 typeOf(1); // string(7) "integer"
