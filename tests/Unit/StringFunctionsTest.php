@@ -8,20 +8,21 @@
 namespace Unit;
 
 
-use function \AlecRabbit\brackets;
-use const \AlecRabbit\Constants\BRACKETS_ANGLE;
-use const \AlecRabbit\Constants\BRACKETS_CURLY;
-use const \AlecRabbit\Constants\BRACKETS_PARENTHESES;
-use const \AlecRabbit\Constants\BRACKETS_SQUARE;
-use const \AlecRabbit\Constants\UNIT_HOURS;
-use const \AlecRabbit\Constants\UNIT_MICROSECONDS;
-use const \AlecRabbit\Constants\UNIT_MINUTES;
-use const \AlecRabbit\Constants\UNIT_SECONDS;
-use function \AlecRabbit\format_bytes;
-use function \AlecRabbit\format_time;
-use function \AlecRabbit\str_decorate;
-use function \AlecRabbit\tag;
+use function AlecRabbit\format_time_auto;
 use PHPUnit\Framework\TestCase;
+use function AlecRabbit\brackets;
+use function AlecRabbit\format_bytes;
+use function AlecRabbit\format_time;
+use function AlecRabbit\str_decorate;
+use function AlecRabbit\tag;
+use const AlecRabbit\Constants\BRACKETS_ANGLE;
+use const AlecRabbit\Constants\BRACKETS_CURLY;
+use const AlecRabbit\Constants\BRACKETS_PARENTHESES;
+use const AlecRabbit\Constants\BRACKETS_SQUARE;
+use const AlecRabbit\Constants\UNIT_HOURS;
+use const AlecRabbit\Constants\UNIT_MICROSECONDS;
+use const AlecRabbit\Constants\UNIT_MINUTES;
+use const AlecRabbit\Constants\UNIT_SECONDS;
 
 class StringFunctionsTest extends TestCase
 {
@@ -111,6 +112,17 @@ class StringFunctionsTest extends TestCase
         }
     }
 
+    /**
+     * @test
+     * @dataProvider functionFormatTimeAutoDataProvider
+     * @param $expected
+     * @param $value
+     */
+    public function functionFormatTimeAuto($expected, $value): void
+    {
+        $this->assertEquals($expected, format_time_auto($value));
+    }
+
     public function FormatBytesUsesUnitsCorrectlyProvider(): array
     {
         return [
@@ -177,6 +189,31 @@ class StringFunctionsTest extends TestCase
             ['1s', 1.0000000001, UNIT_SECONDS, 7],
             ['1.02s', 1.02, UNIT_SECONDS, 7],
             ['1.02s', 1.02, UNIT_SECONDS, 4],
+        ];
+    }
+
+    public function functionFormatTimeAutoDataProvider(): array
+    {
+        return [
+            // [$expected, $value],
+            ['1.2s', 1.2],
+            ['1s', 1],
+            ['100ms', 0.1],
+            ['135.2ms', 0.135235555],
+            ['1ms', 0.001],
+            ['100μs', 0.0001,],
+            ['1μs', 0.000001,],
+            ['10ns', 0.00000001,],
+//            ['1000ms', 1.0000000001,],
+//            ['1000.01ms', 1.00001,],
+//            ['0.000278h', 1.0000000001,],
+//            ['0.000278h', 1.0000000001,],
+//            ['0.017m', 1.0000000001,],
+//            ['0.016667m', 1.0000000001,],
+//            ['0.016667m', 1.0000000001,],
+//            ['1s', 1.0000000001,],
+//            ['1.02s', 1.02,],
+//            ['1.02s', 1.02,],
         ];
     }
 }
