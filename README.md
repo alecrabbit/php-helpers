@@ -83,6 +83,13 @@ format_time(0.00001, UNIT_MICROSECONDS); //string(5) "10μs"
 format_time(1); //string(5) "1000ms"
 ```
 
+##### format_time_auto()
+```php 
+format_time_auto(0.00000001); //string(4) "10ns"
+format_time_auto(0.00001); //string(5) "10μs"
+format_time_auto(1); //string(2) "1s"
+```
+
 ### Array functions
 
 ##### formatted_array()
