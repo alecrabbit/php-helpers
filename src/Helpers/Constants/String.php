@@ -15,7 +15,6 @@ use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
 use const AlecRabbit\Helpers\Constants\UNIT_NANOSECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 
-
 define(__NAMESPACE__ . '\TIME_UNITS', [
     UNIT_NANOSECONDS => 'ns',
     UNIT_MICROSECONDS => 'μs',
