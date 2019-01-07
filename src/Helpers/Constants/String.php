@@ -6,14 +6,14 @@
  */
 
 // @codeCoverageIgnoreStart
-namespace AlecRabbit\Constants\String {
+namespace AlecRabbit\Helpers\Constants\String {
 
-    use const \AlecRabbit\Constants\UNIT_HOURS;
-    use const \AlecRabbit\Constants\UNIT_MICROSECONDS;
-    use const \AlecRabbit\Constants\UNIT_MILLISECONDS;
-    use const \AlecRabbit\Constants\UNIT_MINUTES;
-    use const AlecRabbit\Constants\UNIT_NANOSECONDS;
-    use const \AlecRabbit\Constants\UNIT_SECONDS;
+    use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
+    use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
+    use const AlecRabbit\Helpers\Constants\UNIT_MILLISECONDS;
+    use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
+    use const AlecRabbit\Helpers\Constants\UNIT_NANOSECONDS;
+    use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 
     const TIME_UNITS = [
         UNIT_NANOSECONDS => 'ns',
@@ -47,6 +47,6 @@ namespace AlecRabbit\Constants\String {
         'PB' => 5,
         'EB' => 6,
         'ZB' => 7,
-        'YB' => 8
+        'YB' => 8,
     ];
 }

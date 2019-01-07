@@ -9,20 +9,20 @@ namespace AlecRabbit;
 
 use function AlecRabbit\Helpers\bounds;
 use function AlecRabbit\Helpers\is_negative;
-use const AlecRabbit\Constants\BRACKETS_ANGLE;
-use const AlecRabbit\Constants\BRACKETS_CURLY;
-use const AlecRabbit\Constants\BRACKETS_PARENTHESES;
-use const AlecRabbit\Constants\BRACKETS_SQUARE;
-use const AlecRabbit\Constants\BRACKETS_SUPPORTED;
-use const AlecRabbit\Constants\DEFAULT_PRECISION;
-use const AlecRabbit\Constants\String\BYTES_UNITS;
-use const AlecRabbit\Constants\String\TIME_COEFFICIENTS;
-use const AlecRabbit\Constants\String\TIME_UNITS;
-use const AlecRabbit\Constants\UNIT_HOURS;
-use const AlecRabbit\Constants\UNIT_MILLISECONDS;
-use const AlecRabbit\Constants\UNIT_MINUTES;
-use const AlecRabbit\Constants\UNIT_SECONDS;
-use const AlecRabbit\Constants\UNITS;
+use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
+use const AlecRabbit\Helpers\Constants\BRACKETS_CURLY;
+use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
+use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
+use const AlecRabbit\Helpers\Constants\BRACKETS_SUPPORTED;
+use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
+use const AlecRabbit\Helpers\Constants\String\BYTES_UNITS;
+use const AlecRabbit\Helpers\Constants\String\TIME_COEFFICIENTS;
+use const AlecRabbit\Helpers\Constants\String\TIME_UNITS;
+use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
+use const AlecRabbit\Helpers\Constants\UNIT_MILLISECONDS;
+use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
+use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
+use const AlecRabbit\Helpers\Constants\UNITS;
 
 /**
  * @param string $text

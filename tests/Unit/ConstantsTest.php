@@ -8,10 +8,10 @@
 namespace Unit;
 
 
-use const \AlecRabbit\Constants\String\STR_TRUE;
-use const \AlecRabbit\Constants\String\STR_FALSE;
-use const \AlecRabbit\Constants\String\STR_EMPTY;
-use const \AlecRabbit\Constants\String\STR_NULL;
+use const \AlecRabbit\Helpers\Constants\String\STR_TRUE;
+use const \AlecRabbit\Helpers\Constants\String\STR_FALSE;
+use const \AlecRabbit\Helpers\Constants\String\STR_EMPTY;
+use const \AlecRabbit\Helpers\Constants\String\STR_NULL;
 use PHPUnit\Framework\TestCase;
 
 class ConstantsTest extends TestCase
