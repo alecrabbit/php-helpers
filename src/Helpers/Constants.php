@@ -1,12 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 02.12.18
- * Time: 21:17
- */
 
-// @codeCoverageIgnoreStart
-namespace AlecRabbit\Constants {
+namespace AlecRabbit\Helpers\Constants {
 
     /** @internal */
     const UNIT_OFFSET = 3;
@@ -37,5 +31,4 @@ namespace AlecRabbit\Constants {
         BRACKETS_PARENTHESES,
         BRACKETS_ANGLE,
     ];
-
 }

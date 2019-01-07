@@ -7,10 +7,10 @@
 
 namespace AlecRabbit;
 
-use const \AlecRabbit\Constants\String\STR_EMPTY;
-use const \AlecRabbit\Constants\String\STR_FALSE;
-use const \AlecRabbit\Constants\String\STR_NULL;
-use const \AlecRabbit\Constants\String\STR_TRUE;
+use const \AlecRabbit\Helpers\Constants\String\STR_EMPTY;
+use const \AlecRabbit\Helpers\Constants\String\STR_FALSE;
+use const \AlecRabbit\Helpers\Constants\String\STR_NULL;
+use const \AlecRabbit\Helpers\Constants\String\STR_TRUE;
 
 /**
  * Gets the value of an environment variable.

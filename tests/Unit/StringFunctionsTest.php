@@ -15,14 +15,14 @@ use function AlecRabbit\format_bytes;
 use function AlecRabbit\format_time;
 use function AlecRabbit\str_decorate;
 use function AlecRabbit\tag;
-use const AlecRabbit\Constants\BRACKETS_ANGLE;
-use const AlecRabbit\Constants\BRACKETS_CURLY;
-use const AlecRabbit\Constants\BRACKETS_PARENTHESES;
-use const AlecRabbit\Constants\BRACKETS_SQUARE;
-use const AlecRabbit\Constants\UNIT_HOURS;
-use const AlecRabbit\Constants\UNIT_MICROSECONDS;
-use const AlecRabbit\Constants\UNIT_MINUTES;
-use const AlecRabbit\Constants\UNIT_SECONDS;
+use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
+use const AlecRabbit\Helpers\Constants\BRACKETS_CURLY;
+use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
+use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
+use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
+use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
+use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
+use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 
 class StringFunctionsTest extends TestCase
 {
