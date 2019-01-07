@@ -22,10 +22,10 @@ define(
     3 => UNIT_NANOSECONDS,
 ]);
 
-define(__NAMESPACE__ . '\BRACKETS_SQUARE', 10);  // []
-define(__NAMESPACE__ . '\BRACKETS_CURLY', 20);  // {}
-define(__NAMESPACE__ . '\BRACKETS_PARENTHESES', 30);  // ()
-define(__NAMESPACE__ . '\BRACKETS_ANGLE', 40);  // ⟨⟩
+define(__NAMESPACE__ . '\BRACKETS_SQUARE', 10); // []
+define(__NAMESPACE__ . '\BRACKETS_CURLY', 20); // {}
+define(__NAMESPACE__ . '\BRACKETS_PARENTHESES', 30); // ()
+define(__NAMESPACE__ . '\BRACKETS_ANGLE', 40); // ⟨⟩
 
 
 define(
