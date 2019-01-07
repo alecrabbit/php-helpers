@@ -1,34 +1,37 @@
 <?php
 
-namespace AlecRabbit\Helpers\Constants {
+namespace AlecRabbit\Helpers\Constants;
 
-    /** @internal */
-    const UNIT_OFFSET = 3;
+/** @internal */
+define(__NAMESPACE__ . '\UNIT_OFFSET', 3);
 
-    const DEFAULT_PRECISION = 3;
-    const UNIT_NANOSECONDS = 1000;
-    const UNIT_MICROSECONDS = 1001;
-    const UNIT_MILLISECONDS = 1002;
-    const UNIT_SECONDS = 1003;
-    const UNIT_MINUTES = 1004;
-    const UNIT_HOURS = 1005;
+define(__NAMESPACE__ . '\DEFAULT_PRECISION', 3);
 
-    const UNITS = [
-        3 => UNIT_NANOSECONDS,
-        2 => UNIT_MICROSECONDS,
-        1 => UNIT_MILLISECONDS,
-        0 => UNIT_SECONDS,
-    ];
+define(__NAMESPACE__ . '\UNIT_NANOSECONDS', 1000);
+define(__NAMESPACE__ . '\UNIT_MICROSECONDS', 1001);
+define(__NAMESPACE__ . '\UNIT_MILLISECONDS', 1002);
+define(__NAMESPACE__ . '\UNIT_SECONDS', 1003);
+define(__NAMESPACE__ . '\UNIT_MINUTES', 1004);
+define(__NAMESPACE__ . '\UNIT_HOURS', 1005);
 
-    const BRACKETS_SQUARE = 10; // []
-    const BRACKETS_CURLY = 20; // {}
-    const BRACKETS_PARENTHESES = 30; // ()
-    const BRACKETS_ANGLE = 40; //  ⟨⟩
+define(
+    __NAMESPACE__ . '\UNITS', [
+    0 => UNIT_SECONDS,
+    1 => UNIT_MILLISECONDS,
+    2 => UNIT_MICROSECONDS,
+    3 => UNIT_NANOSECONDS,
+]);
 
-    const BRACKETS_SUPPORTED = [
-        BRACKETS_SQUARE,
-        BRACKETS_CURLY,
-        BRACKETS_PARENTHESES,
-        BRACKETS_ANGLE,
-    ];
-}
+define(__NAMESPACE__ . '\BRACKETS_SQUARE', 10);  // []
+define(__NAMESPACE__ . '\BRACKETS_CURLY', 20);  // {}
+define(__NAMESPACE__ . '\BRACKETS_PARENTHESES', 30);  // ()
+define(__NAMESPACE__ . '\BRACKETS_ANGLE', 40);  // ⟨⟩
+
+
+define(
+    __NAMESPACE__ . '\BRACKETS_SUPPORTED', [
+    BRACKETS_SQUARE,
+    BRACKETS_CURLY,
+    BRACKETS_PARENTHESES,
+    BRACKETS_ANGLE,
+]);
