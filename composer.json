@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": ">=7.2",
-        "nesbot/carbon": "^2.7",
+        "nesbot/carbon": "^2.10",
         "krowinski/bcmath-extended": "^4.2"
     },
     "require-dev": {
