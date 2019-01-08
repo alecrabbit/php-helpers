@@ -5,7 +5,7 @@
  * Time: 14:07
  */
 
-namespace Unit;
+namespace AlecRabbit\Tests\Helpers;
 
 
 use function \AlecRabbit\base_timestamp;

@@ -6,7 +6,7 @@
  */
 
 // @codeCoverageIgnoreStart
-namespace AlecRabbit\Helpers\Constants\String;
+namespace AlecRabbit\Helpers\Strings\Constants;
 
 use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;

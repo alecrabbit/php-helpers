@@ -16,7 +16,7 @@
     "autoload": {
         "files": [
             "src/Helpers/Constants.php",
-            "src/Helpers/Constants/String.php",
+            "src/Helpers/Strings/Constants.php",
             "src/Helpers/functions.php",
             "src/Helpers/numeric/numeric.php",
             "src/Helpers/time/time.php",
@@ -26,7 +26,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "AlecRabbit\\Tests\\Helpers\\": "tests/"
         }
     },
     "prefer-stable":true

@@ -5,7 +5,7 @@
  * Time: 15:29
  */
 
-namespace Unit;
+namespace AlecRabbit\Tests\Helpers;
 
 
 use function AlecRabbit\format_time_auto;
