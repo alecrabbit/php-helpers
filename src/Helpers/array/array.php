@@ -73,8 +73,9 @@ function unset_first(array $data): iterable
  */
 function array_key_first(array $data)
 {
-    reset($data);
-    return key($data);
+    foreach ($data as $key => $value) {
+        return $key;
+    }
 }
 
 /**
