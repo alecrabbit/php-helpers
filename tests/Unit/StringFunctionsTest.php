@@ -9,6 +9,7 @@ namespace AlecRabbit\Tests\Helpers;
 
 
 use function AlecRabbit\format_time_auto;
+use function AlecRabbit\format_time_ns;
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\brackets;
 use function AlecRabbit\format_bytes;
@@ -123,6 +124,17 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals($expected, format_time_auto($value));
     }
 
+    /**
+     * @test
+     * @dataProvider functionFormatTimeNSDataProvider
+     * @param $expected
+     * @param $value
+     */
+    public function functionFormatTimeNS($expected, $value): void
+    {
+        $this->assertEquals($expected, format_time_ns($value));
+    }
+
     public function FormatBytesUsesUnitsCorrectlyProvider(): array
     {
         return [
@@ -207,6 +219,21 @@ class StringFunctionsTest extends TestCase
             ['100μs', 0.0001,],
             ['1μs', 0.000001,],
             ['10ns', 0.00000001,],
+        ];
+    }
+    public function functionFormatTimeNSDataProvider(): array
+    {
+        return [
+            // [$expected, $value],
+            ['2.806h', 10100000000000],
+            ['1ms', 1010000],
+            ['1.2s', 1200000000],
+            ['1s', 1000000000],
+            ['135.2ms', 135235555],
+            ['1ms', 1000000],
+            ['100μs', 100000,],
+            ['1μs', 1000,],
+            ['10ns', 10,],
         ];
     }
 }

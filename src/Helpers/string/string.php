@@ -1,9 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 15:24
- */
+
+declare(strict_types=1);
 
 namespace AlecRabbit;
 
@@ -15,14 +12,14 @@ use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SUPPORTED;
 use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
-use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
-use const AlecRabbit\Helpers\Strings\Constants\TIME_COEFFICIENTS;
-use const AlecRabbit\Helpers\Strings\Constants\TIME_UNITS;
 use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 use const AlecRabbit\Helpers\Constants\UNIT_MILLISECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
 use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 use const AlecRabbit\Helpers\Constants\UNITS;
+use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
+use const AlecRabbit\Helpers\Strings\Constants\TIME_COEFFICIENTS;
+use const AlecRabbit\Helpers\Strings\Constants\TIME_UNITS;
 
 /**
  * @param string $text
@@ -143,4 +140,9 @@ function format_time_auto(float $value): string
             3
         );
     return \round($value * 1000 ** $pow, 1) . TIME_UNITS[UNITS[$pow]];
+}
+
+function format_time_ns(int $value): string
+{
+    return format_time_auto($value / 1000000000);
 }

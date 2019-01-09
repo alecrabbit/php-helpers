@@ -157,6 +157,15 @@ AlecRabbit\Tests\Helpers\StringFunctions
  [x] Function format time auto with data set #8
  [x] Function format time auto with data set #9
  [x] Function format time auto with data set #10
+ [x] Function format time n s with data set #0
+ [x] Function format time n s with data set #1
+ [x] Function format time n s with data set #2
+ [x] Function format time n s with data set #3
+ [x] Function format time n s with data set #4
+ [x] Function format time n s with data set #5
+ [x] Function format time n s with data set #6
+ [x] Function format time n s with data set #7
+ [x] Function format time n s with data set #8
 
 AlecRabbit\Tests\Helpers\TimeFunctions
  [x] Function now
