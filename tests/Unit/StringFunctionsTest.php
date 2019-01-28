@@ -8,6 +8,7 @@
 namespace AlecRabbit\Tests\Helpers;
 
 
+use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\brackets;
 use function AlecRabbit\format_bytes;
@@ -20,10 +21,9 @@ use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_CURLY;
 use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
-use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
-use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
+use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 
 class StringFunctionsTest extends TestCase
 {
@@ -158,19 +158,21 @@ class StringFunctionsTest extends TestCase
     {
         return [
             // [$expected, $value],
-            ['100ms', [0.1,],],
-            ['100.111ms', [0.100111,],],
-            ['0.01μs', [0.00000001, UNIT_MICROSECONDS,],],
-            ['1000ms', [1.0000000001, null, 7],],
-            ['1000.01ms', [1.00001, null, 7],],
+            ['100.0ms', [0.1,],],
+            ['100.1ms', [0.100111,],],
+            ['0.1μs', [0.0000001, UNIT_MICROSECONDS,],],
+            ['0.01μs', [0.00000001, UNIT_MICROSECONDS, 2],],
+            ['1000.0ms', [1.0000000001, ],],
+            ['1000.01ms', [1.00001, null, 2],],
             ['0.000278h', [1.0000000001, UNIT_HOURS, 7],],
             ['0.000278h', [1.0000000001, UNIT_HOURS, 6],],
             ['0.017m', [1.0000000001, UNIT_MINUTES, 3],],
             ['0.016667m', [1.0000000001, UNIT_MINUTES, 7],],
             ['0.016667m', [1.0000000001, UNIT_MINUTES, 6],],
-            ['1s', [1.0000000001, UNIT_SECONDS, 7],],
-            ['1.02s', [1.02, UNIT_SECONDS, 7],],
-            ['1.02s', [1.02, UNIT_SECONDS, 4],],
+            ['5 758 723.7m', [345523421.0000000001, UNIT_MINUTES, null, '.', ' '],],
+            ['1.0s', [1.0000000001, UNIT_SECONDS, ],],
+            ['1.02s', [1.02, UNIT_SECONDS, 2],],
+            ['1.0200s', [1.02, UNIT_SECONDS, 4],],
         ];
     }
 
@@ -205,13 +207,13 @@ class StringFunctionsTest extends TestCase
             ['16.83m', 1010],
             ['101s', 101],
             ['1.2s', 1.2],
-            ['1s', 1],
-            ['100ms', 0.1],
+            ['1.0s', 1],
+            ['100.0ms', 0.1],
             ['135.2ms', 0.135235555],
-            ['1ms', 0.001],
-            ['100μs', 0.0001,],
-            ['1μs', 0.000001,],
-            ['10ns', 0.00000001,],
+            ['1.0ms', 0.001],
+            ['100.0μs', 0.0001,],
+            ['1.0μs', 0.000001,],
+            ['10.0ns', 0.00000001,],
         ];
     }
 
@@ -220,14 +222,14 @@ class StringFunctionsTest extends TestCase
         return [
             // [$expected, $value],
             ['2.806h', 10100000000000],
-            ['1ms', 1010000],
+            ['1.0ms', 1010000],
             ['1.2s', 1200000000],
-            ['1s', 1000000000],
+            ['1.0s', 1000000000],
             ['135.2ms', 135235555],
-            ['1ms', 1000000],
-            ['100μs', 100000,],
-            ['1μs', 1000,],
-            ['10ns', 10,],
+            ['1.0ms', 1000000],
+            ['100.0μs', 100000,],
+            ['1.0μs', 1000,],
+            ['10.0ns', 10,],
         ];
     }
 }

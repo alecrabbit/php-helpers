@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace AlecRabbit;
 
 use function AlecRabbit\Helpers\bounds;
+use const AlecRabbit\Helpers\Constants\UNITS;
 use function AlecRabbit\Helpers\is_negative;
 use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_CURLY;
 use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SUPPORTED;
-use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 use const AlecRabbit\Helpers\Constants\UNIT_MILLISECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
 use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
-use const AlecRabbit\Helpers\Constants\UNITS;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 use const AlecRabbit\Helpers\Strings\Constants\TIME_COEFFICIENTS;
 use const AlecRabbit\Helpers\Strings\Constants\TIME_UNITS;
@@ -80,8 +79,8 @@ function format_bytes(
     int $bytes,
     ?string $unit = null,
     ?int $decimals = null,
-    ?string $decimalPoint = '.',
-    ?string $thousandsSeparator = ''
+    string $decimalPoint = '.',
+    string $thousandsSeparator = ''
 ): string {
     $decimals = $decimals ?? 2;
     $negative = is_negative($bytes);
@@ -111,35 +110,40 @@ function format_bytes(
         ($negative ? '-' : '') . number_format($value, $decimals, $decimalPoint, $thousandsSeparator) . $unit;
 }
 
-function format_time(?float $value, ?int $units = null, ?int $precision = null): string
-{
+function format_time(
+    ?float $value,
+    ?int $units = null,
+    ?int $decimals = null,
+    string $decimalPoint = '.',
+    string $thousandsSeparator = ''
+): string {
     $units = $units ?? UNIT_MILLISECONDS;
-    $precision = (int)bounds($precision ?? DEFAULT_PRECISION, 0, 6);
+    $decimals = (int)bounds($decimals ?? 1, 0, 6);
     $value = $value ?? 0.0;
-    dump($precision , round($value * TIME_COEFFICIENTS[$units], $precision), sprintf(
-        '%s%s',
-        round($value * TIME_COEFFICIENTS[$units], $precision),
-        TIME_UNITS[$units]
-    ));
 
     return
-        sprintf(
-            '%s%s',
-            round($value * TIME_COEFFICIENTS[$units], $precision),
-            TIME_UNITS[$units]
-        );
+        number_format(
+            round($value * TIME_COEFFICIENTS[$units], $decimals),
+            $decimals,
+            $decimalPoint,
+            $thousandsSeparator
+        ) .
+        TIME_UNITS[$units];
 }
 
-function format_time_auto(float $value): string
-{
+function format_time_auto(
+    float $value,
+    string $decimalPoint = '.',
+    string $thousandsSeparator = ''
+): string {
     if ($value > 10000) {
-        return format_time($value, UNIT_HOURS, 3);
+        return format_time($value, UNIT_HOURS, 3, $decimalPoint, $thousandsSeparator);
     }
     if ($value > 1000) {
-        return format_time($value, UNIT_MINUTES, 2);
+        return format_time($value, UNIT_MINUTES, 2, $decimalPoint, $thousandsSeparator);
     }
     if ($value > 100) {
-        return format_time($value, UNIT_SECONDS, 0);
+        return format_time($value, UNIT_SECONDS, 0, $decimalPoint, $thousandsSeparator);
     }
     $pow =
         (int)bounds(
@@ -151,10 +155,20 @@ function format_time_auto(float $value): string
             0,
             3
         );
-    return \round($value * 1000 ** $pow, 1) . TIME_UNITS[UNITS[$pow]];
+    return
+        \number_format(
+            \round($value * 1000 ** $pow, 1),
+            1,
+            $decimalPoint,
+            $thousandsSeparator
+        ) .
+        TIME_UNITS[UNITS[$pow]];
 }
 
-function format_time_ns(int $value): string
-{
-    return format_time_auto($value / 1000000000);
+function format_time_ns(
+    int $value,
+    string $decimalPoint = '.',
+    string $thousandsSeparator = ''
+): string {
+    return format_time_auto($value / 1000000000, $decimalPoint, $thousandsSeparator);
 }
