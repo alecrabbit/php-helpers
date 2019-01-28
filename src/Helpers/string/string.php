@@ -76,8 +76,14 @@ function str_decorate(string $text, ?string $open = null, ?string $close = null)
 }
 
 
-function format_bytes(int $bytes, ?string $unit = null, int $decimals = 2): string
-{
+function format_bytes(
+    int $bytes,
+    ?string $unit = null,
+    ?int $decimals = null,
+    ?string $decimalPoint = '.',
+    ?string $thousandsSeparator = ''
+): string {
+    $decimals = $decimals ?? 2;
     $negative = is_negative($bytes);
     /** @noinspection CallableParameterUseCaseInTypeContextInspection */
     $bytes = \abs($bytes);
@@ -102,14 +108,20 @@ function format_bytes(int $bytes, ?string $unit = null, int $decimals = 2): stri
 
     // Format output
     return
-        sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
+        ($negative ? '-' : '') . number_format($value, $decimals, $decimalPoint, $thousandsSeparator) . $unit;
 }
 
-function format_time(?float $value, ?int $units = null, int $precision = DEFAULT_PRECISION): string
+function format_time(?float $value, ?int $units = null, ?int $precision = null): string
 {
     $units = $units ?? UNIT_MILLISECONDS;
-    $precision = (int)bounds($precision, 0, 6);
+    $precision = (int)bounds($precision ?? DEFAULT_PRECISION, 0, 6);
     $value = $value ?? 0.0;
+    dump($precision , round($value * TIME_COEFFICIENTS[$units], $precision), sprintf(
+        '%s%s',
+        round($value * TIME_COEFFICIENTS[$units], $precision),
+        TIME_UNITS[$units]
+    ));
+
     return
         sprintf(
             '%s%s',

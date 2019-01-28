@@ -1,9 +1,5 @@
 <?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 14:04
- */
+declare(strict_types=1);
 
 namespace AlecRabbit\Helpers;
 
@@ -27,7 +23,7 @@ function is_negative($value): bool
  * @param float $max [optional] Default 1
  * @return float
  */
-function bounds(float $value, float $min = -1, float $max = 1): float
+function bounds(float $value, float $min = -1.0, float $max = 1.0): float
 {
     if ($value < $min) {
         $value = $min;

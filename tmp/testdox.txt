@@ -133,6 +133,9 @@ AlecRabbit\Tests\Helpers\StringFunctions
  [x] Function format bytes with data set #33
  [x] Function format bytes with data set #34
  [x] Function format bytes with data set #35
+ [x] Function format bytes with data set #36
+ [x] Function format bytes with data set #37
+ [x] Function format bytes with data set #38
  [x] Function format bytes process big numbers correctly
  [x] Function format time with data set #0
  [x] Function format time with data set #1
@@ -146,6 +149,7 @@ AlecRabbit\Tests\Helpers\StringFunctions
  [x] Function format time with data set #9
  [x] Function format time with data set #10
  [x] Function format time with data set #11
+ [x] Function format time with data set #12
  [x] Function format time auto with data set #0
  [x] Function format time auto with data set #1
  [x] Function format time auto with data set #2
