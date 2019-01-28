@@ -1,9 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 15:24
- */
+
+declare(strict_types=1);
 
 namespace AlecRabbit;
 
@@ -15,14 +12,14 @@ use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SUPPORTED;
 use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
-use const AlecRabbit\Helpers\Constants\String\BYTES_UNITS;
-use const AlecRabbit\Helpers\Constants\String\TIME_COEFFICIENTS;
-use const AlecRabbit\Helpers\Constants\String\TIME_UNITS;
 use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 use const AlecRabbit\Helpers\Constants\UNIT_MILLISECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
 use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 use const AlecRabbit\Helpers\Constants\UNITS;
+use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
+use const AlecRabbit\Helpers\Strings\Constants\TIME_COEFFICIENTS;
+use const AlecRabbit\Helpers\Strings\Constants\TIME_UNITS;
 
 /**
  * @param string $text
@@ -79,8 +76,14 @@ function str_decorate(string $text, ?string $open = null, ?string $close = null)
 }
 
 
-function format_bytes(int $bytes, ?string $unit = null, int $decimals = 2): string
-{
+function format_bytes(
+    int $bytes,
+    ?string $unit = null,
+    ?int $decimals = null,
+    ?string $decimalPoint = '.',
+    ?string $thousandsSeparator = ''
+): string {
+    $decimals = $decimals ?? 2;
     $negative = is_negative($bytes);
     /** @noinspection CallableParameterUseCaseInTypeContextInspection */
     $bytes = \abs($bytes);
@@ -105,14 +108,20 @@ function format_bytes(int $bytes, ?string $unit = null, int $decimals = 2): stri
 
     // Format output
     return
-        sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
+        ($negative ? '-' : '') . number_format($value, $decimals, $decimalPoint, $thousandsSeparator) . $unit;
 }
 
-function format_time(?float $value, ?int $units = null, int $precision = DEFAULT_PRECISION): string
+function format_time(?float $value, ?int $units = null, ?int $precision = null): string
 {
     $units = $units ?? UNIT_MILLISECONDS;
-    $precision = (int)bounds($precision, 0, 6);
+    $precision = (int)bounds($precision ?? DEFAULT_PRECISION, 0, 6);
     $value = $value ?? 0.0;
+    dump($precision , round($value * TIME_COEFFICIENTS[$units], $precision), sprintf(
+        '%s%s',
+        round($value * TIME_COEFFICIENTS[$units], $precision),
+        TIME_UNITS[$units]
+    ));
+
     return
         sprintf(
             '%s%s',
@@ -143,4 +152,9 @@ function format_time_auto(float $value): string
             3
         );
     return \round($value * 1000 ** $pow, 1) . TIME_UNITS[UNITS[$pow]];
+}
+
+function format_time_ns(int $value): string
+{
+    return format_time_auto($value / 1000000000);
 }

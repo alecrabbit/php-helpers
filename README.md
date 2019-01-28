@@ -43,9 +43,9 @@ $now = now(); // object(Carbon\Carbon)
 ```php 
 // start timestamp of a period
 //  "int(1514851122) => Mon Jan 01 2018 23:58:42 GMT+0000"
-base_timestamp(1514851122, 86400); // "int(1514764800) => Mon Jan 01 2018 00:00:00 GMT+0000"
-base_timestamp(1514851122, 3600); // "int(1514847600) => Mon Jan 01 2018 23:00:00 GMT+0000"
-base_timestamp(1514851122, 60);  // "int(1514851080) => Mon Jan 01 2018 23:58:00 GMT+0000"
+base_timestamp(1514851122, 86400); // "int(1514764800)" => Mon Jan 01 2018 00:00:00 GMT+0000
+base_timestamp(1514851122, 3600); // "int(1514847600)" => Mon Jan 01 2018 23:00:00 GMT+0000
+base_timestamp(1514851122, 60);  // "int(1514851080)" => Mon Jan 01 2018 23:58:00 GMT+0000
 ```
 
 ### String functions
@@ -85,9 +85,11 @@ format_time(1); //string(5) "1000ms"
 
 ##### format_time_auto()
 ```php 
-format_time_auto(0.00000001); //string(4) "10ns"
-format_time_auto(0.00001); //string(5) "10μs"
-format_time_auto(1); //string(2) "1s"
+format_time_auto(0.00000001); // string(4) "10ns"
+format_time_auto(0.00001); // string(5) "10μs"
+format_time_auto(1); // string(2) "1s"
+format_time_auto(1561); // string(6) "26.02m"
+format_time_auto(3234561); // string(8) "898.489h"
 ```
 
 ### Array functions

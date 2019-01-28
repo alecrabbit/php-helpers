@@ -1,4 +1,4 @@
-Unit\ArrayFunctions
+AlecRabbit\Tests\Helpers\ArrayFunctions
  [x] Function formatted array
  [x] Function unset first with data set #0
  [x] Function unset first with data set #1
@@ -26,10 +26,10 @@ Unit\ArrayFunctions
  [x] Function arr el max length with data set #7
  [x] Function arr el max length with data set #8
 
-Unit\Constants
+AlecRabbit\Tests\Helpers\Constants
  [x] Constants
 
-Unit\Functions
+AlecRabbit\Tests\Helpers\Functions
  [x] Function env defaults with data set #0
  [x] Function env defaults with data set #1
  [x] Function env defaults with data set #2
@@ -78,7 +78,7 @@ Unit\Functions
  [x] Function type of with data set #7
  [x] Function type of with data set #8
 
-Unit\NumericFunctions
+AlecRabbit\Tests\Helpers\NumericFunctions
  [x] Function is negative
  [x] Function bounds
  [x] Function bc bounds
@@ -92,7 +92,7 @@ Unit\NumericFunctions
  [x] Function bc bounds string with data set #4
  [x] Function bc bounds string with data set #5
 
-Unit\StringFunctions
+AlecRabbit\Tests\Helpers\StringFunctions
  [x] Function tag
  [x] Function brackets
  [x] Function str decorate
@@ -133,6 +133,9 @@ Unit\StringFunctions
  [x] Function format bytes with data set #33
  [x] Function format bytes with data set #34
  [x] Function format bytes with data set #35
+ [x] Function format bytes with data set #36
+ [x] Function format bytes with data set #37
+ [x] Function format bytes with data set #38
  [x] Function format bytes process big numbers correctly
  [x] Function format time with data set #0
  [x] Function format time with data set #1
@@ -146,6 +149,7 @@ Unit\StringFunctions
  [x] Function format time with data set #9
  [x] Function format time with data set #10
  [x] Function format time with data set #11
+ [x] Function format time with data set #12
  [x] Function format time auto with data set #0
  [x] Function format time auto with data set #1
  [x] Function format time auto with data set #2
@@ -157,8 +161,17 @@ Unit\StringFunctions
  [x] Function format time auto with data set #8
  [x] Function format time auto with data set #9
  [x] Function format time auto with data set #10
+ [x] Function format time n s with data set #0
+ [x] Function format time n s with data set #1
+ [x] Function format time n s with data set #2
+ [x] Function format time n s with data set #3
+ [x] Function format time n s with data set #4
+ [x] Function format time n s with data set #5
+ [x] Function format time n s with data set #6
+ [x] Function format time n s with data set #7
+ [x] Function format time n s with data set #8
 
-Unit\TimeFunctions
+AlecRabbit\Tests\Helpers\TimeFunctions
  [x] Function now
  [x] Function base timestamp with data set #0
  [x] Function base timestamp with data set #1

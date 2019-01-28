@@ -5,13 +5,13 @@
  * Time: 17:10
  */
 
-namespace Unit;
+namespace AlecRabbit\Tests\Helpers;
 
 
-use const \AlecRabbit\Helpers\Constants\String\STR_TRUE;
-use const \AlecRabbit\Helpers\Constants\String\STR_FALSE;
-use const \AlecRabbit\Helpers\Constants\String\STR_EMPTY;
-use const \AlecRabbit\Helpers\Constants\String\STR_NULL;
+use const \AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
+use const \AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
+use const \AlecRabbit\Helpers\Strings\Constants\STR_EMPTY;
+use const \AlecRabbit\Helpers\Strings\Constants\STR_NULL;
 use PHPUnit\Framework\TestCase;
 
 class ConstantsTest extends TestCase

@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace Unit;
+namespace AlecRabbit\Tests\Helpers;
 
 
 use function \AlecRabbit\env;

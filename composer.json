@@ -4,8 +4,9 @@
     "type": "library",
     "require": {
         "php": ">=7.2",
-        "nesbot/carbon": "^2.7",
-        "krowinski/bcmath-extended": "^4.2"
+        "nesbot/carbon": "^2.10",
+        "krowinski/bcmath-extended": "^4.2",
+        "symfony/polyfill-php73": "^1.10"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5",
@@ -16,7 +17,7 @@
     "autoload": {
         "files": [
             "src/Helpers/Constants.php",
-            "src/Helpers/Constants/String.php",
+            "src/Helpers/Strings/Constants.php",
             "src/Helpers/functions.php",
             "src/Helpers/numeric/numeric.php",
             "src/Helpers/time/time.php",
@@ -26,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "AlecRabbit\\Tests\\Helpers\\": "tests/"
         }
     },
     "prefer-stable":true
