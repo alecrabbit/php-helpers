@@ -41,11 +41,4 @@ define(
     ]
 );
 
-define(__NAMESPACE__ . '\ARCH_32BIT', '32bit');
-define(__NAMESPACE__ . '\ARCH_64BIT', '63bit');
-
-if (4 === PHP_INT_SIZE) {
-    define(__NAMESPACE__ . '\PHP_ARCH', ARCH_32BIT);
-} else {
-    define(__NAMESPACE__ . '\PHP_ARCH', ARCH_64BIT);
-}
+define(__NAMESPACE__ . '\PHP_ARCH', PHP_INT_SIZE * 8);
