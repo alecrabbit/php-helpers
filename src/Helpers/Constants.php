@@ -40,3 +40,9 @@ define(
     BRACKETS_ANGLE,
     ]
 );
+
+define(__NAMESPACE__ . '\INT_SIZE_32BIT', 4);
+define(__NAMESPACE__ . '\INT_SIZE_64BIT', 8);
+
+/** @deprecated */
+define(__NAMESPACE__ . '\PHP_ARCH', PHP_INT_SIZE * 8);
