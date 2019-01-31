@@ -41,4 +41,8 @@ define(
     ]
 );
 
+define(__NAMESPACE__ . '\32BIT_INT_SIZE', 4);
+define(__NAMESPACE__ . '\64BIT_INT_SIZE', 8);
+
+/** @deprecated */
 define(__NAMESPACE__ . '\PHP_ARCH', PHP_INT_SIZE * 8);
