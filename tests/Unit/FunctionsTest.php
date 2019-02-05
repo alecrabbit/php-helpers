@@ -10,6 +10,7 @@ namespace AlecRabbit\Tests\Helpers;
 
 
 use function \AlecRabbit\env;
+use AlecRabbit\Tests\Helpers\Naodouble;
 use function \AlecRabbit\typeOf;
 use PHPUnit\Framework\TestCase;
 
@@ -140,6 +141,7 @@ class FunctionsTest extends TestCase
             ['array', []],
             ['Closure', function () {}],
             ['stdClass', new \stdClass()],
+            [\AlecRabbit\Tests\Helpers\Naodouble::class, new Naodouble()],
             ['string', 'sss'],
             [__CLASS__, $this],
         ];

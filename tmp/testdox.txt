@@ -77,6 +77,7 @@ AlecRabbit\Tests\Helpers\Functions
  [x] Function type of with data set #6
  [x] Function type of with data set #7
  [x] Function type of with data set #8
+ [x] Function type of with data set #9
 
 AlecRabbit\Tests\Helpers\NumericFunctions
  [x] Function is negative
