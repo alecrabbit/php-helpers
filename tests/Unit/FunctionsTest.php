@@ -10,6 +10,8 @@ namespace AlecRabbit\Tests\Helpers;
 
 
 use function \AlecRabbit\env;
+use AlecRabbit\Tests\Helpers\Double;
+use AlecRabbit\Tests\Helpers\Naodouble;
 use function \AlecRabbit\typeOf;
 use PHPUnit\Framework\TestCase;
 
@@ -134,12 +136,14 @@ class FunctionsTest extends TestCase
         return [
             // [$expected, $variable],
             ['integer', 1],
-            ['double', 1.0],
+            ['float', 1.0],
             ['boolean', true],
             ['NULL', null],
             ['array', []],
             ['Closure', function () {}],
             ['stdClass', new \stdClass()],
+            [Naodouble::class, new Naodouble()],
+            [Double::class, new Double()],
             ['string', 'sss'],
             [__CLASS__, $this],
         ];

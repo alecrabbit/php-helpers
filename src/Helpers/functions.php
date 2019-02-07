@@ -7,10 +7,15 @@
 
 namespace AlecRabbit;
 
-use const \AlecRabbit\Helpers\Strings\Constants\STR_EMPTY;
-use const \AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
-use const \AlecRabbit\Helpers\Strings\Constants\STR_NULL;
-use const \AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
+use const AlecRabbit\Helpers\Strings\Constants\STR_EMPTY;
+use const AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
+use const AlecRabbit\Helpers\Strings\Constants\STR_NULL;
+use const AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
+
+const STR_DOUBLE = 'double';
+const STR_FLOAT = 'float';
+
+define(__NAMESPACE__ . '\STR_DOUBLE_LENGTH', strlen(STR_DOUBLE));
 
 /**
  * Gets the value of an environment variable.
@@ -64,6 +69,9 @@ function value($value)
  */
 function typeOf($var): string
 {
-    return
-        \is_object($var) ? \get_class($var) : \gettype($var);
+    $type = \is_object($var) ? \get_class($var) : \gettype($var);
+    if (strlen($type) === STR_DOUBLE_LENGTH) {
+        $type = str_replace(STR_DOUBLE, STR_FLOAT, $type);
+    }
+    return $type;
 }
