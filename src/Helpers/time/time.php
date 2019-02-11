@@ -20,13 +20,14 @@ function now($tz = null)
 }
 
 /**
- * @param mixed ...$args
+ * @param string|null               $time
+ * @param \DateTimeZone|string|null $tz
  * @return \Carbon\Carbon
  * @throws \Exception
  */
-function carbon(...$args)
+function carbon($time = null, $tz = null)
 {
-    return new \Carbon\Carbon(...$args);
+    return new \Carbon\Carbon($time, $tz);
 }
 
 /**
