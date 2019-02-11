@@ -20,6 +20,7 @@ use function \AlecRabbit\typeOf;
 
 echo typeOf(1); // string(7) "integer"
 ```
+see [examples](https://github.com/alecrabbit/php-helpers/tree/master/examples)
 
 ### Functions
 
