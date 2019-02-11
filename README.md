@@ -46,11 +46,11 @@ $c = carbon('1 month ago'); // object(Carbon\Carbon)
 
 ##### base_timestamp()
 ```php 
-// start timestamp of a period
-//  "int(1514851122) => Mon Jan 01 2018 23:58:42 GMT+0000"
-base_timestamp(1514851122, 86400); // "int(1514764800)" => Mon Jan 01 2018 00:00:00 GMT+0000
-base_timestamp(1514851122, 3600); // "int(1514847600)" => Mon Jan 01 2018 23:00:00 GMT+0000
-base_timestamp(1514851122, 60);  // "int(1514851080)" => Mon Jan 01 2018 23:58:00 GMT+0000
+// returns start timestamp of a period
+//         int(1514851122)                              => Mon Jan 01 2018 23:58:42 GMT+0000
+base_timestamp(1514851122, 86400); //  int(1514764800)  => Mon Jan 01 2018 00:00:00 GMT+0000
+base_timestamp(1514851122, 3600); //   int(1514847600)  => Mon Jan 01 2018 23:00:00 GMT+0000
+base_timestamp(1514851122, 60);  //    int(1514851080)  => Mon Jan 01 2018 23:58:00 GMT+0000
 ```
 
 ### String functions
@@ -71,9 +71,9 @@ brackets('text', BRACKETS_CURLY); // string(6) "{text}"
 
 ##### str_wrap() 
 ```php 
-str_decorate('text', '-'); // string(6) "-text-"
-str_decorate('text', '-', ''); // string(5) "-text"
-str_decorate('text', '"', '"'); // string(6) ""text""
+str_wrap('text', '-'); // string(6) "-text-"
+str_wrap('text', '-', ''); // string(5) "-text"
+str_wrap('text', '"', '"'); // string(6) ""text""
 ```
 
 ##### format_bytes()
