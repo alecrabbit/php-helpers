@@ -29,7 +29,7 @@ typeOf(new \AlecRabbit\SomeSpace\SomeClass()); // string(30) "AlecRabbit\SomeSpa
 typeOf(new \stdClass()); // string(8) "stdClass"
 typeOf('s'); // string(6) "string"
 typeOf(1); // string(7) "integer"
-typeOf(1.00); // string(6) "double"
+typeOf(1.00); // string(6) "float"
 ```
 
 ### Time functions
@@ -37,6 +37,11 @@ typeOf(1.00); // string(6) "double"
 ##### now()
 ```php 
 $now = now(); // object(Carbon\Carbon)
+```
+
+##### carbon()
+```php 
+$c = carbon('1 month ago'); // object(Carbon\Carbon)
 ```
 
 ##### base_timestamp()
@@ -64,7 +69,7 @@ brackets('text', BRACKETS_SQUARE); // string(6) "[text]"
 brackets('text', BRACKETS_CURLY); // string(6) "{text}"
 ```
 
-##### str_decorate()
+##### str_wrap() 
 ```php 
 str_decorate('text', '-'); // string(6) "-text-"
 str_decorate('text', '-', ''); // string(5) "-text"

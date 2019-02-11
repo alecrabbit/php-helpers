@@ -1,19 +1,20 @@
 {
     "name": "alecrabbit/php-helpers",
-    "description": "PHP helpers functions",
     "type": "library",
+    "description": "PHP helpers functions",
+    "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "nesbot/carbon": "^2.10",
         "krowinski/bcmath-extended": "^4.2",
+        "nesbot/carbon": "^2.10",
         "symfony/polyfill-php73": "^1.10"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5",
+        "ext-curl": "*",
         "nunomaduro/collision": "^2.1",
+        "phpunit/phpunit": "^7.5",
         "symfony/var-dumper": "^4.2"
     },
-    "license": "MIT",
     "autoload": {
         "files": [
             "src/Helpers/Constants.php",
@@ -30,5 +31,5 @@
             "AlecRabbit\\Tests\\Helpers\\": "tests/"
         }
     },
-    "prefer-stable":true
+    "prefer-stable": true
 }

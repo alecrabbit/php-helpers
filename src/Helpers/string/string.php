@@ -61,6 +61,7 @@ function brackets(string $text, int $brackets = BRACKETS_SQUARE): string
 }
 
 /**
+ * @deprecated will be deleted in 0.3.0
  * @param string $text
  * @param null|string $open
  * @param null|string $close
@@ -68,13 +69,32 @@ function brackets(string $text, int $brackets = BRACKETS_SQUARE): string
  */
 function str_decorate(string $text, ?string $open = null, ?string $close = null): string
 {
+    return
+        str_wrap($text, $open, $close);
+}
+
+/**
+ * @param string $text
+ * @param null|string $open
+ * @param null|string $close
+ * @return string
+ */
+function str_wrap(string $text, ?string $open = null, ?string $close = null): string
+{
     if (null !== $open && null === $close) {
         $close = $open;
     }
     return "{$open}{$text}{$close}";
 }
 
-
+/**
+ * @param int $bytes
+ * @param null|string $unit
+ * @param null|int $decimals
+ * @param string $decimalPoint
+ * @param string $thousandsSeparator
+ * @return string
+ */
 function format_bytes(
     int $bytes,
     ?string $unit = null,
@@ -84,8 +104,7 @@ function format_bytes(
 ): string {
     $decimals = $decimals ?? 2;
     $negative = is_negative($bytes);
-    /** @noinspection CallableParameterUseCaseInTypeContextInspection */
-    $bytes = \abs($bytes);
+    $bytes = (int)\abs($bytes);
     $value = 0;
     $unit = \strtoupper($unit ?? '');
     if ($bytes > 0) {
@@ -110,6 +129,14 @@ function format_bytes(
         ($negative ? '-' : '') . number_format($value, $decimals, $decimalPoint, $thousandsSeparator) . $unit;
 }
 
+/**
+ * @param null|float $value
+ * @param null|int $units
+ * @param null|int $decimals
+ * @param string $decimalPoint
+ * @param string $thousandsSeparator
+ * @return string
+ */
 function format_time(
     ?float $value,
     ?int $units = null,
@@ -131,6 +158,12 @@ function format_time(
         TIME_UNITS[$units];
 }
 
+/**
+ * @param float $value
+ * @param string $decimalPoint
+ * @param string $thousandsSeparator
+ * @return string
+ */
 function format_time_auto(
     float $value,
     string $decimalPoint = '.',
@@ -165,6 +198,12 @@ function format_time_auto(
         TIME_UNITS[UNITS[$pow]];
 }
 
+/**
+ * @param int $value
+ * @param string $decimalPoint
+ * @param string $thousandsSeparator
+ * @return string
+ */
 function format_time_ns(
     int $value,
     string $decimalPoint = '.',

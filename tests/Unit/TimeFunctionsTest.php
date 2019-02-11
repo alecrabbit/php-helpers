@@ -9,6 +9,7 @@ namespace AlecRabbit\Tests\Helpers;
 
 
 use function \AlecRabbit\base_timestamp;
+use function AlecRabbit\carbon;
 use function \AlecRabbit\now;
 use Carbon\Carbon;
 use PHPUnit\Framework\TestCase;
@@ -20,6 +21,13 @@ class TimeFunctionsTest extends TestCase
     {
         $now = now();
         $this->assertInstanceOf(Carbon::class, $now);
+    }
+
+    /** @test */
+    public function FunctionCarbon(): void
+    {
+        $this->assertInstanceOf(Carbon::class, carbon());
+        $this->assertEquals(Carbon::parse('Feb 3 2018'), carbon('Feb 3 2018'));
     }
 
     /**

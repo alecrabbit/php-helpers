@@ -8,7 +8,6 @@
 namespace AlecRabbit\Tests\Helpers;
 
 
-use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\brackets;
 use function AlecRabbit\format_bytes;
@@ -16,14 +15,16 @@ use function AlecRabbit\format_time;
 use function AlecRabbit\format_time_auto;
 use function AlecRabbit\format_time_ns;
 use function AlecRabbit\str_decorate;
+use function AlecRabbit\str_wrap;
 use function AlecRabbit\tag;
 use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_CURLY;
 use const AlecRabbit\Helpers\Constants\BRACKETS_PARENTHESES;
 use const AlecRabbit\Helpers\Constants\BRACKETS_SQUARE;
+use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
 use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_MINUTES;
-use const AlecRabbit\Helpers\Constants\UNIT_HOURS;
+use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 
 class StringFunctionsTest extends TestCase
 {
@@ -54,6 +55,17 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals('"str"', str_decorate('str', '"', '"'));
         $this->assertEquals('>str<', str_decorate('str', '>', '<'));
         $this->assertEquals('-str-', str_decorate('str', '-'));
+    }
+
+    /**
+     * @test
+     * @dataProvider strWrapDataProvider
+     * @param string $expected
+     * @param array $args
+     */
+    public function FunctionStrWrap(string $expected, array $args): void
+    {
+        $this->assertEquals($expected, str_wrap(...$args));
     }
 
     /** @test */
@@ -162,7 +174,7 @@ class StringFunctionsTest extends TestCase
             ['100.1ms', [0.100111,],],
             ['0.1μs', [0.0000001, UNIT_MICROSECONDS,],],
             ['0.01μs', [0.00000001, UNIT_MICROSECONDS, 2],],
-            ['1000.0ms', [1.0000000001, ],],
+            ['1000.0ms', [1.0000000001,],],
             ['1000.01ms', [1.00001, null, 2],],
             ['0.000278h', [1.0000000001, UNIT_HOURS, 7],],
             ['0.000278h', [1.0000000001, UNIT_HOURS, 6],],
@@ -170,7 +182,7 @@ class StringFunctionsTest extends TestCase
             ['0.016667m', [1.0000000001, UNIT_MINUTES, 7],],
             ['0.016667m', [1.0000000001, UNIT_MINUTES, 6],],
             ['5 758 723.7m', [345523421.0000000001, UNIT_MINUTES, null, '.', ' '],],
-            ['1.0s', [1.0000000001, UNIT_SECONDS, ],],
+            ['1.0s', [1.0000000001, UNIT_SECONDS,],],
             ['1.02s', [1.02, UNIT_SECONDS, 2],],
             ['1.0200s', [1.02, UNIT_SECONDS, 4],],
         ];
@@ -230,6 +242,19 @@ class StringFunctionsTest extends TestCase
             ['100.0μs', 100000,],
             ['1.0μs', 1000,],
             ['10.0ns', 10,],
+        ];
+    }
+
+    public function strWrapDataProvider(): array
+    {
+        return [
+            ['str', ['str']],
+            ['"str"', ['str', '"']],
+            ['"str"', ['str', '"', '"']],
+            ['>str<', ['str', '>', '<']],
+            ['-str-', ['str', '-']],
+            ['-text-', ['text', '-']],
+            ['--text--', ['text', '--']],
         ];
     }
 }

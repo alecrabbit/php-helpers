@@ -145,6 +145,7 @@ class FunctionsTest extends TestCase
             [Naodouble::class, new Naodouble()],
             [Double::class, new Double()],
             ['string', 'sss'],
+            ['resource', curl_init()],
             [__CLASS__, $this],
         ];
     }

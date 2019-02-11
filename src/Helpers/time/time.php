@@ -20,6 +20,16 @@ function now($tz = null)
 }
 
 /**
+ * @param mixed ...$args
+ * @return \Carbon\Carbon
+ * @throws \Exception
+ */
+function carbon(...$args)
+{
+    return new \Carbon\Carbon(...$args);
+}
+
+/**
  * Calculate timestamp of start of interval.
  *
  * @param int $timestamp
