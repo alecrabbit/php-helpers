@@ -14,7 +14,6 @@ use function AlecRabbit\format_bytes;
 use function AlecRabbit\format_time;
 use function AlecRabbit\format_time_auto;
 use function AlecRabbit\format_time_ns;
-use function AlecRabbit\str_decorate;
 use function AlecRabbit\str_wrap;
 use function AlecRabbit\tag;
 use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
@@ -39,22 +38,13 @@ class StringFunctionsTest extends TestCase
     public function FunctionBrackets(): void
     {
         $this->assertEquals('[str]', brackets('str'));
+        /** @noinspection ArgumentEqualsDefaultValueInspection */
         $this->assertEquals('[str]', brackets('str', BRACKETS_SQUARE));
         $this->assertEquals('{str}', brackets('str', BRACKETS_CURLY));
         $this->assertEquals('(str)', brackets('str', BRACKETS_PARENTHESES));
         $this->assertEquals('⟨str⟩', brackets('str', BRACKETS_ANGLE));
         $this->expectException('TypeError');
         $this->assertEquals('<ddstr/dd>', brackets('str', null));
-    }
-
-    /** @test */
-    public function FunctionStrDecorate(): void
-    {
-        $this->assertEquals('str', str_decorate('str'));
-        $this->assertEquals('"str"', str_decorate('str', '"'));
-        $this->assertEquals('"str"', str_decorate('str', '"', '"'));
-        $this->assertEquals('>str<', str_decorate('str', '>', '<'));
-        $this->assertEquals('-str-', str_decorate('str', '-'));
     }
 
     /**

@@ -61,19 +61,6 @@ function brackets(string $text, int $brackets = BRACKETS_SQUARE): string
 }
 
 /**
- * @deprecated will be deleted in 0.3.0
- * @param string $text
- * @param null|string $open
- * @param null|string $close
- * @return string
- */
-function str_decorate(string $text, ?string $open = null, ?string $close = null): string
-{
-    return
-        str_wrap($text, $open, $close);
-}
-
-/**
  * @param string $text
  * @param null|string $open
  * @param null|string $close
