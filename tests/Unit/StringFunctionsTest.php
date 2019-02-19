@@ -110,6 +110,7 @@ class StringFunctionsTest extends TestCase
     public function tagDataProviderExceptions(): array
     {
         return [
+            [\ArgumentCountError::class, []],
             [\TypeError::class, [null]],
         ];
     }
@@ -253,10 +254,32 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals($expected, format_time(...$args));
     }
 
+    /**
+     * @test
+     * @dataProvider functionFormatTimeDataProviderExceptions
+     * @param string $expected
+     * @param array $args
+     */
+    public function functionFormatTimeExceptions(string $expected, array $args): void
+    {
+        $this->expectException($expected);
+        $this->assertEquals($expected, format_time(...$args));
+    }
+
+    public function functionFormatTimeDataProviderExceptions(): array
+    {
+        return [
+            [\ArgumentCountError::class, []],
+            [\TypeError::class, [1, '']],
+            [\TypeError::class, [1, UNIT_MICROSECONDS, '']],
+        ];
+    }
+
     public function functionFormatTimeDataProvider(): array
     {
         return [
-            // [$expected, $value],
+            // [$expected, [...$args]],
+            ['0.0ms', [null],],
             ['100.0ms', [0.1,],],
             ['100.1ms', [0.100111,],],
             ['0.1μs', [0.0000001, UNIT_MICROSECONDS,],],
