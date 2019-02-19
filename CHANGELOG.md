@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.0.16 - 2018-11-29
 
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.3.0...HEAD
-[0.3.0]: https://github.com/alecrabbit/php-helpers/compare/0.2.6...0.3.0
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.3.0-RC2...HEAD
+[0.3.0]: https://github.com/alecrabbit/php-helpers/compare/0.2.6...0.3.0-RC2
 [0.2.6]: https://github.com/alecrabbit/php-helpers/compare/0.1.4...0.2.6
 [0.1.4]: https://github.com/alecrabbit/php-helpers/compare/0.0.16...0.1.4
