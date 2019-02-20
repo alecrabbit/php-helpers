@@ -12,11 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - some optimizations
 
 ### Added
-- function is_homogeneous() to check if all values in array are (strictly ===) equal
+- function `is_homogeneous()` to check if all values in array are (strictly ===) equal
 
 ### Deprecated
-- function array_key_first() in favor of [`symfony/polyfill-php73`](https://github.com/symfony/polyfill-php73)
-- function array_key_last() in favor of [`symfony/polyfill-php73`](https://github.com/symfony/polyfill-php73)
+- function `array_key_first()` in favor of [`symfony/polyfill-php73`](https://github.com/symfony/polyfill-php73)
+- function `array_key_last()` in favor of [`symfony/polyfill-php73`](https://github.com/symfony/polyfill-php73)
 
 ## [0.3.0] - 2019-02-19 (RC2)
 
