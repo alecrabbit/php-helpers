@@ -2,6 +2,16 @@
     "name": "alecrabbit/php-helpers",
     "type": "library",
     "description": "PHP helpers functions",
+    "keywords": [
+        "array",
+        "unset",
+        "first",
+        "format",
+        "string",
+        "trim",
+        "zeros",
+        "wrap"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.2",
