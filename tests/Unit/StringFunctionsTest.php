@@ -1,9 +1,4 @@
 <?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 15:29
- */
 
 namespace AlecRabbit\Tests\Helpers;
 
@@ -27,24 +22,97 @@ use const AlecRabbit\Helpers\Constants\UNIT_SECONDS;
 
 class StringFunctionsTest extends TestCase
 {
-    /** @test */
-    public function FunctionTag(): void
+    /**
+     * @test
+     * @dataProvider tagDataProvider
+     * @param string $expected
+     * @param array $args
+     */
+    public function FunctionTag($expected, $args): void
     {
-        $this->assertEquals('<br>str</br>', tag('str', 'br'));
-        $this->assertEquals('str', tag('str'));
+        $this->assertEquals($expected, tag(...$args));
+    }
+
+    public function tagDataProvider(): array
+    {
+        $str = 'str';
+        return [
+            [$str, [$str]],
+            ['<br>' . $str . '</br>', [$str, 'br']],
+            ['<tag>' . $str . '</tag>', [$str, 'tag']],
+            ['<info>' . $str . '</info>', [$str, 'info']],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider bracketsDataProvider
+     * @param string $expected
+     * @param array $args
+     */
+    public function FunctionBrackets($expected, $args): void
+    {
+        $this->assertEquals($expected, brackets(...$args));
+    }
+
+    public function bracketsDataProvider(): array
+    {
+        $str = 'str';
+        return [
+            ['[' . $str . ']', [$str]],
+            ['[' . $str . ']', [$str, BRACKETS_SQUARE]],
+            ['{' . $str . '}', [$str, BRACKETS_CURLY]],
+            ['(' . $str . ')', [$str, BRACKETS_PARENTHESES]],
+            ['⟨' . $str . '⟩', [$str, BRACKETS_ANGLE]],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider bracketsDataProviderExceptions
+     * @param string $expected
+     * @param array $args
+     */
+    public function FunctionBracketsExceptions($expected, $args): void
+    {
+        $this->expectException($expected);
+        $this->assertEquals($expected, brackets(...$args));
+    }
+
+    public function bracketsDataProviderExceptions(): array
+    {
+        return [
+            [\ArgumentCountError::class, []],
+            [\TypeError::class, ['str', null]],
+            [\InvalidArgumentException::class, ['str', 100]],
+        ];
     }
 
     /** @test */
-    public function FunctionBrackets(): void
+    public function FunctionBracketsTwo(): void
     {
-        $this->assertEquals('[str]', brackets('str'));
-        /** @noinspection ArgumentEqualsDefaultValueInspection */
-        $this->assertEquals('[str]', brackets('str', BRACKETS_SQUARE));
-        $this->assertEquals('{str}', brackets('str', BRACKETS_CURLY));
-        $this->assertEquals('(str)', brackets('str', BRACKETS_PARENTHESES));
-        $this->assertEquals('⟨str⟩', brackets('str', BRACKETS_ANGLE));
-        $this->expectException('TypeError');
-        $this->assertEquals('<ddstr/dd>', brackets('str', null));
+        $this->expectException(\InvalidArgumentException::class);
+        $this->assertEquals('"str', brackets('str', 100));
+    }
+
+    /**
+     * @test
+     * @dataProvider tagDataProviderExceptions
+     * @param string $expected
+     * @param array $args
+     */
+    public function FunctionTagExceptions($expected, $args): void
+    {
+        $this->expectException($expected);
+        $this->assertEquals($expected, tag(...$args));
+    }
+
+    public function tagDataProviderExceptions(): array
+    {
+        return [
+            [\ArgumentCountError::class, []],
+            [\TypeError::class, [null]],
+        ];
     }
 
     /**
@@ -58,11 +126,41 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals($expected, str_wrap(...$args));
     }
 
-    /** @test */
-    public function FunctionBracketsTwo(): void
+    public function strWrapDataProviderExceptions(): array
     {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->assertEquals('"str', brackets('str', 100));
+        return [
+            [\ArgumentCountError::class, []],
+            [\TypeError::class, ['str', null]],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider strWrapDataProvider
+     * @param string $expected
+     * @param array $args
+     */
+    public function FunctionStrWrapException(string $expected, array $args): void
+    {
+        $this->assertEquals($expected, str_wrap(...$args));
+    }
+
+    public function strWrapDataProvider(): array
+    {
+        $str = 'str';
+        return [
+            ['1', [1]],
+            ['"1"', [1, '"']],
+            [$str, [$str]],
+            ['"' . $str . '"', [$str, '"']],
+            ['1' . $str . '1', [$str, 1]],
+            ['1' . $str . '2', [$str, 1, 2]],
+            ['"' . $str . '"', [$str, '"', '"']],
+            ['>' . $str . '<', [$str, '>', '<']],
+            ['-' . $str . '-', [$str, '-']],
+            ['-text-', ['text', '-']],
+            ['--text--', ['text', '--']],
+        ];
     }
 
     /**
@@ -156,10 +254,32 @@ class StringFunctionsTest extends TestCase
         $this->assertEquals($expected, format_time(...$args));
     }
 
+    /**
+     * @test
+     * @dataProvider functionFormatTimeDataProviderExceptions
+     * @param string $expected
+     * @param array $args
+     */
+    public function functionFormatTimeExceptions(string $expected, array $args): void
+    {
+        $this->expectException($expected);
+        $this->assertEquals($expected, format_time(...$args));
+    }
+
+    public function functionFormatTimeDataProviderExceptions(): array
+    {
+        return [
+            [\ArgumentCountError::class, []],
+            [\TypeError::class, [1, '']],
+            [\TypeError::class, [1, UNIT_MICROSECONDS, '']],
+        ];
+    }
+
     public function functionFormatTimeDataProvider(): array
     {
         return [
-            // [$expected, $value],
+            // [$expected, [...$args]],
+            ['0.0ms', [null],],
             ['100.0ms', [0.1,],],
             ['100.1ms', [0.100111,],],
             ['0.1μs', [0.0000001, UNIT_MICROSECONDS,],],
@@ -235,16 +355,4 @@ class StringFunctionsTest extends TestCase
         ];
     }
 
-    public function strWrapDataProvider(): array
-    {
-        return [
-            ['str', ['str']],
-            ['"str"', ['str', '"']],
-            ['"str"', ['str', '"', '"']],
-            ['>str<', ['str', '>', '<']],
-            ['-str-', ['str', '-']],
-            ['-text-', ['text', '-']],
-            ['--text--', ['text', '--']],
-        ];
-    }
 }

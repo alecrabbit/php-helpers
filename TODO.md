@@ -1,0 +1,2 @@
+- [ ] separate tests by function
+- [x] add TODO.md file

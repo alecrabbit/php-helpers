@@ -1,40 +1,66 @@
-<?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 15:53
- */
+<?php declare(strict_types=1);
 
 namespace AlecRabbit;
+
+//const HAYSTACK = ['', null, false];
+use const AlecRabbit\Helpers\Constants\EMPTY_ELEMENTS;
 
 /**
  * @param array $data
  * @param int $columns
  * @param callable|null $callback
  * @param int $pad
- * @return iterable
+ * @return array
  */
+//function formatted_array(
+//    array $data,
+//    int $columns = 10,
+//    ?callable $callback = null,
+//    int $pad = STR_PAD_RIGHT
+//): array {
+//    $result = [];
+//    if ($callback) {
+//        \array_walk($data, $callback);
+//    }
+//    $maxLength = arr_el_max_length($data);
+//    $tmp = [];
+//    // todo array_shift malfunctions on elements like false, null, '', 0 etc
+//    while ($element = (string)\array_shift($data)) {
+//        $tmp[] = \str_pad($element, $maxLength, ' ', $pad);
+//        if (\count($tmp) >= $columns) {
+//            $result[] = \implode(' ', $tmp);
+//            $tmp = [];
+//        }
+//    }
+//    if (!empty($tmp)) {
+//        $result[] = \implode(' ', $tmp);
+//    }
+//    return $result;
+//}
 function formatted_array(
     array $data,
     int $columns = 10,
     ?callable $callback = null,
     int $pad = STR_PAD_RIGHT
-): iterable {
+): array {
     $result = [];
     if ($callback) {
         \array_walk($data, $callback);
     }
     $maxLength = arr_el_max_length($data);
     $tmp = [];
-    while ($element = \array_shift($data)) {
-        $tmp[] = \str_pad($element, $maxLength, ' ', $pad);
+    $rowEmpty = true;
+    foreach ($data as $element) {
+        $tmp[] = \str_pad((string)$element, $maxLength, ' ', $pad);
+        $rowEmpty &= \in_array($element, EMPTY_ELEMENTS, true);
         if (\count($tmp) >= $columns) {
-            $result[] = \implode(' ', $tmp);
+            $result[] = \implode($rowEmpty ? '' : ' ', $tmp);
+            $rowEmpty = true;
             $tmp = [];
         }
     }
     if (!empty($tmp)) {
-        $result[] = \implode(' ', $tmp);
+        $result[] = \implode($rowEmpty ? '' : ' ', $tmp);
     }
     return $result;
 }
@@ -74,6 +100,7 @@ function unset_first(array $data): iterable
 function array_key_first(array $data)
 {
     foreach ($data as $key => $value) {
+        // this loop does not loop
         return $key;
     }
 }
