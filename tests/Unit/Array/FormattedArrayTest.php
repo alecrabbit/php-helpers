@@ -173,9 +173,18 @@ class FormattedArrayTest extends TestCase
 
     public function formattedArrayWithExceptionDataProvider(): array
     {
-        return [
-            [\RuntimeException::class, [[[[]]]]],
-        ];
+        return
+            [
+                [\RuntimeException::class, [[[[]]]]],
+                [
+                    \TypeError::class,
+                    [[], ''],
+                ],
+                [
+                    \TypeError::class,
+                    [[], 1, 1],
+                ],
+            ];
     }
 
 }

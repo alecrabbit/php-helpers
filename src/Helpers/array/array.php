@@ -2,7 +2,6 @@
 
 namespace AlecRabbit;
 
-//const HAYSTACK = ['', null, false];
 use const AlecRabbit\Helpers\Constants\EMPTY_ELEMENTS;
 
 /**
@@ -12,31 +11,6 @@ use const AlecRabbit\Helpers\Constants\EMPTY_ELEMENTS;
  * @param int $pad
  * @return array
  */
-//function formatted_array(
-//    array $data,
-//    int $columns = 10,
-//    ?callable $callback = null,
-//    int $pad = STR_PAD_RIGHT
-//): array {
-//    $result = [];
-//    if ($callback) {
-//        \array_walk($data, $callback);
-//    }
-//    $maxLength = arr_el_max_length($data);
-//    $tmp = [];
-//    // todo array_shift malfunctions on elements like false, null, '', 0 etc
-//    while ($element = (string)\array_shift($data)) {
-//        $tmp[] = \str_pad($element, $maxLength, ' ', $pad);
-//        if (\count($tmp) >= $columns) {
-//            $result[] = \implode(' ', $tmp);
-//            $tmp = [];
-//        }
-//    }
-//    if (!empty($tmp)) {
-//        $result[] = \implode(' ', $tmp);
-//    }
-//    return $result;
-//}
 function formatted_array(
     array $data,
     int $columns = 10,
