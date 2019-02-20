@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace AlecRabbit\Tests\Helpers;
 
-
 use function \AlecRabbit\env;
 use AlecRabbit\Tests\Helpers\Double;
 use AlecRabbit\Tests\Helpers\Naodouble;
@@ -140,7 +139,8 @@ class FunctionsTest extends TestCase
             ['boolean', true],
             ['NULL', null],
             ['array', []],
-            ['Closure', function () {}],
+            ['Closure', function () {
+            }],
             ['stdClass', new \stdClass()],
             [Naodouble::class, new Naodouble()],
             [Double::class, new Double()],

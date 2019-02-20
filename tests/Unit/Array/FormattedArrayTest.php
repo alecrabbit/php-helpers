@@ -2,13 +2,10 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-use PHPUnit\Framework\TestCase;
 use function AlecRabbit\formatted_array;
 
-class FormattedArrayTest extends TestCase
+class FormattedArrayTest extends HelpersTestCase
 {
-    protected const EXCEPTION_EXPECTED = 'Exception expected';
-
     /**
      * @test
      * @dataProvider formattedArrayDataProvider
@@ -29,7 +26,7 @@ class FormattedArrayTest extends TestCase
     public function formattedArrayWithException(string $expectedException, array $args): void
     {
         $this->expectException($expectedException);
-        $this->assertEquals(self::EXCEPTION_EXPECTED, formatted_array(...$args));
+        $this->assertEquals(null, formatted_array(...$args), self::EXCEPTION_EXPECTED);
     }
 
     public function formattedArrayDataProvider(): array
@@ -184,7 +181,11 @@ class FormattedArrayTest extends TestCase
                     \TypeError::class,
                     [[], 1, 1],
                 ],
+                [
+                    \TypeError::class,
+                    [[], 1, function () {
+                    }, ''],
+                ],
             ];
     }
-
 }

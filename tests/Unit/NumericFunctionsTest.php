@@ -7,7 +7,6 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-
 use function \AlecRabbit\Helpers\bc_bounds;
 use function \AlecRabbit\Helpers\bounds;
 use function \AlecRabbit\Helpers\is_negative;
@@ -47,7 +46,6 @@ class NumericFunctionsTest extends TestCase
         $this->assertEquals(-1, bounds(-1.0000001));
         $this->assertEquals(0.000021, bounds(2.1E-5));
         $this->assertEquals(0.000021, bounds(2.1E-5, 0, 1));
-
     }
 
     /** @test */

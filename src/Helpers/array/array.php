@@ -60,9 +60,13 @@ function arr_el_max_length(array $data): int
     return $maxLength;
 }
 
-
-function unset_first(array $data): iterable
+/**
+ * @param array $data
+ * @return array
+ */
+function unset_first(array $data): array
 {
+    // TODO for PHP >=7.3 this line should use \array_key_first
     $key = array_key_first($data);
     if (null !== $key) {
         unset($data[$key]);

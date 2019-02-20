@@ -7,7 +7,6 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-
 use function \AlecRabbit\arr_el_max_length;
 use function \AlecRabbit\array_key_first;
 use function \AlecRabbit\array_key_last;
@@ -18,40 +17,6 @@ use PHPUnit\Framework\TestCase;
 
 class ArrayFunctionsTest extends TestCase
 {
-
-    /**
-     * @test
-     * @dataProvider unsetFirstDataProvider
-     * @param $expected
-     * @param $actual
-     */
-    public function functionUnsetFirst($expected, $actual): void
-    {
-        $this->assertEquals($expected, unset_first($actual));
-    }
-
-    public function unsetFirstDataProvider(): array
-    {
-        return [
-            [[], []],
-            [[], [1]],
-            [[1 => 1], [0 => 0, 1 => 1]],
-            [[1 => 'a'], [0 => 'b', 1 => 'a']],
-            [
-                [
-                    1 => 2,
-                    2 => 3,
-                    3 => 4,
-                ],
-                [
-                    0 => 1,
-                    1 => 2,
-                    2 => 3,
-                    3 => 4,
-                ],
-            ],
-        ];
-    }
 
     /**
      * @test
@@ -141,5 +106,4 @@ class ArrayFunctionsTest extends TestCase
             [13, ['1', 1100.00000001, 333, 4444]],
         ];
     }
-
 }

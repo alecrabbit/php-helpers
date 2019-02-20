@@ -2,7 +2,6 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\brackets;
 use function AlecRabbit\format_bytes;
@@ -354,5 +353,4 @@ class StringFunctionsTest extends TestCase
             ['10.0ns', 10,],
         ];
     }
-
 }

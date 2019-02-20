@@ -7,7 +7,6 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-
 use function \AlecRabbit\base_timestamp;
 use function AlecRabbit\carbon;
 use function \AlecRabbit\now;
@@ -39,7 +38,7 @@ class TimeFunctionsTest extends TestCase
      */
     public function FunctionBaseTimestamp($expected, $timestamp, $interval): void
     {
-        $this->assertEquals($expected, base_timestamp($timestamp,$interval));
+        $this->assertEquals($expected, base_timestamp($timestamp, $interval));
     }
 
     public function timestampsDataProvider(): array
@@ -58,6 +57,4 @@ class TimeFunctionsTest extends TestCase
             [1514764800, 1514851122, 86400],
         ];
     }
-
-
 }

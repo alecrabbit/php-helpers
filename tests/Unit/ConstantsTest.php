@@ -7,7 +7,6 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-
 use const \AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
 use const \AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
 use const \AlecRabbit\Helpers\Strings\Constants\STR_EMPTY;

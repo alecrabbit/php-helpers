@@ -4,9 +4,9 @@
     "description": "PHP helpers functions",
     "license": "MIT",
     "require": {
-        "php": ">=7.2",
+        "php": "^7.2",
         "krowinski/bcmath-extended": "^4.2",
-        "nesbot/carbon": "^2.10",
+        "nesbot/carbon": "^2.11",
         "symfony/polyfill-php73": "^1.10"
     },
     "require-dev": {
