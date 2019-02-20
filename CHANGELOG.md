@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.3.1] - 2019-02-19 (BETA0)
+## [0.3.1] - 2019-02-20(BETA0)
 - some optimizations
 ### Added
 - function is_homogeneous() to check if all values in array are (strictly ===) equal
