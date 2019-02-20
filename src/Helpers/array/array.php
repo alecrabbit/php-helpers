@@ -70,18 +70,6 @@ function update_result(array &$result, bool &$rowEmpty, array &$tmp): void
     $tmp = [];
 }
 
-
-///******
-
-
-//
-//
-//function formatted_array_3(
-//}
-
-///******
-
-
 /**
  * @param array $data
  * @return array
