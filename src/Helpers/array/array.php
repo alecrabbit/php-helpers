@@ -74,8 +74,11 @@ function formatted_array(
 function arr_el_max_length(array $data): int
 {
     $maxLength = 0;
-    foreach ($data as $value) {
-        $len = \strlen((string)$value);
+    foreach ($data as $element) {
+        if (\is_array($element)) {
+            throw new \RuntimeException('Array to string conversion');
+        }
+        $len = \strlen((string)$element);
         if ($maxLength < $len) {
             $maxLength = $len;
         }
