@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] - 2019-02-19 (BETA0)
+- some optimizations
+### Added
+- function is_homogeneous() to check if all values in array are (strictly ===) equal
+
 ## [0.3.0] - 2019-02-19 (RC2)
 
 ## [0.2.6] - 2019-02-11
@@ -16,7 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.0.16 - 2018-11-29
 
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.3.0-RC2...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.3.1-BETA0...HEAD
+[0.3.1]: https://github.com/alecrabbit/php-helpers/compare/0.3.0-RC2...0.3.1-BETA0
 [0.3.0]: https://github.com/alecrabbit/php-helpers/compare/0.2.6...0.3.0-RC2
 [0.2.6]: https://github.com/alecrabbit/php-helpers/compare/0.1.4...0.2.6
 [0.1.4]: https://github.com/alecrabbit/php-helpers/compare/0.0.16...0.1.4

@@ -1,2 +1,2 @@
-- [ ] separate tests by function
+- [ ] separate tests by function (WIP)
 - [x] add TODO.md file

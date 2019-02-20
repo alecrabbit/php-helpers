@@ -17,24 +17,21 @@ function formatted_array(
     ?callable $callback = null,
     int $pad = STR_PAD_RIGHT
 ): array {
-    $result = [];
+    $result = $tmp = [];
     if ($callback) {
         \array_walk($data, $callback);
     }
     $maxLength = arr_el_max_length($data);
-    $tmp = [];
     $rowEmpty = true;
     foreach ($data as $element) {
         $tmp[] = \str_pad((string)$element, $maxLength, ' ', $pad);
-        $rowEmpty &= \in_array($element, EMPTY_ELEMENTS, true);
+        $rowEmpty = $rowEmpty && \in_array($element, EMPTY_ELEMENTS, true);
         if (\count($tmp) >= $columns) {
-            $result[] = \implode($rowEmpty ? '' : ' ', $tmp);
-            $rowEmpty = true;
-            $tmp = [];
+            update_result($result, $rowEmpty, $tmp);
         }
     }
     if (!empty($tmp)) {
-        $result[] = \implode($rowEmpty ? '' : ' ', $tmp);
+        update_result($result, $rowEmpty, $tmp);
     }
     return $result;
 }
@@ -45,20 +42,45 @@ function formatted_array(
  * @internal
  * @return int
  */
-function arr_el_max_length(array $data): int
+function arr_el_max_length(array &$data): int
 {
     $maxLength = 0;
-    foreach ($data as $element) {
+    foreach ($data as &$element) {
         if (\is_array($element)) {
             throw new \RuntimeException('Array to string conversion');
         }
-        $len = \strlen((string)$element);
+        $len = \strlen($element = (string)$element);
         if ($maxLength < $len) {
             $maxLength = $len;
         }
     }
     return $maxLength;
 }
+
+/**
+ * @param array $result
+ * @param bool $rowEmpty
+ * @param array $tmp
+ * @internal
+ */
+function update_result(array &$result, bool &$rowEmpty, array &$tmp): void
+{
+    $result[] = \implode($rowEmpty ? '' : ' ', $tmp);
+    $rowEmpty = true;
+    $tmp = [];
+}
+
+
+///******
+
+
+//
+//
+//function formatted_array_3(
+//}
+
+///******
+
 
 /**
  * @param array $data
@@ -94,4 +116,19 @@ function array_key_last(array $data)
 {
     end($data);
     return key($data);
+}
+
+/**
+ * @param array $arr
+ * @return bool
+ */
+function is_homogeneous(array $arr): bool
+{
+    $firstValue = current($arr);
+    foreach ($arr as $val) {
+        if ($firstValue !== $val) {
+            return false;
+        }
+    }
+    return true;
 }
