@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace AlecRabbit;
 
 use function AlecRabbit\Helpers\bounds;
-use const AlecRabbit\Helpers\Constants\UNITS;
+use const AlecRabbit\Helpers\Constants\UNITS_LIST;
 use function AlecRabbit\Helpers\is_negative;
 use const AlecRabbit\Helpers\Constants\BRACKETS_ANGLE;
 use const AlecRabbit\Helpers\Constants\BRACKETS_CURLY;
@@ -182,7 +182,7 @@ function format_time_auto(
             $decimalPoint,
             $thousandsSeparator
         ) .
-        TIME_UNITS[UNITS[$pow]];
+        TIME_UNITS[UNITS_LIST[$pow]];
 }
 
 /**

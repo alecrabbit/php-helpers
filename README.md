@@ -101,6 +101,7 @@ format_time_auto(3234561); // string(8) "898.489h"
 ### Array functions
 
 ##### formatted_array()
+Formats one-dimensional array of scalars to array of strings 
 ```php 
 formatted_array([1, 2, 3000, 4, 5, 6, 7000000, 8, 9, 1000, 11], 3);
 // 1       2       3000   
@@ -136,6 +137,7 @@ unset_first($a);
 ```
 
 ##### array_key_first() / array_key_last()
+Polyfill functions for PHP < 7.3
 ```php 
 $a = array (
        0 => 1,

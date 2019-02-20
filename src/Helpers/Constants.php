@@ -5,6 +5,8 @@ namespace AlecRabbit\Helpers\Constants;
 
 /** @internal */
 define(__NAMESPACE__ . '\UNIT_OFFSET', 3);
+/** @internal */
+define(__NAMESPACE__ . '\EMPTY_ELEMENTS', ['', null, false]);
 
 define(__NAMESPACE__ . '\DEFAULT_PRECISION', 3);
 
@@ -16,7 +18,7 @@ define(__NAMESPACE__ . '\UNIT_MINUTES', 1004);
 define(__NAMESPACE__ . '\UNIT_HOURS', 1005);
 
 define(
-    __NAMESPACE__ . '\UNITS',
+    __NAMESPACE__ . '\UNITS_LIST',
     [
     0 => UNIT_SECONDS,
     1 => UNIT_MILLISECONDS,
