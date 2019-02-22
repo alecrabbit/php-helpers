@@ -27,7 +27,7 @@ class EnvTest extends HelpersTestCase
      */
     public function functionEnvWithPut($expected, $variableName): void
     {
-        putenv("{$variableName}={$expected}");
+        \putenv("{$variableName}={$expected}");
         $this->assertEquals($expected, env($variableName));
     }
 
@@ -82,6 +82,9 @@ class EnvTest extends HelpersTestCase
             ['', 'FOO_BAR',],
             [true, 'FOO_BAR',],
             [false, 'FOO_BAR'],
+            [1, 'FOO_BAR'],
+            ['value', 'FOO_BAR'],
+            [null, 'FOO_BAR'],
         ];
     }
 
@@ -89,6 +92,7 @@ class EnvTest extends HelpersTestCase
     {
         return [
             // [$expected, $variableName, $putValue],
+            [1, 'FOO_BAR', 1],
             ['', 'FOO_BAR', null],
             ['', 'FOO_BAR', 'null'],
             ['', 'FOO_BAR', '(null)'],

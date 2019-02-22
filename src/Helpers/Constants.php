@@ -17,6 +17,18 @@ define(__NAMESPACE__ . '\UNIT_SECONDS', 1003);
 define(__NAMESPACE__ . '\UNIT_MINUTES', 1004);
 define(__NAMESPACE__ . '\UNIT_HOURS', 1005);
 
+define(__NAMESPACE__ . '\I_01MIN', 60);
+define(__NAMESPACE__ . '\I_03MIN', 180);
+define(__NAMESPACE__ . '\I_05MIN', 300);
+define(__NAMESPACE__ . '\I_15MIN', 900);
+define(__NAMESPACE__ . '\I_30MIN', 1800);
+define(__NAMESPACE__ . '\I_45MIN', 2700);
+define(__NAMESPACE__ . '\I_01HOUR', 3600);
+define(__NAMESPACE__ . '\I_02HOUR', 7200);
+define(__NAMESPACE__ . '\I_03HOUR', 10800);
+define(__NAMESPACE__ . '\I_04HOUR', 14400);
+define(__NAMESPACE__ . '\I_01DAY', 86400);
+
 define(
     __NAMESPACE__ . '\UNITS_LIST',
     [
