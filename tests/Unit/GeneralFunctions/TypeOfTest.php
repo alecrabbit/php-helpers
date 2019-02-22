@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function AlecRabbit\is_homogeneous;
+use function AlecRabbit\array_is_homogeneous;
 use function AlecRabbit\typeOf;
 
 class TypeOfTest extends HelpersTestCase

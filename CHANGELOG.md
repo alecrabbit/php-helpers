@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.4.0] - 2019-0.-.. - upcoming release
+## [0.4.2] - 2019-02-22 
 ### Added
 - function `array_unset_last()` 
 
@@ -37,8 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.0.16 - 2018-11-29
 
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.3.1...HEAD
-[0.4.0]: https://github.com/alecrabbit/php-helpers/compare/0.3.1...0.4.0
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.4.2...HEAD
+[0.4.2]: https://github.com/alecrabbit/php-helpers/compare/0.3.1...0.4.2
 [0.3.1]: https://github.com/alecrabbit/php-helpers/compare/0.2.6...0.3.1
 [0.2.6]: https://github.com/alecrabbit/php-helpers/compare/0.1.4...0.2.6
 [0.1.4]: https://github.com/alecrabbit/php-helpers/compare/0.0.16...0.1.4

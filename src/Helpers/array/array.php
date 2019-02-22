@@ -100,7 +100,7 @@ function array_unset_last(array $data): array
  * @param array $arr
  * @return bool
  */
-function is_homogeneous(array $arr): bool
+function array_is_homogeneous(array $arr): bool
 {
     $firstValue = current($arr);
     foreach ($arr as $val) {

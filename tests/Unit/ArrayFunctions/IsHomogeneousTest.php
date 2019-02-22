@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function AlecRabbit\is_homogeneous;
+use function AlecRabbit\array_is_homogeneous;
 
 class IsHomogeneousTest extends HelpersTestCase
 {
@@ -14,7 +14,7 @@ class IsHomogeneousTest extends HelpersTestCase
      */
     public function functionIsHomogeneous($expected, $actual): void
     {
-        $this->assertSame($expected, is_homogeneous($actual));
+        $this->assertSame($expected, array_is_homogeneous($actual));
     }
 
     public function isHomogeneousDataProvider(): array
