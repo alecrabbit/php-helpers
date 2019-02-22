@@ -70,26 +70,13 @@ function update_result(array &$result, bool &$rowEmpty, array &$tmp): void
     $tmp = [];
 }
 
-
-///******
-
-
-//
-//
-//function formatted_array_3(
-//}
-
-///******
-
-
 /**
  * @param array $data
  * @return array
  */
 function unset_first(array $data): array
 {
-    // TODO for PHP >=7.3 this line should use \array_key_first
-    $key = array_key_first($data);
+    $key = \array_key_first($data);
     if (null !== $key) {
         unset($data[$key]);
     }
@@ -98,6 +85,7 @@ function unset_first(array $data): array
 
 /**
  * @param array $data
+ * @deprecated
  * @return int|null|string
  */
 function array_key_first(array $data)
@@ -110,6 +98,7 @@ function array_key_first(array $data)
 
 /**
  * @param array $data
+ * @deprecated
  * @return int|null|string
  */
 function array_key_last(array $data)

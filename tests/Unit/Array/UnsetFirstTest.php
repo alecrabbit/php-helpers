@@ -40,4 +40,29 @@ class UnsetFirstTest extends HelpersTestCase
             ],
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider unsetFirstDataProviderTwo
+     * @param $expected
+     * @param $actual
+     */
+    public function functionUnsetFirstTwo($expected, $actual): void
+    {
+        $this->assertEquals(array_values($expected), array_values(unset_first($actual)));
+    }
+
+    public function unsetFirstDataProviderTwo(): array
+    {
+        return [
+            [[], [1]],
+            [[1], [0, 1]],
+            [[], ['a']],
+            [['b'], ['a', 'b']],
+            [[2, 3, 4,], [1, 2, 3, 4,],],
+
+        ];
+    }
+
+
 }
