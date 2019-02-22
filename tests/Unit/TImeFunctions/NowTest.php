@@ -16,5 +16,4 @@ class NowTest extends HelpersTestCase
         $now = now();
         $this->assertInstanceOf(Carbon::class, $now);
     }
-
 }

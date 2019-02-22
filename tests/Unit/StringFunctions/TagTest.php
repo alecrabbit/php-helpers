@@ -47,5 +47,4 @@ class TagTest extends HelpersTestCase
             [\TypeError::class, [null]],
         ];
     }
-
 }
