@@ -4,7 +4,7 @@ namespace AlecRabbit\Tests\Helpers;
 
 use function AlecRabbit\array_is_homogeneous;
 
-class IsHomogeneousTest extends HelpersTestCase
+class ArrayIsHomogeneousTest extends HelpersTestCase
 {
     /**
      * @test
