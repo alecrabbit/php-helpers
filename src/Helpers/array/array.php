@@ -84,30 +84,6 @@ function unset_first(array $data): array
 }
 
 /**
- * @param array $data
- * @deprecated
- * @return int|null|string
- */
-function array_key_first(array $data)
-{
-    foreach ($data as $key => $value) {
-        // this loop does not loop
-        return $key;
-    }
-}
-
-/**
- * @param array $data
- * @deprecated
- * @return int|null|string
- */
-function array_key_last(array $data)
-{
-    end($data);
-    return key($data);
-}
-
-/**
  * @param array $arr
  * @return bool
  */

@@ -38,6 +38,8 @@ define(__NAMESPACE__ . '\STR_TRUE', 'true');
 define(__NAMESPACE__ . '\STR_FALSE', 'false');
 define(__NAMESPACE__ . '\STR_EMPTY', 'empty');
 define(__NAMESPACE__ . '\STR_NULL', 'null');
+define(__NAMESPACE__ . '\STR_VOID', 'void');
+define(__NAMESPACE__ . '\STR_EMPTY_VOID', '');
 
 define(__NAMESPACE__ . '\BYTES_UNITS', [
     'B' => 0,
