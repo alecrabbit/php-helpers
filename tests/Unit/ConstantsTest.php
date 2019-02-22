@@ -11,6 +11,8 @@ use const \AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
 use const \AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
 use const \AlecRabbit\Helpers\Strings\Constants\STR_EMPTY;
 use const \AlecRabbit\Helpers\Strings\Constants\STR_NULL;
+use const AlecRabbit\Helpers\Strings\Constants\STR_VOID;
+use const AlecRabbit\Helpers\Strings\Constants\STR_EMPTY_VOID;
 use PHPUnit\Framework\TestCase;
 
 class ConstantsTest extends TestCase
@@ -22,5 +24,7 @@ class ConstantsTest extends TestCase
         $this->assertEquals(STR_FALSE, 'false');
         $this->assertEquals(STR_EMPTY, 'empty');
         $this->assertEquals(STR_NULL, 'null');
+        $this->assertEquals(STR_VOID, 'void');
+        $this->assertEquals(STR_EMPTY_VOID, '');
     }
 }

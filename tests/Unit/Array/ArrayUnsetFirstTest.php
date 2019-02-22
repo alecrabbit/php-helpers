@@ -2,9 +2,9 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function AlecRabbit\unset_first;
+use function AlecRabbit\array_unset_first;
 
-class UnsetFirstTest extends HelpersTestCase
+class ArrayUnsetFirstTest extends HelpersTestCase
 {
     /**
      * @test
@@ -14,7 +14,7 @@ class UnsetFirstTest extends HelpersTestCase
      */
     public function functionUnsetFirst($expected, $actual): void
     {
-        $this->assertEquals($expected, unset_first($actual));
+        $this->assertEquals($expected, array_unset_first($actual));
     }
 
     public function unsetFirstDataProvider(): array
@@ -49,7 +49,7 @@ class UnsetFirstTest extends HelpersTestCase
      */
     public function functionUnsetFirstTwo($expected, $actual): void
     {
-        $this->assertEquals(array_values($expected), array_values(unset_first($actual)));
+        $this->assertEquals(array_values($expected), array_values(array_unset_first($actual)));
     }
 
     public function unsetFirstDataProviderTwo(): array
@@ -63,6 +63,4 @@ class UnsetFirstTest extends HelpersTestCase
 
         ];
     }
-
-
 }

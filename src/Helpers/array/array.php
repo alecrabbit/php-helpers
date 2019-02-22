@@ -74,7 +74,7 @@ function update_result(array &$result, bool &$rowEmpty, array &$tmp): void
  * @param array $data
  * @return array
  */
-function unset_first(array $data): array
+function array_unset_first(array $data): array
 {
     $key = \array_key_first($data);
     if (null !== $key) {
@@ -85,26 +85,15 @@ function unset_first(array $data): array
 
 /**
  * @param array $data
- * @deprecated
- * @return int|null|string
+ * @return array
  */
-function array_key_first(array $data)
+function array_unset_last(array $data): array
 {
-    foreach ($data as $key => $value) {
-        // this loop does not loop
-        return $key;
+    $key = \array_key_last($data);
+    if (null !== $key) {
+        unset($data[$key]);
     }
-}
-
-/**
- * @param array $data
- * @deprecated
- * @return int|null|string
- */
-function array_key_last(array $data)
-{
-    end($data);
-    return key($data);
+    return $data;
 }
 
 /**
