@@ -20,29 +20,6 @@ class ArrayFunctionsTest extends TestCase
 
     /**
      * @test
-     * @dataProvider unsetFirstDataProviderTwo
-     * @param $expected
-     * @param $actual
-     */
-    public function functionUnsetFirstTwo($expected, $actual): void
-    {
-        $this->assertEquals(array_values($expected), array_values(unset_first($actual)));
-    }
-
-    public function unsetFirstDataProviderTwo(): array
-    {
-        return [
-            [[], [1]],
-            [[1], [0, 1]],
-            [[], ['a']],
-            [['b'], ['a', 'b']],
-            [[2, 3, 4,], [1, 2, 3, 4,],],
-
-        ];
-    }
-
-    /**
-     * @test
      * @dataProvider arrayKeyFirstDataProvider
      * @param $expected
      * @param $data
@@ -80,30 +57,4 @@ class ArrayFunctionsTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider arrElMaxLengthDataProvider
-     * @param $expected
-     * @param $array
-     */
-    public function functionArrElMaxLength($expected, $array): void
-    {
-        $this->assertEquals($expected, arr_el_max_length($array));
-    }
-
-    public function arrElMaxLengthDataProvider(): array
-    {
-        return [
-            // [$expected, $array],
-            [1, ['','1']],
-            [2, ['','22']],
-            [0, ['','']],
-            [0, [null]],
-            [4, ['1', '22', 333, 4444]],
-            [6, ['1', 666.66, 333, 4444]],
-            [7, ['1', 0.000000000001, 333, 4444]],
-            [4, ['1', '1100', 333, 4444]],
-            [13, ['1', 1100.00000001, 333, 4444]],
-        ];
-    }
 }
