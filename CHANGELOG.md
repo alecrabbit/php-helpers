@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.5.0] - 2019-02-.. 
+## [0.5.0] - 2019-02-22 
 ### Removed
 - function `bc_bounds()` 
 
@@ -41,7 +41,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.0.16 - 2018-11-29
 
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.4.2...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.5.0...HEAD
+[0.5.0]: https://github.com/alecrabbit/php-helpers/compare/0.4.2...0.5.0
 [0.4.2]: https://github.com/alecrabbit/php-helpers/compare/0.3.1...0.4.2
 [0.3.1]: https://github.com/alecrabbit/php-helpers/compare/0.2.6...0.3.1
 [0.2.6]: https://github.com/alecrabbit/php-helpers/compare/0.1.4...0.2.6
