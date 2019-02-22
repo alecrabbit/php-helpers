@@ -27,6 +27,7 @@ see [examples](https://github.com/alecrabbit/php-helpers/tree/master/examples)
 ### Functions
 
 ##### typeOf()
+Returns type of variable
 ```php 
 typeOf(new \AlecRabbit\SomeSpace\SomeClass()); // string(30) "AlecRabbit\SomeSpace\SomeClass"
 typeOf(new \stdClass()); // string(8) "stdClass"
@@ -34,22 +35,25 @@ typeOf('s'); // string(6) "string"
 typeOf(1); // string(7) "integer"
 typeOf(1.00); // string(6) "float"
 ```
+> Note: it returns `float` instead of `double`
 
 ### Time functions
 
 ##### now()
+Creates Carbon object with current datetime
 ```php 
 $now = now(); // object(Carbon\Carbon)
 ```
 
 ##### carbon()
+Creates Carbon object, has same parameters as a Carbon constructor
 ```php 
 $c = carbon('1 month ago'); // object(Carbon\Carbon)
 ```
 
 ##### base_timestamp()
+Returns start timestamp of a period
 ```php 
-// returns start timestamp of a period
 //         int(1514851122)                              => Mon Jan 01 2018 23:58:42 GMT+0000
 base_timestamp(1514851122, 86400); //  int(1514764800)  => Mon Jan 01 2018 00:00:00 GMT+0000
 base_timestamp(1514851122, 3600); //   int(1514847600)  => Mon Jan 01 2018 23:00:00 GMT+0000

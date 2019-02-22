@@ -1,7 +1,7 @@
-- [ ] separate tests by function (WIP)
 - [ ] consider moving implementation of functions to classes
-
 - [ ] pick a better name for function `formatted_array()`
+
+- [x] separate tests by function (0.5.0)
 - [x] remove `bc_bounds()` (0.5.0)
 - [x] rename function `is_homogeneous()` to `array_is_homogeneous()` (0.5.0)
 

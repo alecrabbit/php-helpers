@@ -15,7 +15,6 @@ class EnvTest extends HelpersTestCase
      */
     public function functionEnvDefaults($expected, $variableName, $default): void
     {
-
         $this->assertEquals($expected, env($variableName, $default));
     }
 

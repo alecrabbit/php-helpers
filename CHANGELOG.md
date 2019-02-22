@@ -22,7 +22,6 @@ define('AlecRabbit\Helpers\Constants\I_02HOUR', 7200);
 define('AlecRabbit\Helpers\Constants\I_03HOUR', 10800);
 define('AlecRabbit\Helpers\Constants\I_04HOUR', 14400);
 define('AlecRabbit\Helpers\Constants\I_01DAY', 86400);
-
 ```
 ### Removed
 - function `bc_bounds()` 
