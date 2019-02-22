@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.4.0] - 2019-0.-.. - upcoming release
+### Added
+- function `array_unset_last()` 
+
+### Changed 
+- function `unset_first()` renamed to `array_unset_first()`
+- function `bc_bounds()` is deprecated
+ 
 ### Removed
 - function `array_key_first()`
 - function `array_key_last()`

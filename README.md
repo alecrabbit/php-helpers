@@ -131,7 +131,7 @@ formatted_array($a, 3,
 // )
 ```
 
-##### unset_first()
+##### array_unset_first()
 ```php 
 $a = array (
        0 => 1,
@@ -147,8 +147,7 @@ unset_first($a);
 // )
 ```
 
-##### array_key_first() / array_key_last()
-Polyfill functions for PHP < 7.3
+##### array_unset_last()
 ```php 
 $a = array (
        0 => 1,
@@ -156,8 +155,12 @@ $a = array (
        2 => 3,
        3 => 4,
      );
-array_key_first($a); // int(0)
-array_key_last($a); // int(3)
+unset_first($a); 
+// array (
+//   0 => 1,
+//   1 => 2,
+//   2 => 3,
+// )
 ```
 
 ### Numeric functions

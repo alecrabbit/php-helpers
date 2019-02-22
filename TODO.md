@@ -1,3 +1,10 @@
 - [ ] separate tests by function (WIP)
-- [ ] rename function `unset_first()` to `array_unset_first()`
+
+- [ ] pick a better name for function `formatted_array()`
+- [ ] remove `bc_bounds()` (0.5.0)
+
+- [x] deprecate `bc_bounds()` (0.4.0)
+- [x] add function `array_unset_last()` for consistency :) (0.4.0)
+- [x] rename function `unset_first()` to `array_unset_first()` (0.4.0)
+
 - [x] add TODO.md file

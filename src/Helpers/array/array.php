@@ -74,9 +74,22 @@ function update_result(array &$result, bool &$rowEmpty, array &$tmp): void
  * @param array $data
  * @return array
  */
-function unset_first(array $data): array
+function array_unset_first(array $data): array
 {
     $key = \array_key_first($data);
+    if (null !== $key) {
+        unset($data[$key]);
+    }
+    return $data;
+}
+
+/**
+ * @param array $data
+ * @return array
+ */
+function array_unset_last(array $data): array
+{
+    $key = \array_key_last($data);
     if (null !== $key) {
         unset($data[$key]);
     }
