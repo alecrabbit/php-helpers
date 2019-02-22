@@ -12,7 +12,7 @@ class BoundsTest extends HelpersTestCase
      * @param float $expected
      * @param array $args
      */
-    public function FunctionBounds(float $expected, array $args): void
+    public function functionBounds(float $expected, array $args): void
     {
         $this->assertSame($expected, bounds(...$args));
     }
@@ -32,5 +32,4 @@ class BoundsTest extends HelpersTestCase
             [0.999999, [0.999999, 0, 1]],
         ];
     }
-
 }

@@ -12,7 +12,7 @@ class TrimZerosTest extends HelpersTestCase
      * @param string $expected
      * @param string $argument
      */
-    public function FunctionTrimZeros(string $expected, string $argument): void
+    public function functionTrimZeros(string $expected, string $argument): void
     {
         $this->assertEquals($expected, trim_zeros($argument));
     }
