@@ -1,33 +1,11 @@
-<?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 14:07
- */
+<?php declare(strict_types=1);
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function \AlecRabbit\base_timestamp;
-use function AlecRabbit\carbon;
-use function \AlecRabbit\now;
-use Carbon\Carbon;
-use PHPUnit\Framework\TestCase;
+use function AlecRabbit\base_timestamp;
 
-class TimeFunctionsTest extends TestCase
+class BaseTimestampTest extends HelpersTestCase
 {
-    /** @test */
-    public function FunctionNow(): void
-    {
-        $now = now();
-        $this->assertInstanceOf(Carbon::class, $now);
-    }
-
-    /** @test */
-    public function FunctionCarbon(): void
-    {
-        $this->assertInstanceOf(Carbon::class, carbon());
-        $this->assertEquals(Carbon::parse('Feb 3 2018'), carbon('Feb 3 2018'));
-    }
 
     /**
      * @test
@@ -36,7 +14,7 @@ class TimeFunctionsTest extends TestCase
      * @param $timestamp
      * @param $interval
      */
-    public function FunctionBaseTimestamp($expected, $timestamp, $interval): void
+    public function functionBaseTimestamp($expected, $timestamp, $interval): void
     {
         $this->assertEquals($expected, base_timestamp($timestamp, $interval));
     }
