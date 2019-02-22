@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace AlecRabbit\Helpers;
 
@@ -41,7 +40,7 @@ function bounds(float $value, float $min = -1.0, float $max = 1.0): float
  * @param string $max [optional] Default 1
  * @param int $scale [optional] Default 5
  * @return string
- * @depracetd to be removed since 0.5.0
+ * @deprecated  to be removed since 0.5.0
  */
 function bc_bounds(string $value, string $min = '-1', string $max = '1', int $scale = 5): string
 {

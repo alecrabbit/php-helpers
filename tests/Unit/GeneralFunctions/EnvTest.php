@@ -1,22 +1,11 @@
-<?php
-/**
- * User: alec
- * Date: 14.11.18
- * Time: 15:23
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function \AlecRabbit\env;
-use AlecRabbit\Tests\Helpers\Double;
-use AlecRabbit\Tests\Helpers\Naodouble;
-use function \AlecRabbit\typeOf;
-use PHPUnit\Framework\TestCase;
+use function AlecRabbit\env;
 
-class FunctionsTest extends TestCase
+class EnvTest extends HelpersTestCase
 {
-
     /**
      * @test
      * @dataProvider envDataProvider
@@ -24,7 +13,7 @@ class FunctionsTest extends TestCase
      * @param $variableName
      * @param $default
      */
-    public function FunctionEnvDefaults($expected, $variableName, $default): void
+    public function functionEnvDefaults($expected, $variableName, $default): void
     {
 
         $this->assertEquals($expected, env($variableName, $default));
@@ -36,7 +25,7 @@ class FunctionsTest extends TestCase
      * @param $expected
      * @param $variableName
      */
-    public function FunctionEnvWithPut($expected, $variableName): void
+    public function functionEnvWithPut($expected, $variableName): void
     {
         putenv("{$variableName}={$expected}");
         $this->assertEquals($expected, env($variableName));
@@ -49,7 +38,7 @@ class FunctionsTest extends TestCase
      * @param $variableName
      * @param $putValue
      */
-    public function FunctionEnvWithPutValue($expected, $variableName, $putValue): void
+    public function functionEnvWithPutValue($expected, $variableName, $putValue): void
     {
         putenv("{$variableName}={$putValue}");
         $this->assertEquals($expected, env($variableName));
@@ -81,7 +70,8 @@ class FunctionsTest extends TestCase
                 'FOO_BAR',
                 function () {
                     return '"Some Value"';
-                }],
+                },
+            ],
         ];
     }
 
@@ -116,37 +106,6 @@ class FunctionsTest extends TestCase
             ['some_value', 'FOO_BAR', 'some_value'],
             ['some value', 'FOO_BAR', '"some value"'],
             ['Some Value', 'FOO_BAR', '"Some Value"'],
-        ];
-    }
-
-    /**
-     * @test
-     * @dataProvider typeOfDataProvider
-     * @param $expected
-     * @param $variable
-     */
-    public function FunctionTypeOf($expected, $variable): void
-    {
-        $this->assertEquals($expected, typeOf($variable));
-    }
-
-    public function typeOfDataProvider(): array
-    {
-        return [
-            // [$expected, $variable],
-            ['integer', 1],
-            ['float', 1.0],
-            ['boolean', true],
-            ['NULL', null],
-            ['array', []],
-            ['Closure', function () {
-            }],
-            ['stdClass', new \stdClass()],
-            [Naodouble::class, new Naodouble()],
-            [Double::class, new Double()],
-            ['string', 'sss'],
-            ['resource', curl_init()],
-            [__CLASS__, $this],
         ];
     }
 }
