@@ -27,7 +27,9 @@ class CarbonTest extends HelpersTestCase
      */
     public function functionCarbonWithArgs($expected, $args): void
     {
-        $this->assertEquals($expected, carbon(...$args));
+        $c  = carbon(...$args);
+        dump($expected, $c);
+        $this->assertEquals($expected, $c);
     }
 
     public function functionCarbonWithArgsDataProvider(): array
