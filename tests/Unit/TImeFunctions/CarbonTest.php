@@ -33,6 +33,7 @@ class CarbonTest extends HelpersTestCase
     public function functionCarbonWithArgsDataProvider(): array
     {
         $tz = new CarbonTimeZone('Europe/Kiev');
+        dump($tz);
         return [
             [Carbon::createFromTimestamp(1550707200, $tz), [1550707200, $tz]],
             [Carbon::createFromTimestamp(1456707200, $tz), [1456707200, $tz]],
