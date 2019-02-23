@@ -39,8 +39,8 @@ class CarbonTest extends HelpersTestCase
         return [
             [Carbon::createFromTimestamp(1550707200, $tz), [1550707200, $tz]],
             [Carbon::createFromTimestamp(1456707200, $tz), [1456707200, $tz]],
-            [Carbon::create('first day of January 2008', $tz), ['first day of January 2008', $tz]],
-            [Carbon::create('Feb 3 2018', $tz), ['Feb 3 2018', $tz]],
+            [new Carbon('first day of January 2008', $tz), ['first day of January 2008', $tz]],
+            [new Carbon('Feb 3 2018', $tz), ['Feb 3 2018', $tz]],
         ];
     }
 }
