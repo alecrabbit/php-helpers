@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.5.0] - 2019-0.-..
+## [0.5.0] - 2019-03-03
 ### Added
 Constants representing time intervals
 ```php
@@ -23,6 +23,9 @@ define('AlecRabbit\Helpers\Constants\I_03HOUR', 10800);
 define('AlecRabbit\Helpers\Constants\I_04HOUR', 14400);
 define('AlecRabbit\Helpers\Constants\I_01DAY', 86400);
 ```
+### Changed 
+- function `is_homogeneous()` renamed to `array_is_homogeneous()`
+
 ### Removed
 - function `bc_bounds()` 
 
