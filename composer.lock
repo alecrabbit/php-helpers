@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a35179aac86b3c2520cab8c847fffa27",
+    "content-hash": "6e6f4a7f7af2e8591663cb04ab522087",
     "packages": [
         {
             "name": "krowinski/bcmath-extended",
@@ -381,6 +381,68 @@
     ],
     "packages-dev": [
         {
+            "name": "composer/semver",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/semver.git",
+                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c7cb9a2095a074d131b65a8a0cd294479d785573",
+                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5 || ^5.0.5",
+                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Semver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Adermann",
+                    "email": "naderman@naderman.de",
+                    "homepage": "http://www.naderman.de"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                },
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com",
+                    "homepage": "http://robbast.nl"
+                }
+            ],
+            "description": "Semver library that offers utilities, version constraint parsing and validation.",
+            "keywords": [
+                "semantic",
+                "semver",
+                "validation",
+                "versioning"
+            ],
+            "time": "2016-08-30T16:08:34+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.1.0",
             "source": {
@@ -582,6 +644,50 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "kylekatarnls/multi-tester",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/multi-tester.git",
+                "reference": "8ee74c4aa72354559534eca4686e7d727b1ac92f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/multi-tester/zipball/8ee74c4aa72354559534eca4686e7d727b1ac92f",
+                "reference": "8ee74c4aa72354559534eca4686e7d727b1ac92f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/semver": "^1.0",
+                "php": ">=5.4",
+                "symfony/yaml": "^2.8 || ^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.0"
+            },
+            "bin": [
+                "bin/multi-tester"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MultiTester\\": "./src/MultiTester"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KyleK",
+                    "email": "kylekatarnls@gmail.com"
+                }
+            ],
+            "description": "Test your package change inside other packages",
+            "time": "2019-02-12T07:02:19+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2221,6 +2327,65 @@
                 "dump"
             ],
             "time": "2019-01-30T11:44:30+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d461670ee145092b7e2a56c1da7118f19cadadb0",
+                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
             "name": "theseer/tokenizer",
