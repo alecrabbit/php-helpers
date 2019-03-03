@@ -97,14 +97,14 @@ function array_unset_last(array $data): array
 }
 
 /**
- * @param array $arr
+ * @param array $a
  * @return bool
  */
-function is_homogeneous(array $arr): bool
+function array_is_homogeneous(array $a): bool
 {
-    $firstValue = current($arr);
-    foreach ($arr as $val) {
-        if ($firstValue !== $val) {
+    $firstElement = current($a);
+    foreach ($a as $element) {
+        if ($firstElement !== $element) {
             return false;
         }
     }

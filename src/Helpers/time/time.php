@@ -16,18 +16,21 @@ namespace AlecRabbit;
  */
 function now($tz = null)
 {
-    return new \Carbon\Carbon(null, $tz);
+    return \Carbon\Carbon::now($tz);
 }
 
 /**
- * @param string|null               $time
+ * @param string|null|int $time
  * @param \DateTimeZone|string|null $tz
  * @return \Carbon\Carbon
  * @throws \Exception
  */
 function carbon($time = null, $tz = null)
 {
-    return new \Carbon\Carbon($time, $tz);
+    return
+        \is_int($time) ?
+            \Carbon\Carbon::createFromTimestamp($time, $tz) :
+            new \Carbon\Carbon($time, $tz);
 }
 
 /**

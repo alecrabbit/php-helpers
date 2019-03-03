@@ -3,16 +3,46 @@
 namespace AlecRabbit\Tests\Helpers;
 
 use Carbon\Carbon;
+use Carbon\CarbonTimeZone;
 use function AlecRabbit\carbon;
 
 class CarbonTest extends HelpersTestCase
 {
-    /** @test
+    /**
+     * @test
      * @throws \Exception
      */
     public function functionCarbon(): void
     {
         $this->assertInstanceOf(Carbon::class, carbon());
         $this->assertEquals(Carbon::parse('Feb 3 2018'), carbon('Feb 3 2018'));
+    }
+
+    /**
+     * @test
+     * @dataProvider functionCarbonWithArgsDataProvider
+     * @param $expected
+     * @param $args
+     * @throws \Exception
+     */
+    public function functionCarbonWithArgs($expected, $args): void
+    {
+        $c = carbon(...$args);
+//        dump($expected, $c);
+        $this->assertEquals($expected, $c);
+    }
+
+    public function functionCarbonWithArgsDataProvider(): array
+    {
+        $tz = new CarbonTimeZone('Europe/Kiev');
+//        dump($tz);
+        return [
+            [Carbon::createFromTimestamp(1550707200, $tz), [1550707200, $tz]],
+            [Carbon::createFromTimestamp(1550707200, $tz), ['@' . 1550707200, $tz]],
+            [Carbon::createFromTimestamp(1456707200, $tz), [1456707200, $tz]],
+            [Carbon::createFromTimestamp(1456707200, $tz), ['@' . 1456707200, $tz]],
+            [new Carbon('first day of January 2008', $tz), ['first day of January 2008', $tz]],
+            [new Carbon('Feb 3 2018', $tz), ['Feb 3 2018', $tz]],
+        ];
     }
 }
