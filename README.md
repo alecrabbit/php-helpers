@@ -37,18 +37,23 @@ typeOf(1.00); // string(6) "float"
 ```
 > Note: it returns `float` instead of `double`
 
+### Object functions
+
+##### Picklock::class
+`Picklock::callMethod()` calls private/protected method of object, `Picklock::getValue()` gets value of private/protected property of object
+
 ### Time functions
 
 ##### now()
 Creates Carbon object with current datetime
 ```php 
-$now = now(); // object(Carbon\Carbon)
+$now = now(); // object(Carbon\CarbonInterface)
 ```
 
 ##### carbon()
 Creates Carbon object, has same parameters as a Carbon constructor
 ```php 
-$c = carbon('1 month ago'); // object(Carbon\Carbon)
+$c = carbon('1 month ago'); // object(Carbon\CarbonInterface)
 ```
 
 ##### base_timestamp()
