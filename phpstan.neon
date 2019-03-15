@@ -3,3 +3,6 @@ parameters:
 		-
 			message: '#Using \$this in static method [a-zA-Z0-9\\_]+::callMethod\(\)#'
 			path: %currentWorkingDirectory%/src/Helpers/Objects/Picklock.php
+		-
+			message: '#Using \$this in static method [a-zA-Z0-9\\_]+::getValue\(\)#'
+			path: %currentWorkingDirectory%/src/Helpers/Objects/Picklock.php
