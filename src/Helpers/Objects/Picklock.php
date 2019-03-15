@@ -26,18 +26,24 @@ final class Picklock
      */
     public static function callMethod(object $object, string $methodName, ...$args)
     {
-        $closure = function (string $methodName, ...$args) {
-            if (\method_exists($this, $methodName)) {
-                return $this->$methodName(...$args);
-            }
-            throw new \RuntimeException(
-                sprintf(
-                    Picklock::EXCEPTION_TEMPLATE,
-                    \get_class($this),
-                    $methodName
-                )
-            );
-        };
+        $closure =
+            /**
+             * @param string $methodName
+             * @param array $args
+             * @return mixed
+             */
+            function (string $methodName, ...$args) {
+                if (\method_exists($this, $methodName)) {
+                    return $this->$methodName(...$args);
+                }
+                throw new \RuntimeException(
+                    sprintf(
+                        Picklock::EXCEPTION_TEMPLATE,
+                        \get_class($this),
+                        $methodName
+                    )
+                );
+            };
         return
             $closure->call($object, $methodName, ...$args);
     }

@@ -5,6 +5,7 @@ ANALYZE=0
 BEAUTY=0
 PHPUNIT=0
 METRICS=0
+MULTI_TEST=0
 EXEC=1
 HELP=0
 RESTART_CONTAINER=1
@@ -62,6 +63,9 @@ do
             ;;
         --metrics)
             METRICS=1
+            ;;
+        --multi)
+            MULTI_TEST=1
             ;;
         *)
             if [[ ${PROPAGATE} == 1 ]]

@@ -11,7 +11,7 @@ namespace AlecRabbit;
  * Create a new Carbon instance for the current time.
  *
  * @param  \DateTimeZone|string|null $tz
- * @return \Carbon\Carbon
+ * @return \Carbon\CarbonInterface
  * @throws \Exception
  */
 function now($tz = null)
@@ -22,7 +22,7 @@ function now($tz = null)
 /**
  * @param string|null|int $time
  * @param \DateTimeZone|string|null $tz
- * @return \Carbon\Carbon
+ * @return \Carbon\CarbonInterface
  * @throws \Exception
  */
 function carbon($time = null, $tz = null)
