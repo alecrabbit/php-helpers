@@ -28,14 +28,13 @@ class CarbonTest extends HelpersTestCase
     public function functionCarbonWithArgs($expected, $args): void
     {
         $c = carbon(...$args);
-//        dump($expected, $c);
         $this->assertEquals($expected, $c);
     }
 
     public function functionCarbonWithArgsDataProvider(): array
     {
         $tz = new CarbonTimeZone('Europe/Kiev');
-//        dump($tz);
+        $tz2 = new CarbonTimeZone('America/Anchorage');
         return [
             [Carbon::createFromTimestamp(1550707200, $tz), [1550707200, $tz]],
             [Carbon::createFromTimestamp(1550707200, $tz), ['@' . 1550707200, $tz]],
@@ -43,6 +42,12 @@ class CarbonTest extends HelpersTestCase
             [Carbon::createFromTimestamp(1456707200, $tz), ['@' . 1456707200, $tz]],
             [new Carbon('first day of January 2008', $tz), ['first day of January 2008', $tz]],
             [new Carbon('Feb 3 2018', $tz), ['Feb 3 2018', $tz]],
+            [Carbon::createFromTimestamp(1550707200, $tz2), [1550707200, $tz2]],
+            [Carbon::createFromTimestamp('1550707200', $tz2), ['@' . 1550707200, $tz2]],
+            [Carbon::createFromTimestamp('1456707200', $tz2), [1456707200, $tz2]],
+            [Carbon::createFromTimestamp(1456707200, $tz2), ['@' . 1456707200, $tz2]],
+            [new Carbon('first day of March 2008', $tz2), ['first day of March 2008', $tz2]],
+            [new Carbon('Feb 3 2018', $tz2), ['Feb 3 2018', $tz2]],
         ];
     }
 }
