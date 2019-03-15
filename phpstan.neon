@@ -1,0 +1,5 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#Using \$this in static method [a-zA-Z0-9\\_]+::callMethod\(\)#'
+			path: %currentWorkingDirectory%/src/Helpers/Objects/Picklock.php

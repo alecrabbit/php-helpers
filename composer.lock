@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e6f4a7f7af2e8591663cb04ab522087",
+    "content-hash": "eb330ea5ca9100d7848393b4c83ce726",
     "packages": [
         {
             "name": "krowinski/bcmath-extended",
@@ -65,16 +65,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.13.0",
+            "version": "2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "d77e6cd59e1bb7aad6ad8060a61a440251627ed0"
+                "reference": "dd16fedc022180ea4292a03aabe95e9895677911"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d77e6cd59e1bb7aad6ad8060a61a440251627ed0",
-                "reference": "d77e6cd59e1bb7aad6ad8060a61a440251627ed0",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/dd16fedc022180ea4292a03aabe95e9895677911",
+                "reference": "dd16fedc022180ea4292a03aabe95e9895677911",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +121,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-02-20T20:39:03+00:00"
+            "time": "2019-03-12T09:31:40+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -307,16 +307,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "23fd7aac70d99a17a8e6473a41fec8fab3331050"
+                "reference": "748464177a77011f8f4cdd076773862ce4915f8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/23fd7aac70d99a17a8e6473a41fec8fab3331050",
-                "reference": "23fd7aac70d99a17a8e6473a41fec8fab3331050",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/748464177a77011f8f4cdd076773862ce4915f8f",
+                "reference": "748464177a77011f8f4cdd076773862ce4915f8f",
                 "shasum": ""
             },
             "require": {
@@ -376,7 +376,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-27T23:11:39+00:00"
+            "time": "2019-02-27T03:31:50+00:00"
         }
     ],
     "packages-dev": [
@@ -647,16 +647,16 @@
         },
         {
             "name": "kylekatarnls/multi-tester",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kylekatarnls/multi-tester.git",
-                "reference": "8ee74c4aa72354559534eca4686e7d727b1ac92f"
+                "reference": "26b715c55d46c326cc9f028388fcba0078c16576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kylekatarnls/multi-tester/zipball/8ee74c4aa72354559534eca4686e7d727b1ac92f",
-                "reference": "8ee74c4aa72354559534eca4686e7d727b1ac92f",
+                "url": "https://api.github.com/repos/kylekatarnls/multi-tester/zipball/26b715c55d46c326cc9f028388fcba0078c16576",
+                "reference": "26b715c55d46c326cc9f028388fcba0078c16576",
                 "shasum": ""
             },
             "require": {
@@ -687,7 +687,7 @@
                 }
             ],
             "description": "Test your package change inside other packages",
-            "time": "2019-02-12T07:02:19+00:00"
+            "time": "2019-03-10T21:54:10+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -739,16 +739,16 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v2.1.1",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "b5feb0c0d92978ec7169232ce5d70d6da6b29f63"
+                "reference": "af42d339fe2742295a54f6fdd42aaa6f8c4aca68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/b5feb0c0d92978ec7169232ce5d70d6da6b29f63",
-                "reference": "b5feb0c0d92978ec7169232ce5d70d6da6b29f63",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/af42d339fe2742295a54f6fdd42aaa6f8c4aca68",
+                "reference": "af42d339fe2742295a54f6fdd42aaa6f8c4aca68",
                 "shasum": ""
             },
             "require": {
@@ -758,10 +758,10 @@
                 "symfony/console": "~2.8|~3.3|~4.0"
             },
             "require-dev": {
-                "laravel/framework": "5.7.*",
+                "laravel/framework": "5.8.*",
                 "nunomaduro/larastan": "^0.3.0",
-                "phpstan/phpstan": "^0.10",
-                "phpunit/phpunit": "~7.3"
+                "phpstan/phpstan": "^0.11",
+                "phpunit/phpunit": "~8.0"
             },
             "type": "library",
             "extra": {
@@ -799,7 +799,7 @@
                 "php",
                 "symfony"
             ],
-            "time": "2018-11-21T21:40:54+00:00"
+            "time": "2019-03-07T21:35:13+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2069,16 +2069,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4"
+                "reference": "9dc2299a016497f9ee620be94524e6c0af0280a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4",
-                "reference": "1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9dc2299a016497f9ee620be94524e6c0af0280a9",
+                "reference": "9dc2299a016497f9ee620be94524e6c0af0280a9",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2137,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-25T14:35:16+00:00"
+            "time": "2019-02-23T15:17:42+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2254,16 +2254,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "223bda89f9be41cf7033eeaf11bc61a280489c17"
+                "reference": "9f87189ac10b42edf7fb8edc846f1937c6d157cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/223bda89f9be41cf7033eeaf11bc61a280489c17",
-                "reference": "223bda89f9be41cf7033eeaf11bc61a280489c17",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9f87189ac10b42edf7fb8edc846f1937c6d157cf",
+                "reference": "9f87189ac10b42edf7fb8edc846f1937c6d157cf",
                 "shasum": ""
             },
             "require": {
@@ -2326,20 +2326,20 @@
                 "debug",
                 "dump"
             ],
-            "time": "2019-01-30T11:44:30+00:00"
+            "time": "2019-02-23T15:17:42+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0"
+                "reference": "761fa560a937fd7686e5274ff89dcfa87a5047df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d461670ee145092b7e2a56c1da7118f19cadadb0",
-                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/761fa560a937fd7686e5274ff89dcfa87a5047df",
+                "reference": "761fa560a937fd7686e5274ff89dcfa87a5047df",
                 "shasum": ""
             },
             "require": {
@@ -2385,7 +2385,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T20:35:37+00:00"
+            "time": "2019-02-23T15:17:42+00:00"
         },
         {
             "name": "theseer/tokenizer",

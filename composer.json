@@ -21,12 +21,15 @@
     },
     "require-dev": {
         "ext-curl": "*",
-        "nunomaduro/collision": "^2.1",
+        "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^7.5",
         "symfony/var-dumper": "^4.2",
         "kylekatarnls/multi-tester": "^1.1"
     },
     "autoload": {
+        "psr-4": {
+            "AlecRabbit\\": "src/"
+        },
         "files": [
             "src/Helpers/Constants.php",
             "src/Helpers/Strings/Constants.php",

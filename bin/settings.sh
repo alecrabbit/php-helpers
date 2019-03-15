@@ -42,6 +42,7 @@ do
             ANALYZE=1
             ;;
         --coverage)
+            PHPUNIT=1
             COVERAGE=1
             ;;
         --propagate)
@@ -79,6 +80,7 @@ set -- "${params[@]}"  # overwrites the original positional params
 SOURCE_DIR="src"
 PHPSTAN_LEVEL=7
 PSALM_CONFIG="./../psalm.xml"
+PHPSTAN_CONFIG="./../phpstan.neon"
 PSALM_LEVEL=3
 TESTS_DIR="tests"
 TMP_DIR_PARTIAL="tmp"
