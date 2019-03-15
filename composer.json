@@ -22,7 +22,7 @@
     "require-dev": {
         "ext-curl": "*",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^7.5",
+        "phpunit/phpunit": "^8.0",
         "symfony/var-dumper": "^4.2",
         "kylekatarnls/multi-tester": "^1.1"
     },

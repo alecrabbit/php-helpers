@@ -38,5 +38,11 @@ function bounds(float $value, float $min = -1.0, float $max = 1.0): float
  */
 function trim_zeros(string $numeric): string
 {
-    return false !== \strpos($numeric, '.') ? \rtrim(\rtrim($numeric, '0'), '.') : $numeric;
+    $numeric =
+        \ltrim(
+            false !== \strpos($numeric, '.') ? \rtrim(\rtrim($numeric, '0'), '.') : $numeric,
+            '0, '
+        );
+    return
+        '' === $numeric ? '0' : $numeric;
 }
