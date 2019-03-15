@@ -97,6 +97,13 @@ function array_unset_last(array $data): array
 }
 
 /**
+ * Known issue `array_is_homogeneous` can't handle cyclic references in arrays
+ *      $a = [];
+ *      $a[1] = &$a;
+ *      $b = [];
+ *      $b[1] = &$b;
+ *      var_dump($b === $a); // 'PHP Fatal error:  Nesting level too deep - recursive dependency?'
+ *
  * @param array $a
  * @return bool
  */
