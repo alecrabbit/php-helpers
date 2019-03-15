@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 
 class PicklockClassTest extends TestCase
 {
-
     /** @test */
     public function callMethod(): void
     {

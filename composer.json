@@ -10,6 +10,8 @@
         "string",
         "trim",
         "zeros",
+        "protected",
+        "private",
         "wrap"
     ],
     "license": "MIT",
@@ -31,6 +33,7 @@
             "AlecRabbit\\": "src/"
         },
         "files": [
+            "src/bootstrap.php",
             "src/Helpers/Constants.php",
             "src/Helpers/Strings/Constants.php",
             "src/Helpers/functions.php",

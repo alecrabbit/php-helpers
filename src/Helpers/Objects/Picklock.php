@@ -12,6 +12,7 @@ namespace AlecRabbit\Helpers\Objects;
  * @package AlecRabbit\Helpers\Objects
  * @author AlecRabbit
  *
+ * @internal
  */
 final class Picklock
 {

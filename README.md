@@ -39,8 +39,16 @@ typeOf(1.00); // string(6) "float"
 
 ### Object functions
 
-##### Picklock::class
-`Picklock::callMethod()` calls private/protected method of object, `Picklock::getValue()` gets value of private/protected property of object
+##### callMethod()
+Calls private/protected method of object
+```php
+callMethod($object, 'protectedMethod', $arg1, $arg2);
+```
+##### getValue()
+Gets value of private/protected property of object
+```php
+getValue($object, 'protectedProperty');
+```
 
 ### Time functions
 
