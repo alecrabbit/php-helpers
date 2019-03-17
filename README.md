@@ -14,7 +14,8 @@ PHP helpers are set of useful functions
 
 [![License](https://poser.pugx.org/alecrabbit/php-helpers/license)](https://packagist.org/packages/alecrabbit/php-helpers)
 
-All functions are in `AlecRabbit` namespace
+All functions are in `AlecRabbit` namespace.
+> Note: except Object Functions - `callMethod()` and `getValue()`
 
 ### Usage
 ```php 
@@ -38,6 +39,7 @@ typeOf(1.00); // string(6) "float"
 > Note: it returns `float` instead of `double`
 
 ### Object functions
+> Note: namespace `AlecRabbit\Helpers`
 
 ##### callMethod()
 Calls private/protected method of object
