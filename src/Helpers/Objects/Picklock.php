@@ -21,13 +21,14 @@ final class Picklock
     public const PROPERTY = 'property';
 
     /**
-     * Calls private/protected method of object
+     * Calls a private or protected method of an object.
      *
      * @psalm-suppress InvalidScope
      *
      * @param object $object
      * @param string $methodName
      * @param mixed ...$args
+     *
      * @return mixed
      */
     public static function callMethod(object $object, string $methodName, ...$args)
@@ -51,9 +52,12 @@ final class Picklock
     }
 
     /**
+     * Creates an error message.
+     *
      * @param object $object
      * @param string $part
      * @param bool $forMethod
+     *
      * @return string
      */
     public static function errorMessage(object $object, string $part, bool $forMethod): string
@@ -74,6 +78,7 @@ final class Picklock
      *
      * @param object $object
      * @param string $propertyName
+     *
      * @return mixed
      */
     public static function getValue(object $object, string $propertyName)
