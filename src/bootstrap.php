@@ -22,6 +22,8 @@ if (!function_exists(__NAMESPACE__ . '\callMethod')) {
 
 if (!function_exists(__NAMESPACE__ . '\getValue')) {
     /**
+     * Gets value of property $propName of an object $object
+     *
      * @param object $object
      * @param string $propName
      * @return mixed
