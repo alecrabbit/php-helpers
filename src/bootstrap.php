@@ -54,10 +54,10 @@ if (!function_exists(__NAMESPACE__ . '\swap')) {
      *
      * @param mixed $var1
      * @param mixed $var2
-     * @return void
+     * @return array
      */
-    function swap(&$var1, &$var2): void
+    function swap(&$var1, &$var2): array
     {
-        [$var1, $var2] = [$var2, $var1];
+        return [$var1, $var2] = [$var2, $var1];
     }
 }
