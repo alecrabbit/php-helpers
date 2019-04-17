@@ -1,4 +1,5 @@
 ### Numeric functions
+> namespace `AlecRabbit\Helpers`
 
 ##### is_negative()
 ```php 
