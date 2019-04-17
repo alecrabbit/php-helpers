@@ -2,8 +2,8 @@
 
 namespace AlecRabbit\Helpers;
 
+use AlecRabbit\Helpers\Classes\Picklock;
 use AlecRabbit\Helpers\Classes\System;
-use AlecRabbit\Helpers\Objects\Picklock;
 
 if (!function_exists(__NAMESPACE__ . '\callMethod')) {
     /**

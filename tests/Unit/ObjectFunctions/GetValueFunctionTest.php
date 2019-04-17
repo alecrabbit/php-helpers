@@ -3,9 +3,9 @@
 
 namespace AlecRabbit\Tests\Helpers\Unit\ObjectFunctions;
 
-use function AlecRabbit\Helpers\getValue;
-use AlecRabbit\Helpers\Objects\Picklock;
+use AlecRabbit\Helpers\Classes\Picklock;
 use PHPUnit\Framework\TestCase;
+use function AlecRabbit\Helpers\getValue;
 
 class GetValueFunctionTest extends TestCase
 {

@@ -3,7 +3,7 @@
 
 namespace AlecRabbit\Tests\Helpers\Unit\ClassesTests;
 
-use AlecRabbit\Helpers\Objects\Picklock;
+use AlecRabbit\Helpers\Classes\Picklock;
 use PHPUnit\Framework\TestCase;
 
 class PicklockClassTest extends TestCase

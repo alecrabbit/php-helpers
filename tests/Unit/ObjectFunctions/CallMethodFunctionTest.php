@@ -3,9 +3,9 @@
 
 namespace AlecRabbit\Tests\Helpers\Unit\ObjectFunctions;
 
-use function AlecRabbit\Helpers\callMethod;
-use AlecRabbit\Helpers\Objects\Picklock;
+use AlecRabbit\Helpers\Classes\Picklock;
 use PHPUnit\Framework\TestCase;
+use function AlecRabbit\Helpers\callMethod;
 
 class CallMethodFunctionTest extends TestCase
 {
