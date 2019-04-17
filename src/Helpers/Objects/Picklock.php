@@ -57,6 +57,7 @@ final class Picklock
 
     /**
      * @psalm-suppress InvalidScope
+     * @psalm-suppress PossiblyInvalidFunctionCall
      *
      * @param object $object
      * @param string $propName

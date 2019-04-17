@@ -2,6 +2,7 @@
 
 namespace AlecRabbit\Helpers;
 
+use AlecRabbit\Helpers\Classes\System;
 use AlecRabbit\Helpers\Objects\Picklock;
 
 if (!function_exists(__NAMESPACE__ . '\callMethod')) {
@@ -32,5 +33,17 @@ if (!function_exists(__NAMESPACE__ . '\getValue')) {
     {
         return
             Picklock::getValue($object, $propName);
+    }
+}
+
+if (!function_exists(__NAMESPACE__ . '\inContainer')) {
+    /**
+     * Determine if run in container
+     *
+     * @return bool
+     */
+    function inContainer()
+    {
+        return System::inContainer();
     }
 }
