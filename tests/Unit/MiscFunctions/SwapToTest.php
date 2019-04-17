@@ -2,9 +2,9 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function AlecRabbit\Helpers\swap;
+use function AlecRabbit\Helpers\swapTo;
 
-class SwapTest extends HelpersTestCase
+class SwapToTest extends HelpersTestCase
 {
     /**
      * @test
@@ -12,13 +12,15 @@ class SwapTest extends HelpersTestCase
      * @param array $expected
      * @param array $args
      */
-    public function functionSwap(array $expected, array $args): void
+    public function functionSwapTo(array $expected, array $args): void
     {
         [$expectedVar1, $expectedVar2] = $expected;
         [$var1, $var2] = $args;
-        swap($var1, $var2);
-        $this->assertSame($expectedVar1, $var1);
-        $this->assertSame($expectedVar2, $var2);
+        [$result1, $result2] = swapTo($var1, $var2);
+        $this->assertSame($expectedVar1, $var2);
+        $this->assertSame($expectedVar2, $var1);
+        $this->assertSame($expectedVar1, $result1);
+        $this->assertSame($expectedVar2, $result2);
     }
 
     public function swapDataProvider(): array
