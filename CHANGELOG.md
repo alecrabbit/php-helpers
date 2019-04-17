@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.5] - 2019-04-17
+- internal structure changes
+
 ## [0.5.4] - 2019-04-17
 ### Added
 - function `swap()`
@@ -72,7 +75,8 @@ define('AlecRabbit\Helpers\Constants\I_01DAY', 86400);
 ## 0.0.16 - 2018-11-29
 
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.5.4...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.5.5...HEAD
+[0.5.5]: https://github.com/alecrabbit/php-helpers/compare/0.5.4...0.5.5
 [0.5.4]: https://github.com/alecrabbit/php-helpers/compare/0.5.1...0.5.4
 [0.5.1]: https://github.com/alecrabbit/php-helpers/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/alecrabbit/php-helpers/compare/0.4.2...0.5.0

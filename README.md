@@ -1,6 +1,6 @@
-# helpers
+# PHP Helpers
 
-PHP helpers are set of useful functions
+Set of useful helper functions
 
 [![PHP Version](https://img.shields.io/packagist/php-v/alecrabbit/php-helpers.svg)](https://php.net)
 [![Build Status](https://travis-ci.com/alecrabbit/php-helpers.svg?branch=master)](https://travis-ci.org/alecrabbit/php-helpers)
@@ -14,45 +14,50 @@ PHP helpers are set of useful functions
 
 [![License](https://poser.pugx.org/alecrabbit/php-helpers/license)](https://packagist.org/packages/alecrabbit/php-helpers)
 
-All functions are in `AlecRabbit` namespace.
-> Note: except Object Functions - `callMethod()` and `getValue()`
+### Installation
+```bash
+composer require alecrabbit/php-helpers
+```
 
 ### Usage
+
+> See [examples](https://github.com/alecrabbit/php-helpers/tree/master/examples)
+
+##### Quick example
 ```php 
 use function \AlecRabbit\typeOf;
 
-echo typeOf(1); // string(7) "integer"
+echo typeOf(1); // "integer"
 ```
-see [examples](https://github.com/alecrabbit/php-helpers/tree/master/examples)
 
-[Miscellaneous Functions](docs/miscFunctions.md)
 
-### Functions
+## Functions
 
-##### typeOf()
-Returns type of variable
-```php 
-typeOf(new \AlecRabbit\SomeSpace\SomeClass()); // string(30) "AlecRabbit\SomeSpace\SomeClass"
-typeOf(new \stdClass()); // string(8) "stdClass"
-typeOf('s'); // string(6) "string"
-typeOf(1); // string(7) "integer"
-typeOf(1.00); // string(6) "float"
-```
-> Note: it returns `float` instead of `double`
+### [Miscellaneous Functions](docs/miscFunctions.md)
 
-### Object functions
-> Note: namespace `AlecRabbit\Helpers`
+- typeOf()
+- swap()
+- swapTo()
+- inContainer()
+- inRange()
 
-##### callMethod()
-Calls private/protected method of object
-```php
-callMethod($object, 'protectedMethod', $arg1, $arg2);
-```
-##### getValue()
-Gets value of private/protected property of object
-```php
-getValue($object, 'protectedProperty');
-```
+### [Array functions](docs/arrayFunctions.md)
+
+- is_homogeneous()
+- formatted_array()
+- array_unset_first()
+- array_unset_last()
+
+### [Numeric functions](docs/numericFunctions.md)
+
+- is_negative()
+- bounds()
+- trim_zeros()
+
+### [Object functions](docs/objectsFunctions.md)
+
+- callMethod()
+- getValue()
 
 ### Time functions
 
@@ -120,16 +125,3 @@ format_time_auto(1); // string(2) "1s"
 format_time_auto(1561); // string(6) "26.02m"
 format_time_auto(3234561); // string(8) "898.489h"
 ```
-
-### [Array functions](docs/arrayFunctions.md)
-
-- is_homogeneous()
-- formatted_array()
-- array_unset_first()
-- array_unset_last()
-
-### [Numeric functions](docs/numericFunctions.md)
-
-- is_negative()
-- bounds()
-- trim_zeros()
