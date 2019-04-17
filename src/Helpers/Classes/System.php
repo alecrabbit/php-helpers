@@ -26,9 +26,6 @@ final class System
             && preg_match(self::CGROUP_PATTERN, $content)) {
             return true;
         }
-        if(isset($content)) {
-            var_dump('Contents: ' . $content);
-        }
         return false;
     }
 }
