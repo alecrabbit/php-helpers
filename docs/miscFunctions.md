@@ -1,11 +1,11 @@
 ### Miscellaneous functions
-> namespace `AlecRabbit\Helpers`
 
+> namespace `AlecRabbit`
 
 ##### typeOf()
 Returns type of variable
 ```php
-function typeOf(mixed $var): string;
+function typeOf(mixed $var): string
 ```
 ```php 
 typeOf(new \AlecRabbit\SomeSpace\SomeClass()); // string(30) "AlecRabbit\SomeSpace\SomeClass"
@@ -15,6 +15,8 @@ typeOf(1); // string(7) "integer"
 typeOf(1.00); // string(6) "float"
 ```
 > Note: it returns `float` instead of `double`
+
+> namespace `AlecRabbit\Helpers`
 
 ##### swap()
 ##### swapTo()
