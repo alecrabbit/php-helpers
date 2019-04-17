@@ -75,3 +75,21 @@ if (!function_exists(__NAMESPACE__ . '\swapTo')) {
         return [$var2, $var1];
     }
 }
+
+if (!function_exists(__NAMESPACE__ . '\inRange')) {
+    /**
+     * Checks if int is in range
+     *
+     * @param int $value
+     * @param int $min
+     * @param int $max
+     * @return bool
+     */
+    function inRange(int $value, int $min, int $max): bool
+    {
+        if ($min > $max) {
+            swap($min, $max);
+        }
+        return ($min <= $value && $value <= $max);
+    }
+}
