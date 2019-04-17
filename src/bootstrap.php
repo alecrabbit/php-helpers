@@ -47,3 +47,17 @@ if (!function_exists(__NAMESPACE__ . '\inContainer')) {
         return System::inContainer();
     }
 }
+
+if (!function_exists(__NAMESPACE__ . '\swap')) {
+    /**
+     * Swap variables values
+     *
+     * @param mixed $var1
+     * @param mixed $var2
+     * @return void
+     */
+    function swap(&$var1, &$var2): void
+    {
+        [$var1, $var2] = [$var2, $var1];
+    }
+}
