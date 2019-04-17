@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 
-namespace AlecRabbit\Tests\Helpers\Unit\ObjectFunctions;
+namespace AlecRabbit\Tests\Helpers\Unit\ClassesTests;
 
 use AlecRabbit\Helpers\Objects\Picklock;
 use PHPUnit\Framework\TestCase;

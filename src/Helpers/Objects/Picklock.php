@@ -21,13 +21,14 @@ final class Picklock
     public const PROPERTY = 'property';
 
     /**
-     * Calls method $methodName of object $object using arguments ...$args.
+     * Calls a private or protected method of an object.
      *
      * @psalm-suppress InvalidScope
      *
      * @param object $object
      * @param string $methodName
      * @param mixed ...$args
+     *
      * @return mixed
      */
     public static function callMethod(object $object, string $methodName, ...$args)
@@ -43,12 +44,7 @@ final class Picklock
                     return $this->$methodName(...$args);
                 }
                 throw new \RuntimeException(
-                    sprintf(
-                        Picklock::EXCEPTION_TEMPLATE,
-                        \get_class($this),
-                        $methodName,
-                        Picklock::METHOD
-                    )
+                    Picklock::errorMessage($this, $methodName, true)
                 );
             };
         return
@@ -56,30 +52,48 @@ final class Picklock
     }
 
     /**
+     * Creates an error message.
+     *
+     * @param object $object
+     * @param string $part
+     * @param bool $forMethod
+     *
+     * @return string
+     */
+    public static function errorMessage(object $object, string $part, bool $forMethod): string
+    {
+        return
+            sprintf(
+                static::EXCEPTION_TEMPLATE,
+                \get_class($object),
+                $part,
+                $forMethod ? static::METHOD : static::PROPERTY
+            );
+    }
+
+    /**
+     * Gets a value of a private or protected property of an object.
+     *
      * @psalm-suppress InvalidScope
      * @psalm-suppress PossiblyInvalidFunctionCall
      *
      * @param object $object
-     * @param string $propName
+     * @param string $propertyName
+     *
      * @return mixed
      */
-    public static function getValue(object $object, string $propName)
+    public static function getValue(object $object, string $propertyName)
     {
         $closure =
             /**
              * @return mixed
              */
-            function () use ($propName) {
-                if (\property_exists($this, $propName)) {
-                    return $this->$propName;
+            function () use ($propertyName) {
+                if (\property_exists($this, $propertyName)) {
+                    return $this->$propertyName;
                 }
                 throw new \RuntimeException(
-                    sprintf(
-                        Picklock::EXCEPTION_TEMPLATE,
-                        \get_class($this),
-                        $propName,
-                        Picklock::PROPERTY
-                    )
+                    Picklock::errorMessage($this, $propertyName, false)
                 );
             };
         return

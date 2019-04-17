@@ -14,7 +14,8 @@ PHP helpers are set of useful functions
 
 [![License](https://poser.pugx.org/alecrabbit/php-helpers/license)](https://packagist.org/packages/alecrabbit/php-helpers)
 
-All functions are in `AlecRabbit` namespace
+All functions are in `AlecRabbit` namespace.
+> Note: except Object Functions - `callMethod()` and `getValue()`
 
 ### Usage
 ```php 
@@ -23,6 +24,8 @@ use function \AlecRabbit\typeOf;
 echo typeOf(1); // string(7) "integer"
 ```
 see [examples](https://github.com/alecrabbit/php-helpers/tree/master/examples)
+
+[Miscellaneous Functions](docs/miscFunctions.md)
 
 ### Functions
 
@@ -38,6 +41,7 @@ typeOf(1.00); // string(6) "float"
 > Note: it returns `float` instead of `double`
 
 ### Object functions
+> Note: namespace `AlecRabbit\Helpers`
 
 ##### callMethod()
 Calls private/protected method of object
@@ -117,86 +121,15 @@ format_time_auto(1561); // string(6) "26.02m"
 format_time_auto(3234561); // string(8) "898.489h"
 ```
 
-### Array functions
+### [Array functions](docs/arrayFunctions.md)
 
-##### is_homogeneous()
-Returns `true` if all array elements are equal
-```php
-is_homogeneous([1, 1, 1]); // true
-``` 
+- is_homogeneous()
+- formatted_array()
+- array_unset_first()
+- array_unset_last()
 
-##### formatted_array()
-Formats one-dimensional array of scalars to array of strings 
-```php 
-formatted_array([1, 2, 3000, 4, 5, 6, 7000000, 8, 9, 1000, 11], 3);
-// array (
-//     0 => '1       2       3000   ',
-//     1 => '4       5       6      ',
-//     2 => '7000000 8       9      ',
-//     3 => '1000    11     ',
-// )
+### [Numeric functions](docs/numericFunctions.md)
 
-$a = ['a', 'b', 'c', 'd', 'e', 'f',];
-formatted_array($a, 3,
-    function (&$value, $key) {
-        $value = '['.$key . '] ' . $value;
-    }
-);
-// array (
-//   0 => '[0] a [1] b [2] c',
-//   1 => '[3] d [4] e [5] f',
-// )
-```
-
-##### array_unset_first()
-```php 
-$a = array (
-       0 => 1,
-       1 => 2,
-       2 => 3,
-       3 => 4,
-     );
-unset_first($a); 
-// array (
-//   1 => 2,
-//   2 => 3,
-//   3 => 4,
-// )
-```
-
-##### array_unset_last()
-```php 
-$a = array (
-       0 => 1,
-       1 => 2,
-       2 => 3,
-       3 => 4,
-     );
-unset_first($a); 
-// array (
-//   0 => 1,
-//   1 => 2,
-//   2 => 3,
-// )
-```
-
-### Numeric functions
-
-##### is_negative()
-```php 
-is_negative(null); // false
-is_negative(false); // true
-is_negative(-1); // true
-```
-
-##### bounds()
-```php 
-bounds(3); // float(1)
-bounds(3, -2, 2); // float(2)
-```
-
-##### trim_zeros()
-```php 
-trim_zeros('23.22342340000'); // string(10) "23.2234234"
-trim_zeros(23.000000000); // string(2) "23"
-```
+- is_negative()
+- bounds()
+- trim_zeros()
