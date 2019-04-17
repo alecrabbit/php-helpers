@@ -1,5 +1,5 @@
 - [ ] split docs
-- [ ] consider moving all function to `AlecRabbit\Helpers` namespace
+- [ ] consider moving all functions to `AlecRabbit\Helpers` namespace
 - [ ] consider moving implementation of functions to classes
 - [ ] pick a better name for function `formatted_array()`
 ---
