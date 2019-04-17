@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.4] - 2019-04-17
+### Added
+- function `swap()`
+- function `swapTo()`
+- function `inContainer()`
+- function `inRange()`
+
 ## [0.5.1] - 2019-03-15
 ### Added
 - class `Picklock::class` 

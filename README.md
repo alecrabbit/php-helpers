@@ -25,6 +25,8 @@ echo typeOf(1); // string(7) "integer"
 ```
 see [examples](https://github.com/alecrabbit/php-helpers/tree/master/examples)
 
+[Miscellaneous Functions](docs/miscFunctions.md)
+
 ### Functions
 
 ##### typeOf()
