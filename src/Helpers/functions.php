@@ -70,18 +70,3 @@ function typeOf($var): string
     }
     return $type;
 }
-
-
-//function caller(int $depth = 2): string
-//{
-//    $caller = (new \Exception())->getTrace()[$depth];
-//    $r = $caller['function'] . '()';
-//    if (isset($caller['class'])) {
-//        $r .= ' in ' . $caller['class'];
-//    }
-//    if (isset($caller['object'])) {
-//        $r .= ' (' . get_class($caller['object']) . ')';
-//    }
-//    unset($e);
-//    return $r;
-//}
