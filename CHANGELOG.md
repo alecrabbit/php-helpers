@@ -72,7 +72,8 @@ define('AlecRabbit\Helpers\Constants\I_01DAY', 86400);
 ## 0.0.16 - 2018-11-29
 
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.5.1...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.5.4...HEAD
+[0.5.4]: https://github.com/alecrabbit/php-helpers/compare/0.5.1...0.5.4
 [0.5.1]: https://github.com/alecrabbit/php-helpers/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/alecrabbit/php-helpers/compare/0.4.2...0.5.0
 [0.4.2]: https://github.com/alecrabbit/php-helpers/compare/0.3.1...0.4.2
