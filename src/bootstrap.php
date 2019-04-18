@@ -9,15 +9,15 @@ if (!function_exists(__NAMESPACE__ . '\callMethod')) {
     /**
      * Calls method $methodName of object $object using arguments ...$args.
      *
-     * @param object $object
+     * @param mixed $objectOrClass
      * @param string $methodName
      * @param mixed ...$args
      * @return mixed
      */
-    function callMethod(object $object, string $methodName, ...$args)
+    function callMethod($objectOrClass, string $methodName, ...$args)
     {
         return
-            Picklock::callMethod($object, $methodName, ...$args);
+            Picklock::callMethod($objectOrClass, $methodName, ...$args);
     }
 }
 
@@ -25,14 +25,14 @@ if (!function_exists(__NAMESPACE__ . '\getValue')) {
     /**
      * Gets value of property $propName of an object $object
      *
-     * @param object $object
+     * @param mixed $objectOrClass
      * @param string $propName
      * @return mixed
      */
-    function getValue(object $object, string $propName)
+    function getValue($objectOrClass, string $propName)
     {
         return
-            Picklock::getValue($object, $propName);
+            Picklock::getValue($objectOrClass, $propName);
     }
 }
 

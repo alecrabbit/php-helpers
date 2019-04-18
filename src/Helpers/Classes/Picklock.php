@@ -2,6 +2,8 @@
 
 namespace AlecRabbit\Helpers\Classes;
 
+use function AlecRabbit\typeOf;
+
 /**
  * Class Picklock
  *
@@ -25,14 +27,15 @@ final class Picklock
      *
      * @psalm-suppress InvalidScope
      *
-     * @param object $object
+     * @param mixed $objectOrClass
      * @param string $methodName
      * @param mixed ...$args
      *
      * @return mixed
      */
-    public static function callMethod(object $object, string $methodName, ...$args)
+    public static function callMethod($objectOrClass, string $methodName, ...$args)
     {
+        $objectOrClass = self::getObject($objectOrClass);
         $closure =
             /**
              * @param string $methodName
@@ -48,7 +51,50 @@ final class Picklock
                 );
             };
         return
-            $closure->call($object, $methodName, ...$args);
+            $closure->call($objectOrClass, $methodName, ...$args);
+    }
+
+    /**
+     * @psalm-suppress TypeCoercion
+     * @psalm-suppress InvalidStringClass
+     *
+     * @param object|string $objectOrClass
+     *
+     * @return object
+     */
+    protected static function getObject($objectOrClass): object
+    {
+        self::assertParam($objectOrClass);
+
+        if (\is_string($objectOrClass)) {
+            try {
+                $objectOrClass = new $objectOrClass();
+            } catch (\Error $e) {
+                try {
+                    $class = new \ReflectionClass($objectOrClass);
+                    $objectOrClass = $class->newInstanceWithoutConstructor();
+                // @codeCoverageIgnoreStart
+                } catch (\ReflectionException $exception) {
+                    throw new \RuntimeException(
+                        '[' . typeOf($exception) . '] ' . $exception->getMessage(),
+                        (int)$exception->getCode(),
+                        $exception
+                    );
+                }
+                // @codeCoverageIgnoreEnd
+            }
+        }
+        return $objectOrClass;
+    }
+
+    /**
+     * @param mixed $objectOrClass
+     */
+    protected static function assertParam($objectOrClass): void
+    {
+        if (!\is_string($objectOrClass) && !\is_object($objectOrClass)) {
+            throw new \InvalidArgumentException('Param 1 should be object or a class name.');
+        }
     }
 
     /**
@@ -76,27 +122,32 @@ final class Picklock
      *
      * @psalm-suppress InvalidScope
      * @psalm-suppress PossiblyInvalidFunctionCall
+     * @psalm-suppress TypeCoercion
      *
-     * @param object $object
+     * @param mixed $objectOrClass
      * @param string $propertyName
      *
      * @return mixed
      */
-    public static function getValue(object $object, string $propertyName)
+    public static function getValue($objectOrClass, string $propertyName)
     {
+        $objectOrClass = self::getObject($objectOrClass);
         $closure =
             /**
              * @return mixed
              */
             function () use ($propertyName) {
                 if (\property_exists($this, $propertyName)) {
-                    return $this->$propertyName;
+                    $class = new \ReflectionClass(typeOf($this));
+                    $property = $class->getProperty($propertyName);
+                    $property->setAccessible(true);
+                    return $property->getValue($this);
                 }
                 throw new \RuntimeException(
                     Picklock::errorMessage($this, $propertyName, false)
                 );
             };
         return
-            $closure->bindTo($object, $object)();
+            $closure->bindTo($objectOrClass, $objectOrClass)();
     }
 }
