@@ -73,8 +73,6 @@ class ColumnizeArray
     protected static function updateResult(array $result, bool $rowEmpty, array $tmp): array
     {
         $result[] = \implode($rowEmpty ? '' : ' ', $tmp);
-        $rowEmpty = true;
-        $tmp = [];
-        return [$result, $rowEmpty, $tmp];
+        return [$result, true, []];
     }
 }
