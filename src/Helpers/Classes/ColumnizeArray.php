@@ -11,9 +11,6 @@ use const AlecRabbit\Helpers\Constants\EMPTY_ELEMENTS;
  */
 class ColumnizeArray
 {
-
-//    protected static $lengthFinder = function () {};
-
     /**
      * @param array $arr
      * @param int $columns
@@ -21,7 +18,7 @@ class ColumnizeArray
      * @param int $pad
      * @return array
      */
-    public static function formattedArray(
+    public static function process(
         array $arr,
         int $columns = 10,
         ?callable $preprocessor = null,

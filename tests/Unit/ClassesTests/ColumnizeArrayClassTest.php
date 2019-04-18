@@ -17,7 +17,7 @@ class ColumnizeArrayClassTest extends HelpersTestCase
      */
     public function formattedArray(array $expected, array $args): void
     {
-        $this->assertEquals($expected, ColumnizeArray::formattedArray(...$args));
+        $this->assertEquals($expected, ColumnizeArray::process(...$args));
     }
 
     /**
@@ -29,7 +29,7 @@ class ColumnizeArrayClassTest extends HelpersTestCase
     public function formattedArrayWithException(string $expectedException, array $args): void
     {
         $this->expectException($expectedException);
-        $this->assertEquals(null, ColumnizeArray::formattedArray(...$args), self::EXCEPTION_EXPECTED);
+        $this->assertEquals(null, ColumnizeArray::process(...$args), self::EXCEPTION_EXPECTED);
     }
 
     public function formattedArrayDataProvider(): array
