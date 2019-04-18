@@ -24,8 +24,23 @@ class ColumnizeArray
         ?callable $preprocessor = null,
         int $pad = STR_PAD_RIGHT
     ): array {
+        $maxLength = 0;
+        array_walk( $arr,
+            static function(&$value, $key) use ($preprocessor, &$maxLength) {
+                if (\is_array($value)) {
+                    throw new \RuntimeException('Passed array is multidimensional.');
+                }
+                if ($preprocessor instanceof \Closure) {
+                    $preprocessor($value, $key);
+                }
+                $len = \strlen($value = (string)$value);
+                if ($maxLength < $len) {
+                    $maxLength = $len;
+                }
+            }
+        );
         $result = $tmp = [];
-        $maxLength = static::getMaxLength($arr, $preprocessor);
+//        $maxLength = static::getMaxLength($arr, $preprocessor);
         $rowEmpty = true;
         foreach ($arr as $element) {
             $tmp[] = \str_pad((string)$element, $maxLength, ' ', $pad);
