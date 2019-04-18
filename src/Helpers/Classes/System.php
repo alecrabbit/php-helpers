@@ -17,6 +17,8 @@ final class System
      *
      * @return bool
      *
+     * @codeCoverageIgnore
+     *
      * @link https://stackoverflow.com/a/20012536
      */
     public static function inContainer(): bool
