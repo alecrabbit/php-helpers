@@ -5,25 +5,25 @@ namespace AlecRabbit;
 use const AlecRabbit\Helpers\Constants\EMPTY_ELEMENTS;
 
 /**
- * @param array $data
+ * @param array $arr
  * @param int $columns
- * @param callable|null $callback
+ * @param callable|null $preprocessor
  * @param int $pad
  * @return array
  */
 function formatted_array(
-    array $data,
+    array $arr,
     int $columns = 10,
-    ?callable $callback = null,
+    ?callable $preprocessor = null,
     int $pad = STR_PAD_RIGHT
 ): array {
     $result = $tmp = [];
-    if ($callback) {
-        \array_walk($data, $callback);
+    if ($preprocessor) {
+        \array_walk($arr, $preprocessor);
     }
-    $maxLength = arr_el_max_length($data);
+    $maxLength = arr_el_max_length($arr);
     $rowEmpty = true;
-    foreach ($data as $element) {
+    foreach ($arr as $element) {
         $tmp[] = \str_pad((string)$element, $maxLength, ' ', $pad);
         $rowEmpty = $rowEmpty && \in_array($element, EMPTY_ELEMENTS, true);
         if (\count($tmp) >= $columns) {
