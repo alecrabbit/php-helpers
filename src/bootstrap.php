@@ -7,7 +7,7 @@ use AlecRabbit\Helpers\Classes\System;
 
 if (!function_exists(__NAMESPACE__ . '\callMethod')) {
     /**
-     * Calls method $methodName of object $object using arguments ...$args.
+     * Calls method $methodName of object/class $objectOrClass using arguments ...$args.
      *
      * @param mixed $objectOrClass
      * @param string $methodName
@@ -23,7 +23,7 @@ if (!function_exists(__NAMESPACE__ . '\callMethod')) {
 
 if (!function_exists(__NAMESPACE__ . '\getValue')) {
     /**
-     * Gets value of property $propName of an object $object
+     * Gets value of property $propName of an object/class $objectOrClass
      *
      * @param mixed $objectOrClass
      * @param string $propName
