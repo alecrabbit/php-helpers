@@ -19,6 +19,7 @@ use function AlecRabbit\typeOf;
 final class Picklock
 {
     public const EXCEPTION_TEMPLATE = 'Class [%s] does not have `%s` %s';
+    public const INVALID_ARGUMENT_EXCEPTION_STRING = 'Param 1 should be object or a class-string.';
     public const METHOD = 'method';
     public const PROPERTY = 'property';
 
@@ -73,7 +74,7 @@ final class Picklock
                 try {
                     $class = new \ReflectionClass($objectOrClass);
                     $objectOrClass = $class->newInstanceWithoutConstructor();
-                // @codeCoverageIgnoreStart
+                    // @codeCoverageIgnoreStart
                 } catch (\ReflectionException $exception) {
                     throw new \RuntimeException(
                         '[' . typeOf($exception) . '] ' . $exception->getMessage(),
@@ -93,7 +94,7 @@ final class Picklock
     protected static function assertParam($objectOrClass): void
     {
         if (!\is_string($objectOrClass) && !\is_object($objectOrClass)) {
-            throw new \InvalidArgumentException('Param 1 should be object or a class name.');
+            throw new \InvalidArgumentException(self::INVALID_ARGUMENT_EXCEPTION_STRING);
         }
     }
 

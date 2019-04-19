@@ -65,7 +65,7 @@ class CallMethodFunctionTest extends TestCase
     {
 
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Param 1 should be object or a class name.');
+        $this->expectExceptionMessage(Picklock::INVALID_ARGUMENT_EXCEPTION_STRING);
         callMethod(1, 'unknownMethod');
     }
 }

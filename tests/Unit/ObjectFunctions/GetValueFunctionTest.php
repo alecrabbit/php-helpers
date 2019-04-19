@@ -62,7 +62,7 @@ class GetValueFunctionTest extends TestCase
     public function getValueWithInvalidArgument(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Param 1 should be object or a class name.');
+        $this->expectExceptionMessage(Picklock::INVALID_ARGUMENT_EXCEPTION_STRING);
         getValue(1, 'unknownProperty');
     }
 }
