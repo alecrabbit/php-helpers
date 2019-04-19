@@ -18,14 +18,18 @@ class CallMethodFunctionTest extends TestCase
             {
                 private function test(string $value): string
                 {
-                    return $value;
+                    return $value . $value;
+                }
+
+                protected function test2(string $value): string
+                {
+                    return $value . $value;
                 }
             };
 
-        $this->assertEquals(
-            'testValue',
-            callMethod($testClass, 'test', 'testValue')
-        );
+        $str = 'testValue';
+        $this->assertEquals($str . $str, callMethod($testClass, 'test', $str));
+        $this->assertEquals($str . $str, callMethod($testClass, 'test2', $str));
         $this->assertEquals(
             3,
             callMethod(GuineaPigClass::class, 'protectedStaticMethod')
