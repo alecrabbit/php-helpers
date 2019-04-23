@@ -19,6 +19,10 @@ typeOf(1.00); // string(6) "float"
 > namespace `AlecRabbit\Helpers`
 
 ##### swap()
+Swap variables values
+```php
+function swap(&$var1, &$var2): void
+```
 ##### swapTo()
 ##### inContainer()
 ##### inRange()
