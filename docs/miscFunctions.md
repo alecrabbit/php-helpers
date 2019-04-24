@@ -34,3 +34,6 @@ function swapTo($var1, $var2): array
 
 ##### inContainer()
 ##### inRange()
+```php
+function inRange(int $value, int $min, int $max): bool
+```
