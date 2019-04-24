@@ -19,10 +19,18 @@ typeOf(1.00); // string(6) "float"
 > namespace `AlecRabbit\Helpers`
 
 ##### swap()
-Swap variables values
+Swaps variables values
 ```php
 function swap(&$var1, &$var2): void
 ```
 ##### swapTo()
+Kinda swaps values, does not change values of original variables
+```php
+function swapTo($var1, $var2): array
+```
+```php
+[$result2, $result1] = swapTo($value1, $value2);
+```
+
 ##### inContainer()
 ##### inRange()
