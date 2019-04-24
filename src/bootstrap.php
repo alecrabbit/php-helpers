@@ -42,7 +42,7 @@ if (!function_exists(__NAMESPACE__ . '\inContainer')) {
      *
      * @return bool
      */
-    function inContainer()
+    function inContainer(): bool
     {
         return System::inContainer();
     }
