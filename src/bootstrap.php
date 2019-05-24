@@ -62,19 +62,19 @@ if (!function_exists(__NAMESPACE__ . '\swap')) {
     }
 }
 
-if (!function_exists(__NAMESPACE__ . '\swapTo')) {
-    /**
-     * Swap variables values to array
-     *
-     * @param mixed $var1
-     * @param mixed $var2
-     * @return array
-     */
-    function swapTo($var1, $var2): array
-    {
-        return [$var2, $var1];
-    }
-}
+//if (!function_exists(__NAMESPACE__ . '\swapTo')) {
+//    /**
+//     * Swap variables values to array
+//     *
+//     * @param mixed $var1
+//     * @param mixed $var2
+//     * @return array
+//     */
+//    function swapTo($var1, $var2): array
+//    {
+//        return [$var2, $var1];
+//    }
+//}
 
 if (!function_exists(__NAMESPACE__ . '\inRange')) {
     /**

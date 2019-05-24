@@ -2,7 +2,6 @@
 - [ ] split docs
 - [ ] consider moving all functions to `AlecRabbit\Helpers` namespace
 - [ ] consider moving implementation of functions to classes
-- [ ] pick a better name for function `swapTo()`
 - [ ] pick a better name for function `formatted_array()`
 ---
 - [x] separate tests by function (0.5.0)

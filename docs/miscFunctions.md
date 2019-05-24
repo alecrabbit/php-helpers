@@ -24,15 +24,6 @@ Swaps variables values
 function swap(&$var1, &$var2): void
 ```
 
-##### swapTo()
-Kinda swaps values, does not change values of original variables
-```php
-function swapTo($var1, $var2): array
-```
-```php
-[$result2, $result1] = swapTo($value1, $value2);
-```
-
 ##### inContainer()
 Detects if script is launched  in container
 ```php

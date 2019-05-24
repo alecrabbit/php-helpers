@@ -37,7 +37,6 @@ echo typeOf(1); // "integer"
 
 - typeOf()
 - swap()
-- swapTo()
 - inContainer()
 - inRange()
 
