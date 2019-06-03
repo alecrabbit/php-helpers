@@ -4,29 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6aa0c199724f7abe86c802669496fa43",
+    "content-hash": "5800d70f48fb7dc73458b081a6d1cc8a",
     "packages": [
         {
             "name": "krowinski/bcmath-extended",
-            "version": "4.2.1",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krowinski/bcmath-extended.git",
-                "reference": "d07e18ca3050b872f04bc1cf5a3b8a3b591c6309"
+                "reference": "834c41e63bc7920348ff34b05a59131620ff7c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krowinski/bcmath-extended/zipball/d07e18ca3050b872f04bc1cf5a3b8a3b591c6309",
-                "reference": "d07e18ca3050b872f04bc1cf5a3b8a3b591c6309",
+                "url": "https://api.github.com/repos/krowinski/bcmath-extended/zipball/834c41e63bc7920348ff34b05a59131620ff7c78",
+                "reference": "834c41e63bc7920348ff34b05a59131620ff7c78",
                 "shasum": ""
             },
             "require": {
                 "ext-bcmath": "*",
-                "php": ">=5.3"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "php": ">=5.4",
-                "phpunit/phpunit": "^4.8|^5.7|^6.5"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "autoload": {
@@ -61,7 +60,7 @@
                 "round",
                 "scientific-notation"
             ],
-            "time": "2019-04-15T09:15:39+00:00"
+            "time": "2019-05-01T12:45:34+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -2192,7 +2191,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
