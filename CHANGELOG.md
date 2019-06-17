@@ -1,92 +1,85 @@
-# Changelog
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-
+<a name="unreleased"></a>
 ## [Unreleased]
 
+### Fix
+- .gitattributes file
+
+
+<a name="0.6.1"></a>
+## [0.6.1] - 2019-06-03
+
+<a name="0.6.0"></a>
 ## [0.6.0] - 2019-05-24
-### Removed
-- function `swapTo()`
 
+<a name="0.5.10"></a>
+## [0.5.10] - 2019-05-23
+
+<a name="0.5.9"></a>
+## [0.5.9] - 2019-04-24
+
+<a name="0.5.8"></a>
+## [0.5.8] - 2019-04-24
+
+<a name="0.5.7"></a>
 ## [0.5.7] - 2019-04-19
-- `callMethod()` and `getValue()` functions now can accept class-strings
 
+<a name="0.6.1-ALPHA.1"></a>
+## [0.6.1-ALPHA.1] - 2019-04-18
+
+<a name="0.6.0-ALPHA.1"></a>
+## [0.6.0-ALPHA.1] - 2019-04-18
+
+<a name="0.5.6"></a>
+## [0.5.6] - 2019-04-17
+
+<a name="0.5.5"></a>
 ## [0.5.5] - 2019-04-17
-- internal structure changes
 
+<a name="0.5.4"></a>
 ## [0.5.4] - 2019-04-17
-### Added
-- function `swap()`
-- function `swapTo()`
-- function `inContainer()`
-- function `inRange()`
 
-## [0.5.1] - 2019-03-15
-### Added
-- class `Picklock::class` 
-### Fixed 
-- function `trim_zeros()` behavior
+<a name="0.5.2"></a>
+## [0.5.2] - 2019-04-06
 
+<a name="0.5.1"></a>
+## [0.5.1] - 2019-04-06
+
+<a name="0.5.1-RC0"></a>
+## [0.5.1-RC0] - 2019-03-15
+
+<a name="0.5.0"></a>
 ## [0.5.0] - 2019-03-03
-### Added
-Constants representing time intervals
-```php
-define('AlecRabbit\Helpers\Constants\I_01MIN', 60);
-define('AlecRabbit\Helpers\Constants\I_03MIN', 180);
-define('AlecRabbit\Helpers\Constants\I_05MIN', 300);
-define('AlecRabbit\Helpers\Constants\I_15MIN', 900);
-define('AlecRabbit\Helpers\Constants\I_30MIN', 1800);
-define('AlecRabbit\Helpers\Constants\I_45MIN', 2700);
-define('AlecRabbit\Helpers\Constants\I_01HOUR', 3600);
-define('AlecRabbit\Helpers\Constants\I_02HOUR', 7200);
-define('AlecRabbit\Helpers\Constants\I_03HOUR', 10800);
-define('AlecRabbit\Helpers\Constants\I_04HOUR', 14400);
-define('AlecRabbit\Helpers\Constants\I_01DAY', 86400);
-```
-### Changed 
-- function `is_homogeneous()` renamed to `array_is_homogeneous()`
 
-### Removed
-- function `bc_bounds()` 
+<a name="0.4.2"></a>
+## [0.4.2] - 2019-02-22
 
-## [0.4.2] - 2019-02-22 
-### Added
-- function `array_unset_last()` 
+<a name="0.3.1"></a>
+## [0.3.1] - 2019-02-22
 
-### Changed 
-- function `unset_first()` renamed to `array_unset_first()`
-- function `bc_bounds()` is deprecated
- 
-### Removed
-- function `array_key_first()`
-- function `array_key_last()`
-
-## [0.3.1] - 2019-02-20
-### Done
-- some optimizations
-
-### Added
-- function `is_homogeneous()` to check if all values in array are (strictly ===) equal
-
-### Deprecated
-- function `array_key_first()` in favor of [`symfony/polyfill-php73`](https://github.com/symfony/polyfill-php73)
-- function `array_key_last()` in favor of [`symfony/polyfill-php73`](https://github.com/symfony/polyfill-php73)
-
+<a name="0.2.6"></a>
 ## [0.2.6] - 2019-02-11
 
+<a name="0.1.4"></a>
 ## [0.1.4] - 2019-01-07
 
+<a name="0.0.16"></a>
 ## 0.0.16 - 2018-11-29
 
-
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.5.7...HEAD
-[0.5.7]: https://github.com/alecrabbit/php-helpers/compare/0.5.5...0.5.7
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.6.1...HEAD
+[0.6.1]: https://github.com/alecrabbit/php-helpers/compare/0.6.0...0.6.1
+[0.6.0]: https://github.com/alecrabbit/php-helpers/compare/0.5.10...0.6.0
+[0.5.10]: https://github.com/alecrabbit/php-helpers/compare/0.5.9...0.5.10
+[0.5.9]: https://github.com/alecrabbit/php-helpers/compare/0.5.8...0.5.9
+[0.5.8]: https://github.com/alecrabbit/php-helpers/compare/0.5.7...0.5.8
+[0.5.7]: https://github.com/alecrabbit/php-helpers/compare/0.6.1-ALPHA.1...0.5.7
+[0.6.1-ALPHA.1]: https://github.com/alecrabbit/php-helpers/compare/0.6.0-ALPHA.1...0.6.1-ALPHA.1
+[0.6.0-ALPHA.1]: https://github.com/alecrabbit/php-helpers/compare/0.5.6...0.6.0-ALPHA.1
+[0.5.6]: https://github.com/alecrabbit/php-helpers/compare/0.5.5...0.5.6
 [0.5.5]: https://github.com/alecrabbit/php-helpers/compare/0.5.4...0.5.5
-[0.5.4]: https://github.com/alecrabbit/php-helpers/compare/0.5.1...0.5.4
-[0.5.1]: https://github.com/alecrabbit/php-helpers/compare/0.5.0...0.5.1
+[0.5.4]: https://github.com/alecrabbit/php-helpers/compare/0.5.2...0.5.4
+[0.5.2]: https://github.com/alecrabbit/php-helpers/compare/0.5.1...0.5.2
+[0.5.1]: https://github.com/alecrabbit/php-helpers/compare/0.5.1-RC0...0.5.1
+[0.5.1-RC0]: https://github.com/alecrabbit/php-helpers/compare/0.5.0...0.5.1-RC0
 [0.5.0]: https://github.com/alecrabbit/php-helpers/compare/0.4.2...0.5.0
 [0.4.2]: https://github.com/alecrabbit/php-helpers/compare/0.3.1...0.4.2
 [0.3.1]: https://github.com/alecrabbit/php-helpers/compare/0.2.6...0.3.1
