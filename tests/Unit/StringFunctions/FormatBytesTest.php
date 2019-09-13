@@ -29,6 +29,7 @@ class FormatBytesTest extends HelpersTestCase
      */
     public function functionFormatBytes(string $expected, array $args): void
     {
+        dump(...$args);
         $this->assertEquals($expected, format_bytes(...$args));
     }
 
