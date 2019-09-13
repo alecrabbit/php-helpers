@@ -79,3 +79,13 @@ if (!function_exists(__NAMESPACE__ . '\inRange')) {
         return ($min <= $value && $value <= $max);
     }
 }
+
+if (!\function_exists(__NAMESPACE__ . '\onWindows')) {
+    /**
+     * @return bool
+     */
+    function onWindows(): bool
+    {
+        return '\\' === \DIRECTORY_SEPARATOR;
+    }
+}
