@@ -36,14 +36,7 @@ class FormatBytesTest extends HelpersTestCase
 
     public function formatBytesUsesUnitsCorrectlyProvider(): array
     {
-        if (64 === PHP_ARCH) {
-            $bigNumArray = ['1009753315884.15MB', [1058803092956542968, 'MB', 2,],];
-        } elseif(32 === PHP_ARCH) {
-            $bigNumArray = ['1009753315884.15MB', [105880302968, 'MB', 2,],];
-        } else {
-            throw new \RuntimeException('Unknown architecture nor 64bit nor 32bit.');
-        }
-        return [
+        $arr = [
             ['1059MB', [1110235512, 'MB', -1,],],
             ['1059MB', [1110235512, 'MB', 0,],],
             ['1058.8MB', [1110235512, 'MB', 1,],],
@@ -65,8 +58,6 @@ class FormatBytesTest extends HelpersTestCase
             ['1.00KB', [1024 ** 1,],],
             ['1.00MB', [1024 ** 2,],],
             ['1.00GB', [1024 ** 3,],],
-            ['1.00TB', [1024 ** 4,],],
-            ['1.00PB', [1024 ** 5,],],
 
             ['1058.8MB', [1110235512, 'mB', 1],],
             ['1058.80MB', [1110235512, 'Mb', 2],],
@@ -90,7 +81,17 @@ class FormatBytesTest extends HelpersTestCase
             ['0B', [0,],],
 
             ['1058.803092956542968750000000MB', [1110235512, 'MB', 29,],],
-            $bigNumArray,
         ];
+        if (64 === PHP_ARCH) {
+            $arr[] = ['1009753315884.15MB', [1058803092956542968, 'MB', 2,],];
+            $arr[] = ['1.00TB', [1024 ** 4,],];
+            $arr[] = ['1.00PB', [1024 ** 5,],];
+        } elseif (32 === PHP_ARCH) {
+            $arr[] = ['1009753315884.15MB', [105880302968, 'MB', 2,],];
+        } else {
+            throw new \RuntimeException('Unknown architecture nor 64bit nor 32bit.');
+        }
+
+        return $arr;
     }
 }
