@@ -3,6 +3,7 @@
 namespace AlecRabbit\Tests\Helpers;
 
 use function AlecRabbit\format_bytes;
+use const AlecRabbit\Helpers\Constants\PHP_ARCH;
 
 class FormatBytesTest extends HelpersTestCase
 {
@@ -35,6 +36,13 @@ class FormatBytesTest extends HelpersTestCase
 
     public function formatBytesUsesUnitsCorrectlyProvider(): array
     {
+        if (64 === PHP_ARCH) {
+            $bigNumArray = ['1009753315884.15MB', [1058803092956542968, 'MB', 2,],];
+        } elseif(32 === PHP_ARCH) {
+            $bigNumArray = ['1009753315884.15MB', [105880302968, 'MB', 2,],];
+        } else {
+            throw new \RuntimeException('Unknown architecture nor 64bit nor 32bit.');
+        }
         return [
             ['1059MB', [1110235512, 'MB', -1,],],
             ['1059MB', [1110235512, 'MB', 0,],],
@@ -82,7 +90,7 @@ class FormatBytesTest extends HelpersTestCase
             ['0B', [0,],],
 
             ['1058.803092956542968750000000MB', [1110235512, 'MB', 29,],],
-            ['1009753315884.15MB', [1058803092956542968, 'MB', 2,],],
+            $bigNumArray,
         ];
     }
 }

@@ -39,6 +39,7 @@ echo typeOf(1); // "integer"
 - swap()
 - inContainer()
 - inRange()
+- onWindows()
 
 ### [Array functions](docs/arrayFunctions.md)
 
