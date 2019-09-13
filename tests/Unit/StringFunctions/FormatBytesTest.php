@@ -30,7 +30,6 @@ class FormatBytesTest extends HelpersTestCase
      */
     public function functionFormatBytes(string $expected, array $args): void
     {
-        dump(...$args);
         $this->assertEquals($expected, format_bytes(...$args));
     }
 
@@ -87,7 +86,7 @@ class FormatBytesTest extends HelpersTestCase
             $arr[] = ['1.00TB', [1024 ** 4,],];
             $arr[] = ['1.00PB', [1024 ** 5,],];
         } elseif (32 === PHP_ARCH) {
-            $arr[] = ['1009753315884.15MB', [105880302968, 'MB', 2,],];
+            $arr[] = ['2048.00MB', [2147483647, 'MB', 2,],];
         } else {
             throw new \RuntimeException('Unknown architecture nor 64bit nor 32bit.');
         }
