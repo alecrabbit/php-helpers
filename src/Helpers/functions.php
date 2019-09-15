@@ -60,15 +60,10 @@ function value($value)
  * @param null|bool $value
  * @return string
  */
-function boolToStr($value): string
+function boolToStr(?bool $value): string
 {
     if (null === $value) {
         return STR_NULL;
-    }
-    if (!\is_bool($value)) {
-        throw new \InvalidArgumentException(
-            __FUNCTION__ . ' expects parameter 1 to null|bool, ' . typeOf($value) . ' given'
-        );
     }
     return $value ? STR_TRUE : STR_FALSE;
 }

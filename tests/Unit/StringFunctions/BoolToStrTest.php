@@ -31,34 +31,29 @@ class BoolToStrTest extends HelpersTestCase
 
     /**
      * @test
-     * @dataProvider BoolToStrDataProviderExceptions
+     * @dataProvider boolToStrDataProviderExceptions
      * @param string $expected
-     * @param string $message
      * @param array $args
      */
-    public function functionBoolToStrExceptions($expected, $message, $args): void
+    public function functionBoolToStrExceptions($expected, $args): void
     {
         $this->expectException($expected);
-        $this->expectExceptionMessage($message);
         $this->assertEquals($expected, boolToStr(...$args));
     }
 
-    public function BoolToStrDataProviderExceptions(): array
+    public function boolToStrDataProviderExceptions(): array
     {
         return [
             [
-                \InvalidArgumentException::class,
-                'AlecRabbit\boolToStr expects parameter 1 to null|bool, integer given',
+                \TypeError::class,
                 [1],
             ],
             [
-                \InvalidArgumentException::class,
-                'AlecRabbit\boolToStr expects parameter 1 to null|bool, stdClass given',
+                \TypeError::class,
                 [new \stdClass()],
             ],
             [
-                \InvalidArgumentException::class,
-                'AlecRabbit\boolToStr expects parameter 1 to null|bool, string given',
+                \TypeError::class,
                 ['new \stdClass()'],
             ],
         ];
