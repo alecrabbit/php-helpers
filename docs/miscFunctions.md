@@ -31,6 +31,13 @@ function inContainer(): bool
 ```
 
 ##### inRange()
+Returns `true` if `$value` is between `$min` and `$max` (inclusive)
 ```php
 function inRange(int $value, int $min, int $max): bool
+```
+
+##### onWindows()
+Returns `true` if script run on windows
+```php
+function onWindows(): bool
 ```

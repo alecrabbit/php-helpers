@@ -43,3 +43,16 @@ format_time_auto(1); // string(2) "1s"
 format_time_auto(1561); // string(6) "26.02m"
 format_time_auto(3234561); // string(8) "898.489h"
 ```
+##### boolToStr()
+Returns string representation(`"true"` or `"false"`) of a bool value, `"null"` if `$value` is `NULL`
+```php
+function boolToStr(?bool $value): string
+```
+
+```php 
+format_time_auto(0.00000001); // string(4) "10ns"
+format_time_auto(0.00001); // string(5) "10μs"
+format_time_auto(1); // string(2) "1s"
+format_time_auto(1561); // string(6) "26.02m"
+format_time_auto(3234561); // string(8) "898.489h"
+```

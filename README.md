@@ -74,3 +74,4 @@ echo typeOf(1); // "integer"
 - format_bytes()
 - format_time()
 - format_time_auto()
+- boolToStr()
