@@ -2,21 +2,19 @@
 
 namespace AlecRabbit;
 
+use const AlecRabbit\Helpers\Strings\Constants\STR_DOUBLE;
+use const AlecRabbit\Helpers\Strings\Constants\STR_DOUBLE_LENGTH;
 use const AlecRabbit\Helpers\Strings\Constants\STR_EMPTY;
 use const AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
+use const AlecRabbit\Helpers\Strings\Constants\STR_FLOAT;
 use const AlecRabbit\Helpers\Strings\Constants\STR_NULL;
 use const AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
-
-const STR_DOUBLE = 'double';
-const STR_FLOAT = 'float';
-
-define(__NAMESPACE__ . '\STR_DOUBLE_LENGTH', strlen(STR_DOUBLE));
 
 /**
  * Gets the value of an environment variable.
  *
- * @param  string $key
- * @param  mixed $default
+ * @param string $key
+ * @param mixed $default
  * @return mixed
  */
 function env($key, $default = null)
@@ -46,7 +44,7 @@ function env($key, $default = null)
 /**
  * Return the default value of the given value.
  *
- * @param  mixed $value
+ * @param mixed $value
  * @return mixed
  */
 function value($value)
@@ -54,6 +52,25 @@ function value($value)
     return
         $value instanceof \Closure ?
             $value() : $value;
+}
+
+/**
+ * Returns string representation of a bool value.
+ *
+ * @param null|bool $value
+ * @return string
+ */
+function boolToStr($value): string
+{
+    if (null === $value) {
+        return STR_NULL;
+    }
+    if (!\is_bool($value)) {
+        throw new \InvalidArgumentException(
+            __FUNCTION__ . ' expects parameter 1 to null|bool, ' . typeOf($value) . ' given'
+        );
+    }
+    return $value ? STR_TRUE : STR_FALSE;
 }
 
 /**

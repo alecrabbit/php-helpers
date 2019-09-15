@@ -40,6 +40,11 @@ define(__NAMESPACE__ . '\STR_EMPTY', 'empty');
 define(__NAMESPACE__ . '\STR_NULL', 'null');
 define(__NAMESPACE__ . '\STR_VOID', 'void');
 define(__NAMESPACE__ . '\STR_EMPTY_VOID', '');
+define(__NAMESPACE__ . '\STR_EMPTY_STR', STR_EMPTY_VOID);
+define(__NAMESPACE__ . '\STR_DOUBLE', 'double');
+define(__NAMESPACE__ . '\STR_FLOAT', 'float');
+
+define(__NAMESPACE__ . '\STR_DOUBLE_LENGTH', strlen(STR_DOUBLE));
 
 define(__NAMESPACE__ . '\BYTES_UNITS', [
     'B' => 0,

@@ -2,49 +2,65 @@
 
 namespace AlecRabbit\Tests\Helpers;
 
-use function AlecRabbit\tag;
+use function AlecRabbit\boolToStr;
+use const AlecRabbit\Helpers\Strings\Constants\STR_FALSE;
+use const AlecRabbit\Helpers\Strings\Constants\STR_NULL;
+use const AlecRabbit\Helpers\Strings\Constants\STR_TRUE;
 
-class TagTest extends HelpersTestCase
+class BoolToStrTest extends HelpersTestCase
 {
     /**
      * @test
-     * @dataProvider tagDataProvider
+     * @dataProvider boolToStrDataProvider
      * @param string $expected
      * @param array $args
      */
-    public function functionTag($expected, $args): void
+    public function functionBoolToStr($expected, $args): void
     {
-        $this->assertEquals($expected, tag(...$args));
+        $this->assertEquals($expected, boolToStr(...$args));
     }
 
-    public function tagDataProvider(): array
+    public function boolToStrDataProvider(): array
     {
-        $str = 'str';
         return [
-            [$str, [$str]],
-            ['<br>' . $str . '</br>', [$str, 'br']],
-            ['<tag>' . $str . '</tag>', [$str, 'tag']],
-            ['<info>' . $str . '</info>', [$str, 'info']],
+            [STR_TRUE, [true]],
+            [STR_FALSE, [false]],
+            [STR_NULL, [null]],
         ];
     }
 
     /**
      * @test
-     * @dataProvider tagDataProviderExceptions
+     * @dataProvider BoolToStrDataProviderExceptions
      * @param string $expected
+     * @param string $message
      * @param array $args
      */
-    public function functionTagExceptions($expected, $args): void
+    public function functionBoolToStrExceptions($expected, $message, $args): void
     {
         $this->expectException($expected);
-        $this->assertEquals($expected, tag(...$args));
+        $this->expectExceptionMessage($message);
+        $this->assertEquals($expected, boolToStr(...$args));
     }
 
-    public function tagDataProviderExceptions(): array
+    public function BoolToStrDataProviderExceptions(): array
     {
         return [
-            [\ArgumentCountError::class, []],
-            [\TypeError::class, [null]],
+            [
+                \InvalidArgumentException::class,
+                'AlecRabbit\boolToStr expects parameter 1 to null|bool, integer given',
+                [1],
+            ],
+            [
+                \InvalidArgumentException::class,
+                'AlecRabbit\boolToStr expects parameter 1 to null|bool, stdClass given',
+                [new \stdClass()],
+            ],
+            [
+                \InvalidArgumentException::class,
+                'AlecRabbit\boolToStr expects parameter 1 to null|bool, string given',
+                ['new \stdClass()'],
+            ],
         ];
     }
 }
