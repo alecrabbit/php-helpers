@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace AlecRabbit\Helpers\Classes;
 
@@ -23,11 +24,9 @@ final class System
      */
     public static function inContainer(): bool
     {
-        if (file_exists(self::CGROUP_FILE)
+        return
+            file_exists(self::CGROUP_FILE)
             && ($content = file_get_contents(self::CGROUP_FILE))
-            && preg_match(self::CGROUP_PATTERN, $content)) {
-            return true;
-        }
-        return false;
+            && preg_match(self::CGROUP_PATTERN, $content);
     }
 }
