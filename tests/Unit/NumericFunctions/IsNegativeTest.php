@@ -27,6 +27,8 @@ class IsNegativeTest extends HelpersTestCase
             [false, 0.0],
             [false, 1.345342],
             [true, '-1'],
+            [true, '-12034.2345'],
+            [true, '-12 034.2345'],
             [false, '0'],
             [false, '1'],
             [false, ''],
