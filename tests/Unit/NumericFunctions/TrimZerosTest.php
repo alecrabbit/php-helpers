@@ -21,6 +21,7 @@ class TrimZerosTest extends HelpersTestCase
     {
         return [
             ['0', '0'],
+            ['0', '000'],
             ['0', ' 0'],
             ['0', ' .0'],
             ['0', '0.0'],
@@ -35,6 +36,7 @@ class TrimZerosTest extends HelpersTestCase
             ['13', 13],
             ['2.6', 2.6000000],
             ['2.300004', 2.3000040],
+            ['2.300004', '0002.3000040'],
         ];
     }
 }
