@@ -7,30 +7,39 @@
 
 namespace AlecRabbit;
 
+use Carbon\Carbon;
+
+use Carbon\CarbonInterface;
+use DateTimeZone;
+use Exception;
+
+use function intdiv;
+use function is_int;
+
 /**
  * Create a new Carbon instance for the current time.
  *
- * @param  \DateTimeZone|string|null $tz
- * @return \Carbon\CarbonInterface
- * @throws \Exception
+ * @param  DateTimeZone|string|null $tz
+ * @return CarbonInterface
+ * @throws Exception
  */
 function now($tz = null)
 {
-    return \Carbon\Carbon::now($tz);
+    return Carbon::now($tz);
 }
 
 /**
  * @param string|null|int $time
- * @param \DateTimeZone|string|null $tz
- * @return \Carbon\CarbonInterface
- * @throws \Exception
+ * @param DateTimeZone|string|null $tz
+ * @return CarbonInterface
+ * @throws Exception
  */
 function carbon($time = null, $tz = null)
 {
     return
-        \is_int($time) ?
-            \Carbon\Carbon::createFromTimestamp($time, $tz) :
-            new \Carbon\Carbon($time, $tz);
+        is_int($time) ?
+            Carbon::createFromTimestamp($time, $tz) :
+            new Carbon($time, $tz);
 }
 
 /**
@@ -42,5 +51,5 @@ function carbon($time = null, $tz = null)
  */
 function base_timestamp(int $timestamp, int $interval = 60): int
 {
-    return \intdiv($timestamp, $interval) * $interval;
+    return intdiv($timestamp, $interval) * $interval;
 }
