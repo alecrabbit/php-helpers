@@ -60,7 +60,7 @@ class ArrayUnsetFirstTest extends HelpersTestCase
             [[], ['a']],
             [['b'], ['a', 'b']],
             [[2, 3, 4,], [1, 2, 3, 4,],],
-
+            [[[2, 3, 4,]], [1, [2, 3, 4,]],],
         ];
     }
 }
