@@ -1,6 +1,36 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="0.8.2"></a>
+## [0.8.2] - 2020-05-17
+
+<a name="0.8.1"></a>
+## [0.8.1] - 2019-09-15
+
+<a name="0.8.0"></a>
+## [0.8.0] - 2019-09-15
+### Added
+- function `boolToStr`
+
+
+<a name="0.7.0"></a>
+## [0.7.0] - 2019-09-13
+### Added
+- new function `onWindows()`
+
+
+<a name="0.6.3"></a>
+## [0.6.3] - 2019-06-17
+### Fix
+- .gitattributes file
+
+
+<a name="0.6.2"></a>
+## [0.6.2] - 2019-06-17
+### Added
+- Changelog config
+
 ### Fix
 - .gitattributes file
 
@@ -65,7 +95,13 @@
 <a name="0.0.16"></a>
 ## 0.0.16 - 2018-11-29
 
-[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.6.1...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-helpers/compare/0.8.2...HEAD
+[0.8.2]: https://github.com/alecrabbit/php-helpers/compare/0.8.1...0.8.2
+[0.8.1]: https://github.com/alecrabbit/php-helpers/compare/0.8.0...0.8.1
+[0.8.0]: https://github.com/alecrabbit/php-helpers/compare/0.7.0...0.8.0
+[0.7.0]: https://github.com/alecrabbit/php-helpers/compare/0.6.3...0.7.0
+[0.6.3]: https://github.com/alecrabbit/php-helpers/compare/0.6.2...0.6.3
+[0.6.2]: https://github.com/alecrabbit/php-helpers/compare/0.6.1...0.6.2
 [0.6.1]: https://github.com/alecrabbit/php-helpers/compare/0.6.0...0.6.1
 [0.6.0]: https://github.com/alecrabbit/php-helpers/compare/0.5.10...0.6.0
 [0.5.10]: https://github.com/alecrabbit/php-helpers/compare/0.5.9...0.5.10
