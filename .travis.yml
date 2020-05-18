@@ -16,7 +16,7 @@ cache:
 
 install:
   - travis_retry ./.travis/travis-init.sh
-  - travis_retry composer install --no-interaction --no-dev --prefer-source
+  - travis_retry composer install --no-interaction --prefer-source
 
 script:
   vendor/bin/phpunit --coverage-text
