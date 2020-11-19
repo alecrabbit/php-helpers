@@ -17,7 +17,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "krowinski/bcmath-extended": "^4.2 || ^5.0",
+        "krowinski/bcmath-extended": "^4.2 || ^5.0 || ^6.0",
         "nesbot/carbon": "^2.11",
         "symfony/polyfill-php73": "^1.10"
     },
